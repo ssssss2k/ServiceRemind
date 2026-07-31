@@ -13,12 +13,7 @@ html {
     --white: #ffffff;
     --gray-light: #f9f9f9;
     --gray-dark: #666666;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    --gray-card: #e4e5e8; /* Заметный, благородный серый с легким премиальным оттенком */
 }
 
 body {
@@ -175,6 +170,12 @@ body {
     gap: 40px;
 }
 
+.stat-item {
+    background-color: var(--gray-card);
+    padding: 40px 30px;
+    border-radius: 12px;
+}
+
 .stat-num {
     font-size: 40px;
     font-weight: 700;
@@ -211,12 +212,29 @@ body {
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: 0;
+}
+
+.text-block {
+    background-color: var(--gray-card);
+    padding: 40px;
+    border-radius: 12px;
 }
 
 .card {
-    border-top: 1px solid var(--black);
-    padding-top: 24px;
+    padding: 0 40px;
+}
+
+.card:first-child {
+    padding-left: 0;
+}
+
+.card:last-child {
+    padding-right: 0;
+}
+
+.card:not(:last-child) {
+    border-right: 1px solid #ccc;
 }
 
 .card-number {
@@ -238,13 +256,14 @@ body {
 
 /* Интерактивный калькулятор */
 .calculator-box {
-    background: var(--gray-light);
-    border: 1px solid #e0e0e0;
+    background: var(--gray-card);
+    border: 1px solid #d0d2d6; /* Рамку тоже немного затемнили под новый фон */
     padding: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     align-items: center;
+    border-radius: 12px;
 }
 
 .calc-controls label {
@@ -273,6 +292,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 8px; /* Немного скруглим для гармонии */
 }
 
 .calc-result-item.highlight {
@@ -287,26 +307,47 @@ body {
 
 /* Превью SMS */
 .sms-preview-wrapper {
-    margin-top: 60px;
-    background: var(--white);
-    border: 1px solid #ddd;
-    padding: 30px 40px;
-    max-width: 700px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.sms-preview-text h3 {
+.sms-title {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.sms-bubble {
+    background-color: #e5e5ea;
+    color: #000;
+    padding: 16px 24px;
+    border-radius: 24px;
+    max-width: 600px;
     font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--gray-dark);
-    margin-bottom: 12px;
+    line-height: 1.5;
+    position: relative;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.sms-preview-text p {
-    font-size: 18px;
-    font-style: italic;
-    color: var(--black);
-    line-height: 1.4;
+.sms-bubble p {
+    margin: 0;
+}
+
+.sms-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25px;
+    width: 20px;
+    height: 20px;
+    background-color: #e5e5ea;
+    border-bottom-right-radius: 15px;
+    transform: translate(-50%, 50%);
+    z-index: -1;
 }
 
 .pricing-card {
@@ -314,6 +355,7 @@ body {
     padding: 40px;
     max-width: 450px;
     background: var(--white);
+    border-radius: 12px;
 }
 
 .pricing-card h3 {
@@ -442,61 +484,25 @@ body {
 @media (max-width: 768px) {
     .nav-links { display: none; }
     .hero h1 { font-size: 40px; }
-    .grid-2, .grid-3, .stats-grid, .calculator-box { grid-template-columns: 1fr; }
+    .grid-2, .stats-grid, .calculator-box { grid-template-columns: 1fr; }
     .footer-heading { font-size: 40px; }
     .email-plain { font-size: 28px; }
     .contact-row { gap: 16px; }
     .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-}
 
-/* =========================================
-   СТИЛИ ДЛЯ SMS-ОВАЛА 
-   ========================================= */
-.sms-preview-wrapper {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 30px; 
+    }
+    
+    .card {
+        padding: 0 0 20px 0;
+        border-right: none !important; 
+        border-bottom: 1px solid #ccc; 
+    }
 
-.sms-title {
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-    color: #333;
-}
-
-.sms-bubble {
-    background-color: #e5e5ea;
-    color: #000;
-    padding: 16px 24px;
-    border-radius: 24px; /* Делает форму овала/пузыря */
-    max-width: 600px;
-    font-size: 16px;
-    line-height: 1.5;
-    position: relative;
-    text-align: left;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.sms-bubble p {
-    margin: 0;
-}
-
-/* Маленький хвостик для реалистичности пузыря сообщения */
-.sms-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 25px;
-    width: 20px;
-    height: 20px;
-    background-color: #e5e5ea;
-    border-bottom-right-radius: 15px;
-    transform: translate(-50%, 50%);
-    z-index: -1;
-}
-
-html {
-    scroll-behavior: smooth;
+    .card:last-child {
+        border-bottom: none; 
+        padding-bottom: 0;
+    }
 }
