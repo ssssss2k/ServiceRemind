@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServiceRemind | Automatiseerimine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <nav class="nav-links" id="navMenu">
+                <a href="#kellele" data-est="Kellele" data-eng="For Whom" data-rus="Для кого">Kellele</a>
+                <span class="nav-divider">I</span>
+                <a href="#pakume" data-est="Mida pakume" data-eng="How it works" data-rus="Как это работает">Mida pakume</a>
+                <span class="nav-divider">I</span>
+                <a href="#hinnad" data-est="Hinnad" data-eng="Pricing" data-rus="Цены">Hinnad</a>
+                <span class="nav-divider">I</span>
+                <a href="#kontakt" data-est="Kontakt" data-eng="Contact" data-rus="Контакты">Kontakt</a>
+            </nav>
+
+            <a href="index.html" class="logo">ServiceRemind</a>
+
+            <div class="lang-switch">
+                <a href="#" onclick="changeLang('est'); return false;" class="active" id="langEst">EST</a>
+                <span class="divider">|</span>
+                <a href="#" onclick="changeLang('eng'); return false;" id="langEng">ENG</a>
+                <span class="divider">|</span>
+                <a href="#" onclick="changeLang('rus'); return false;" id="langRus">RUS</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Главный экран -->
+        <section class="hero container">
+            <div class="hero-content">
+                <h1 id="heroTitle">Automatiseerime teie autoteeninduse kliendihalduse.</h1>
+                <p id="heroDesc">Kliendid unustavad hooldusaja? Meie süsteem saadab neile SMS-meeldetuletuse ja toob nad teie juurde tagasi – ilma kalli tarkvarata.</p>
+                <div class="hero-buttons">
+                    <a href="#kontakt" class="btn btn-black" id="heroBtn">Alusta tasuta pilooti</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок статистики -->
+        <section class="stats-section">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <div class="stat-num">30%</div>
+                    <div class="stat-text" id="stat1">Klientidest unustab tähtajalise õlivahetuse või rehvivahetuse</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">0€</div>
+                    <div class="stat-text" id="stat2">Lisaseadmete või keerulise koolituse kulu</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">2 min</div>
+                    <div class="stat-text" id="stat3">Aega uue auto ja kliendi andmete sisestamiseks</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок 1: Для кого -->
+        <section id="kellele" class="section section-light">
+            <div class="container">
+                <h2 class="section-title" id="titleKellele">Kellele see loodud on?</h2>
+                <div class="grid-2">
+                    <div class="text-block">
+                        <h3 id="kelleleH1">Väikestele ja keskmistele töökodadele</h3>
+                        <p id="kelleleP1">Ideaalne lahendus autoteenindustele Eestis, kes kasutavad klientide arvestuseks märkmikku või Excelit ja ei soovi maksta sadu eurosid kuus keeruliste ERP-süsteemide (nagu Directo) eest.</p>
+                    </div>
+                    <div class="text-block">
+                        <h3 id="kelleleH2">Autoteeninduse meistritele ja omanikele</h3>
+                        <p id="kelleleP2">Säästke aega käsitöö arvelt. Süsteem hoiab meeles klientide ajalugu ja hoolitseb selle eest, et hooajalised tööd ja plaanilised hooldused ei ununeks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок 2: Как работает -->
+        <section id="pakume" class="section">
+            <div class="container">
+                <h2 class="section-title" id="titlePakume">Kuidas süsteem toimib?</h2>
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="card-number">1</div>
+                        <h3 id="cardH1">Minimaalne sisestus</h3>
+                        <p id="cardP1">Meister sisestab vaid auto numbri, tehtud töö ja kliendi telefoni. Edaspidi mäletab süsteem auto andmeid ise.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-number">2</div>
+                        <h3 id="cardH2">Nutikad SMS-id</h3>
+                        <p id="cardP2">Süsteem arvutab järgmise hoolduse kuupäeva ja saadab automaatselt isikupärastatud SMSi koos broneerimislingiga.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-number">3</div>
+                        <h3 id="cardH3">Kaitse topeltbroneeringute eest</h3>
+                        <p id="cardP3">Klient valib vaba aja ise. Süsteem kontrollib reaalajas graafikut ja välistab kattuvad ajad.</p>
+                    </div>
+                </div>
+
+                <!-- Блок примера SMS (просто овал) -->
+                <div class="sms-preview-wrapper">
+                    <h3 id="smsTitle" class="sms-title">Näide kliendile saadetavast SMS-ist:</h3>
+                    <div class="sms-bubble">
+                        <p id="smsText">„Tere! Aasta tagasi tegime teie autole (BMW, 123ABC) hoolduse. On aeg teha õlivahetus. Broneerige aeg siin: serviceremind.ee/b/auto“</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Калькулятор -->
+        <section id="kalkulaator" class="section section-light">
+            <div class="container">
+                <h2 class="section-title" id="calcTitle">Arvutage oma potentsiaalne lisatulu</h2>
+                <div class="calculator-box">
+                    <div class="calc-controls">
+                        <label for="clientsRange"><span id="calcLabel">Keskmiselt kliente kuus:</span> <span id="clientsVal">100</span></label>
+                        <input type="range" id="clientsRange" min="20" max="500" step="10" value="100">
+                    </div>
+                    <div class="calc-results">
+                        <div class="calc-result-item">
+                            <span id="calcRes1">Tagasi toodud kliente kuus</span>
+                            <strong id="resClients">~15 klienti</strong>
+                        </div>
+                        <div class="calc-result-item highlight">
+                            <span id="calcRes2">Lisatulu kuus (hinnanguliselt)</span>
+                            <strong id="resMoney">750 €</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок 3: Цены -->
+        <section id="hinnad" class="section">
+            <div class="container">
+                <h2 class="section-title" id="titleHinnad">Hinnakiri</h2>
+                <div class="pricing-card">
+                    <h3 id="priceH">Pilootprojekt</h3>
+                    <div class="price">Tasuta</div>
+                    <p id="priceP">Otsime esimest partnerit Eestis. Saate süsteemi tasuta kasutada, et aidata meil seda teie vajaduste järgi täiustada ja luua suurepärane tööriist.</p>
+                    <a href="#kontakt" class="btn btn-black" id="priceBtn" style="margin-top: 24px;">Liitu piloodiga</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer id="kontakt" class="footer-dark">
+        <div class="container">
+            <div class="footer-top-line">
+                <span id="footerTop">Võta ühendust</span>
+            </div>
+            
+            <h2 class="footer-heading" id="footerHeading">Teeme teie teeninduse nutikamaks.</h2>
+            <p class="footer-subtext" id="footerSub">Kirjutage meile, et arutada koostööd ja saada esimeseks pilootpartneriks.</p>
+            
+            <div class="contact-row">
+                <a href="mailto:info@serviceremind.ee" class="email-plain">info@serviceremind.ee</a>
+                <a href="mailto:info@serviceremind.ee" class="btn-pill" id="footerBtn">Esita tellimust</a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ServiceRemind.ee</p>
+                <div class="footer-links">
+                    <a href="#" id="linkPrivacy">Privaatsus</a>
+                    <a href="#" id="linkTerms">Kasutustingimused</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="huge-brand-text">
+            <span>Automation.</span>
+        </div>
+    </footer>
+
+    <!-- Подключаем логику -->
+    <script src="script.js"></script>
+</body>
+</html>
