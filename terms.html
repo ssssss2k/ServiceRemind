@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServiceRemind | Kasutustingimused</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Упрощенная шапка: только логотип и языки -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="nav-left"></div>
+            
+            <a href="index.html" class="logo">ServiceRemind</a>
+
+            <div class="lang-switch">
+                <a href="#" onclick="changeLegalLang('est'); return false;" class="active" id="langEst">EST</a>
+                <span class="divider">|</span>
+                <a href="#" onclick="changeLegalLang('eng'); return false;" id="langEng">ENG</a>
+                <span class="divider">|</span>
+                <a href="#" onclick="changeLegalLang('rus'); return false;" id="langRus">RUS</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент-заглушка -->
+    <main class="section">
+        <div class="container" style="max-width: 800px;">
+            <h1 id="pageTitle" style="font-size: 36px; font-weight: 600; margin-bottom: 24px; letter-spacing: -1px;">Kasutustingimused</h1>
+            <div id="pageText" style="color: var(--gray-dark); font-size: 16px; line-height: 1.6; display: flex; flex-direction: column; gap: 16px;">
+                <p>Teenust pakutakse "nagu on" (as-is) põhimõttel tasuta pilootprojekti raames. Kasutaja kohustub süsteemi kasutama heas usus ja vastavalt headele tavadele.</p>
+                <p>Täpsemad tingimused ja lepingupunktid avaldatakse enne kommertskasutusele üleminekut. Küsimuste korral kirjutage: <a href="mailto:info@serviceremind.ee" style="color: var(--black); font-weight: 600;">info@serviceremind.ee</a></p>
+            </div>
+            <div style="margin-top: 40px;">
+                <a href="index.html" class="btn btn-black" id="backBtn">← Tagasi pealehele</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер (кнопка ведет на почту) -->
+    <footer class="footer-dark">
+        <div class="container">
+            <div class="footer-top-line">
+                <span id="footerTop">Võta ühendust</span>
+            </div>
+            
+            <h2 class="footer-heading" id="footerHeading">Teeme teie teeninduse nutikamaks.</h2>
+            <p class="footer-subtext" id="footerSub">Kirjutage meile, et arutada koostööd ja saada esimeseks pilootpartneriks.</p>
+            
+            <div class="contact-row">
+                <a href="mailto:info@serviceremind.ee" class="email-plain">info@serviceremind.ee</a>
+                <a href="mailto:info@serviceremind.ee" class="btn-pill" id="footerBtn">Esita tellimust</a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ServiceRemind.ee</p>
+                <div class="footer-links">
+                    <a href="privacy.html" id="linkPrivacy">Privaatsus</a>
+                    <a href="terms.html" id="linkTerms">Kasutustingimused</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="huge-brand-text">
+            <span>Automation.</span>
+        </div>
+    </footer>
+
+    <!-- Скрипт переключения языков -->
+    <script>
+        const legalTexts = {
+            est: {
+                title: "Kasutustingimused",
+                text1: "Teenust pakutakse \"nagu on\" (as-is) põhimõttel tasuta pilootprojekti raames. Kasutaja kohustub süsteemi kasutama heas usus ja vastavalt headele tavadele.",
+                text2: "Täpsemad tingimused ja lepingupunktid avaldatakse enne kommertskasutusele üleminekut. Küsimuste korral kirjutage: info@serviceremind.ee",
+                back: "← Tagasi pealehele",
+                footerTop: "Võta ühendust",
+                footerHeading: "Teeme teie teeninduse nutikamaks.",
+                footerSub: "Kirjutage meile, et arutada koostööd ja saada esimeseks pilootpartneriks.",
+                footerBtn: "Esita tellimust",
+                linkPrivacy: "Privaatsus",
+                linkTerms: "Kasutustingimused"
+            },
+            eng: {
+                title: "Terms of Use",
+                text1: "The service is provided on an \"as-is\" basis as part of a free pilot project. The user agrees to use the system in good faith and in accordance with best practices.",
+                text2: "Detailed terms and conditions will be published before transitioning to commercial use. If you have any questions, write to: info@serviceremind.ee",
+                back: "← Back to main page",
+                footerTop: "Get in touch",
+                footerHeading: "Let's make your service smarter.",
+                footerSub: "Write to us to discuss cooperation and become our first pilot partner.",
+                footerBtn: "Place order",
+                linkPrivacy: "Privacy",
+                linkTerms: "Terms of Use"
+            },
+            rus: {
+                title: "Условия использования",
+                text1: "Услуга предоставляется на условиях «как есть» (as-is) в рамках бесплатного пилотного проекта. Пользователь обязуется использовать систему добросовестно.",
+                text2: "Более подробные условия и пункты соглашения будут опубликованы до перехода на коммерческое использование. При возникновении вопросов пишите: info@serviceremind.ee",
+                back: "← На главную страницу",
+                footerTop: "Связаться с нами",
+                footerHeading: "Сделаем ваш сервис умнее.",
+                footerSub: "Напишите нам, чтобы обсудить сотрудничество и стать первым пилотным партнером.",
+                footerBtn: "Оставить заявку",
+                linkPrivacy: "Конфиденциальность",
+                linkTerms: "Условия использования"
+            }
+        };
+
+        function changeLegalLang(lang) {
+            document.getElementById('langEst').classList.remove('active');
+            document.getElementById('langEng').classList.remove('active');
+            document.getElementById('langRus').classList.remove('active');
+            document.getElementById('lang' + lang.charAt(0).toUpperCase() + lang.slice(1)).classList.add('active');
+
+            const t = legalTexts[lang];
+            document.getElementById('pageTitle').textContent = t.title;
+            document.getElementById('pageText').innerHTML = `<p>${t.text1}</p><p>${t.text2.replace('info@serviceremind.ee', '<a href="mailto:info@serviceremind.ee" style="color: var(--black); font-weight: 600;">info@serviceremind.ee</a>')}</p>`;
+            document.getElementById('backBtn').textContent = t.back;
+            document.getElementById('footerTop').textContent = t.footerTop;
+            document.getElementById('footerHeading').textContent = t.footerHeading;
+            document.getElementById('footerSub').textContent = t.footerSub;
+            document.getElementById('footerBtn').textContent = t.footerBtn;
+            document.getElementById('linkPrivacy').textContent = t.linkPrivacy;
+            document.getElementById('linkTerms').textContent = t.linkTerms;
+        }
+    </script>
+</body>
+</html>
