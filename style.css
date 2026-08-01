@@ -1,3 +1,4 @@
+/* --- БАЗОВЫЕ НАСТРОЙКИ --- */
 html {
     scroll-behavior: smooth;
 }
@@ -13,7 +14,7 @@ html {
     --white: #ffffff;
     --gray-light: #f9f9f9;
     --gray-dark: #666666;
-    --gray-card: #e4e5e8; /* Заметный, благородный серый с легким премиальным оттенком */
+    --gray-card: #e4e5e8;
 }
 
 body {
@@ -29,14 +30,14 @@ body {
     padding: 0 40px;
 }
 
-/* Шапка сайта */
+/* --- НАВИГАЦИЯ --- */
 .navbar {
     padding: 24px 0;
     border-bottom: 1px solid #eaeaea;
     background: var(--white);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 999;
 }
 
 .nav-container {
@@ -44,7 +45,37 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    position: relative;
+}
+
+.nav-left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.lang-switch {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.logo {
+    flex: 0 0 auto;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+    color: var(--black);
+    transition: 0.3s;
+    text-align: center;
+}
+
+.logo:hover {
+    opacity: 0.7;
 }
 
 .nav-links {
@@ -61,6 +92,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: 0.3s;
+    white-space: nowrap; 
 }
 
 .nav-links a:hover {
@@ -72,28 +104,12 @@ body {
     font-size: 12px;
 }
 
-.logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    text-decoration: none;
-    color: var(--black);
-    transition: 0.3s;
+/* Скрываем мобильный логотип на ПК */
+.mobile-logo {
+    display: none;
 }
 
-.logo:hover {
-    opacity: 0.7;
-}
-
-.lang-switch {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
+/* Переключатель языков */
 .lang-switch a {
     text-decoration: none;
     color: var(--gray-dark);
@@ -109,6 +125,7 @@ body {
     margin: 0 4px;
 }
 
+/* --- КНОПКИ --- */
 .btn {
     display: inline-block;
     padding: 14px 28px;
@@ -129,7 +146,7 @@ body {
     background: #333;
 }
 
-/* Главный экран */
+/* --- ГЛАВНЫЙ ЭКРАН (HERO) --- */
 .hero {
     padding: 100px 40px 60px 40px;
     min-height: 60vh;
@@ -156,7 +173,7 @@ body {
     max-width: 600px;
 }
 
-/* Статистика под херо */
+/* --- СТАТИСТИКА И СЕКЦИИ --- */
 .stats-section {
     border-top: 1px solid #eaeaea;
     border-bottom: 1px solid #eaeaea;
@@ -254,10 +271,10 @@ body {
     font-size: 16px;
 }
 
-/* Интерактивный калькулятор */
+/* --- КАЛЬКУЛЯТОР --- */
 .calculator-box {
     background: var(--gray-card);
-    border: 1px solid #d0d2d6; /* Рамку тоже немного затемнили под новый фон */
+    border: 1px solid #d0d2d6; 
     padding: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -292,7 +309,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 8px; /* Немного скруглим для гармонии */
+    border-radius: 8px; 
 }
 
 .calc-result-item.highlight {
@@ -305,7 +322,7 @@ body {
     font-size: 22px;
 }
 
-/* Превью SMS */
+/* --- БЛОК SMS ПРЕВЬЮ --- */
 .sms-preview-wrapper {
     margin-top: 40px;
     display: flex;
@@ -350,6 +367,7 @@ body {
     z-index: -1;
 }
 
+/* --- КАРТОЧКА С ЦЕНОЙ --- */
 .pricing-card {
     border: 1px solid #ddd;
     padding: 40px;
@@ -374,7 +392,7 @@ body {
     color: var(--gray-dark);
 }
 
-/* ФУТЕР */
+/* --- ФУТЕР --- */
 .footer-dark {
     background-color: var(--black);
     color: var(--white);
@@ -480,20 +498,105 @@ body {
     letter-spacing: -4px;
 }
 
-/* Адаптив */
-@media (max-width: 768px) {
-    .nav-links { display: none; }
+/* --- ГАМБУРГЕР ИКОНКА (Анимация) --- */
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001; 
+    position: relative;
+}
+
+.hamburger-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--black);
+    border-radius: 2px;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-btn span:nth-child(1) { transform: translateY(-8px); }
+.hamburger-btn span:nth-child(2) { transform: translateY(0); }
+.hamburger-btn span:nth-child(3) { transform: translateY(8px); }
+
+.hamburger-btn.open span:nth-child(1) { transform: translateY(0) rotate(45deg); }
+.hamburger-btn.open span:nth-child(2) { opacity: 0; }
+.hamburger-btn.open span:nth-child(3) { transform: translateY(0) rotate(-45deg); }
+
+
+/* --- АДАПТИВ (МЕНЬШЕ 1080px) --- */
+@media (max-width: 1080px) {
+    .hamburger-btn { 
+        display: flex; 
+    }
+    
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        
+        /* Прозрачный фон с размытием */
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(13px);
+        -webkit-backdrop-filter: blur(13px);
+        
+        z-index: 1000;
+        gap: 40px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .nav-links a {
+        font-size: 24px;
+        font-weight: 600;
+        white-space: normal;
+    }
+    
+    .nav-divider {
+        display: none;
+    }
+
+    /* Мобильный логотип */
+    .mobile-logo {
+        display: block;
+        position: absolute;
+        top: 32px; 
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        color: #000000;
+        text-transform: none !important;
+        cursor: pointer; 
+    }
+
+    /* Шрифты и сетка для мобилок */
     .hero h1 { font-size: 40px; }
-    .grid-2, .stats-grid, .calculator-box { grid-template-columns: 1fr; }
+    .grid-2, .stats-grid, .calculator-box, .grid-3 { grid-template-columns: 1fr; }
+    .grid-3 { gap: 30px; }
     .footer-heading { font-size: 40px; }
     .email-plain { font-size: 28px; }
     .contact-row { gap: 16px; }
     .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-
-    .grid-3 {
-        grid-template-columns: 1fr;
-        gap: 30px; 
-    }
     
     .card {
         padding: 0 0 20px 0;

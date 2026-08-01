@@ -12,18 +12,38 @@
     <!-- Шапка сайта -->
     <header class="navbar">
         <div class="container nav-container">
-            <nav class="nav-links" id="navMenu">
-                <a href="#kellele" data-est="Kellele" data-eng="For Whom" data-rus="Для кого">Kellele</a>
-                <span class="nav-divider">I</span>
-                <a href="#pakume" data-est="Mida pakume" data-eng="How it works" data-rus="Как это работает">Mida pakume</a>
-                <span class="nav-divider">I</span>
-                <a href="#hinnad" data-est="Hinnad" data-eng="Pricing" data-rus="Цены">Hinnad</a>
-                <span class="nav-divider">I</span>
-                <a href="#kontakt" data-est="Kontakt" data-eng="Contact" data-rus="Контакты">Kontakt</a>
-            </nav>
+            
+            <!-- Левая часть: Навигация на ПК / Кнопка гамбургера на телефоне -->
+            <div class="nav-left">
+                <!-- Иконка-гамбургер -->
+                <button class="hamburger-btn" id="menuBtn" aria-label="Ava menüü">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <!-- Навигация -->
+                <nav class="nav-links" id="navMenu">
+                    <!-- Логотип для мобильного меню (div исключает баги с переводом) -->
+                    <div class="mobile-logo" onclick="window.location.href='index.html'">ServiceRemind</div>
 
+                    <a href="#kellele" data-est="Kellele" data-eng="For Whom" data-rus="Для кого">Kellele</a>
+                    <span class="nav-divider">I</span>
+                    
+                    <a href="#pakume" data-est="Kuidas see töötab" data-eng="How it works" data-rus="Как это работает">Kuidas see töötab</a>
+                    <span class="nav-divider">I</span>
+                    
+                    <a href="#hinnad" data-est="Hinnad" data-eng="Pricing" data-rus="Цены">Hinnad</a>
+                    <span class="nav-divider">I</span>
+                    
+                    <a href="#kontakt" data-est="Kontakt" data-eng="Contact" data-rus="Контакт">Kontakt</a>
+                </nav>
+            </div>
+
+            <!-- Центр: Логотип (для ПК) -->
             <a href="index.html" class="logo">ServiceRemind</a>
 
+            <!-- Правая часть: Переключатель языков -->
             <div class="lang-switch">
                 <a href="#" onclick="changeLang('est'); return false;" class="active" id="langEst">EST</a>
                 <span class="divider">|</span>
@@ -31,6 +51,7 @@
                 <span class="divider">|</span>
                 <a href="#" onclick="changeLang('rus'); return false;" id="langRus">RUS</a>
             </div>
+            
         </div>
     </header>
 
@@ -103,11 +124,11 @@
                     </div>
                 </div>
 
-                <!-- Блок примера SMS (просто овал) -->
+                <!-- Блок примера SMS -->
                 <div class="sms-preview-wrapper">
                     <h3 id="smsTitle" class="sms-title">Näide kliendile saadetavast SMS-ist:</h3>
                     <div class="sms-bubble">
-                        <p id="smsText">„Tere! Aasta tagasi tegime teie autole (BMW, 123ABC) hoolduse. On aeg teha õlivahetus. Broneerige aeg siin: serviceremind.ee/b/auto“</p>
+                        <p id="smsText">„Tere! 6 kuud tagasi hooldasime teie autot (Volvo, 123ABC). On aeg õlivahetuseks. Broneerige aeg siin: serviceremind.ee/b/auto“</p>
                     </div>
                 </div>
             </div>
@@ -179,7 +200,6 @@
         </div>
     </footer>
 
-    <!-- Подключаем логику -->
     <script src="script.js"></script>
 </body>
 </html>

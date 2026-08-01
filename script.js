@@ -1,4 +1,4 @@
-// Калькулятор
+// === КАЛЬКУЛЯТОР ПОТЕНЦИАЛЬНОГО ДОХОДА ===
 const range = document.getElementById('clientsRange');
 const clientsVal = document.getElementById('clientsVal');
 const resClients = document.getElementById('resClients');
@@ -7,18 +7,24 @@ const resMoney = document.getElementById('resMoney');
 range.addEventListener('input', (e) => {
     const val = e.target.value;
     clientsVal.textContent = val;
+    
+    // Формула: 15% возвращаются
     const returned = Math.round(val * 0.15);
+    
+    // Меняем слово "клиент" в зависимости от языка
     const clientWord = currentLang === 'est' ? 'klienti' : (currentLang === 'eng' ? 'clients' : 'клиентов');
+    
     resClients.textContent = `~${returned} ${clientWord}`;
     resMoney.textContent = `${returned * 50} €`;
 });
 
-// Переключение языков
-let currentLang = 'est';
+
+// === ЛОГИКА МУЛЬТИЯЗЫЧНОСТИ ===
+let currentLang = 'est'; // Язык по умолчанию
 
 const translations = {
     est: {
-        nav: ["Kellele", "Mida pakume", "Hinnad", "Kontakt"],
+        nav: ["Kellele", "Kuidas see töötab", "Hinnad", "Kontakt"],
         heroTitle: "Automatiseerime teie autoteeninduse kliendihalduse.",
         heroDesc: "Kliendid unustavad hooldusaja? Meie süsteem saadab neile SMS-meeldetuletuse ja toob nad teie juurde tagasi – ilma kalli tarkvarata.",
         heroBtn: "Alusta tasuta pilooti",
@@ -38,7 +44,7 @@ const translations = {
         cardH3: "Kaitse topeltbroneeringute eest",
         cardP3: "Klient valib vaba aja ise. Süsteem kontrollib reaalajas graafikut ja välistab kattuvad ajad.",
         smsTitle: "Näide kliendile saadetavast SMS-ist:",
-        smsText: "„Tere! Aasta tagasi tegime teie autole (BMW, 123ABC) hoolduse. On aeg teha õlivahetus. Broneerige aeg siin: serviceremind.ee/b/auto“",
+        smsText: "„Tere! 6 kuud tagasi hooldasime teie autot (Volvo, 123ABC). On aeg õlivahetuseks. Broneerige aeg siin: serviceremind.ee/b/auto“",
         calcTitle: "Arvutage oma potentsiaalne lisatulu",
         calcLabel: "Keskmiselt kliente kuus:",
         calcRes1: "Tagasi toodud kliente kuus",
@@ -75,7 +81,7 @@ const translations = {
         cardH3: "Double-booking protection",
         cardP3: "Clients pick available slots themselves. The system checks the schedule in real-time and prevents overlaps.",
         smsTitle: "Example of SMS sent to client:",
-        smsText: "\"Hello! A year ago we serviced your car (BMW, 123ABC). It's time for an oil change. Book your time here: serviceremind.ee/b/auto\"",
+        smsText: "\"Hello! 6 months ago we serviced your car (Volvo, 123ABC). It's time for an oil change. Book your time here: serviceremind.ee/b/auto\"",
         calcTitle: "Calculate your potential extra revenue",
         calcLabel: "Average clients per month:",
         calcRes1: "Clients brought back monthly",
@@ -92,7 +98,7 @@ const translations = {
         linkTerms: "Terms of Use"
     },
     rus: {
-        nav: ["Для кого", "Как это работает", "Цены", "Контакты"],
+        nav: ["Для кого", "Как это работает", "Цены", "Контакт"],
         heroTitle: "Автоматизируем управление клиентами вашего автосервиса.",
         heroDesc: "Клиенты забывают вовремя делать ТО? Наша система отправит им SMS-напоминание и вернет к вам – без дорогого софта.",
         heroBtn: "Начать бесплатный пилот",
@@ -112,7 +118,7 @@ const translations = {
         cardH3: "Защита от двойной записи",
         cardP3: "Клиент выбирает свободное время сам. Система проверяет график в реальном времени и исключает пересечения.",
         smsTitle: "Пример SMS для клиента:",
-        smsText: "«Здравствуйте! Год назад мы обслуживали ваш автомобиль (BMW, 123ABC). Пора делать замену масла. Запишитесь здесь: serviceremind.ee/b/auto»",
+        smsText: "«Здравствуйте! 6 месяцев назад мы обслуживали ваш автомобиль (Volvo, 123ABC). Пришло время для замены масла. Забронируйте время здесь: serviceremind.ee/b/auto»",
         calcTitle: "Рассчитайте ваш потенциальный дополнительный доход",
         calcLabel: "В среднем клиентов в месяц:",
         calcRes1: "Вернувшихся клиентов в месяц",
@@ -133,7 +139,7 @@ const translations = {
 function changeLang(lang) {
     currentLang = lang;
     
-    // Активные классы для кнопок языка
+    // Обновляем визуальный статус кнопок языка
     document.getElementById('langEst').classList.remove('active');
     document.getElementById('langEng').classList.remove('active');
     document.getElementById('langRus').classList.remove('active');
@@ -141,27 +147,27 @@ function changeLang(lang) {
 
     const t = translations[lang];
 
-    // Навигация
+    // Перевод навигации (берёт ТОЛЬКО теги <a> внутри меню, игнорируя <div> логотип)
     const navLinks = document.querySelectorAll('#navMenu a');
     navLinks.forEach((link, index) => {
         link.textContent = t.nav[index];
     });
 
-    // Основной контент
+    // Перевод текстовых блоков
     document.getElementById('heroTitle').textContent = t.heroTitle;
     document.getElementById('heroDesc').textContent = t.heroDesc;
     document.getElementById('heroBtn').textContent = t.heroBtn;
-
+    
     document.getElementById('stat1').textContent = t.stat1;
     document.getElementById('stat2').textContent = t.stat2;
     document.getElementById('stat3').textContent = t.stat3;
-
+    
     document.getElementById('titleKellele').textContent = t.titleKellele;
     document.getElementById('kelleleH1').textContent = t.kelleleH1;
     document.getElementById('kelleleP1').textContent = t.kelleleP1;
     document.getElementById('kelleleH2').textContent = t.kelleleH2;
     document.getElementById('kelleleP2').textContent = t.kelleleP2;
-
+    
     document.getElementById('titlePakume').textContent = t.titlePakume;
     document.getElementById('cardH1').textContent = t.cardH1;
     document.getElementById('cardP1').textContent = t.cardP1;
@@ -169,27 +175,54 @@ function changeLang(lang) {
     document.getElementById('cardP2').textContent = t.cardP2;
     document.getElementById('cardH3').textContent = t.cardH3;
     document.getElementById('cardP3').textContent = t.cardP3;
-
+    
     document.getElementById('smsTitle').textContent = t.smsTitle;
     document.getElementById('smsText').textContent = t.smsText;
-
+    
     document.getElementById('calcTitle').textContent = t.calcTitle;
     document.getElementById('calcLabel').textContent = t.calcLabel;
     document.getElementById('calcRes1').textContent = t.calcRes1;
     document.getElementById('calcRes2').textContent = t.calcRes2;
-
+    
     document.getElementById('titleHinnad').textContent = t.titleHinnad;
     document.getElementById('priceH').textContent = t.priceH;
     document.getElementById('priceP').textContent = t.priceP;
     document.getElementById('priceBtn').textContent = t.priceBtn;
-
+    
     document.getElementById('footerTop').textContent = t.footerTop;
     document.getElementById('footerHeading').textContent = t.footerHeading;
     document.getElementById('footerSub').textContent = t.footerSub;
     document.getElementById('footerBtn').textContent = t.footerBtn;
+    
     document.getElementById('linkPrivacy').textContent = t.linkPrivacy;
     document.getElementById('linkTerms').textContent = t.linkTerms;
 
-    // Пересчет калькулятора с учетом языка для слова "клиенты"
-    range.dispatchEvent(new Event('input'));
+    // Имитируем событие input, чтобы калькулятор обновил слово "клиентов" на нужном языке
+    range.dispatchEvent(new Event('input')); 
 }
+
+// === ЛОГИКА МОБИЛЬНОГО МЕНЮ (ГАМБУРГЕР) ===
+const menuBtn = document.getElementById('menuBtn');
+const navMenu = document.getElementById('navMenu');
+
+menuBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    menuBtn.classList.toggle('open');
+    
+    // Блокируем прокрутку страницы под открытым меню
+    if (navMenu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+});
+
+// Закрываем меню при клике на любую ссылку в нем (включая текстовый логотип)
+const navLinksItems = document.querySelectorAll('#navMenu a, .mobile-logo');
+navLinksItems.forEach(item => {
+    item.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        menuBtn.classList.remove('open');
+        document.body.style.overflow = '';
+    });
+});
