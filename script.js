@@ -1,26 +1,23 @@
-// === КАЛЬКУЛЯТОР ПОТЕНЦИАЛЬНОГО ДОХОДА ===
 const range = document.getElementById('clientsRange');
 const clientsVal = document.getElementById('clientsVal');
 const resClients = document.getElementById('resClients');
 const resMoney = document.getElementById('resMoney');
 
-range.addEventListener('input', (e) => {
-    const val = e.target.value;
-    clientsVal.textContent = val;
-    
-    // Формула: 15% возвращаются
-    const returned = Math.round(val * 0.15);
-    
-    // Меняем слово "клиент" в зависимости от языка
-    const clientWord = currentLang === 'est' ? 'klienti' : (currentLang === 'eng' ? 'clients' : 'клиентов');
-    
-    resClients.textContent = `~${returned} ${clientWord}`;
-    resMoney.textContent = `${returned * 50} €`;
-});
+if (range) {
+    range.addEventListener('input', (e) => {
+        const val = e.target.value;
+        clientsVal.textContent = val;
+        
+        const returned = Math.round(val * 0.15);
+        const clientWord = currentLang === 'est' ? 'klienti' : (currentLang === 'eng' ? 'clients' : 'клиентов');
+        
+        resClients.textContent = `~${returned} ${clientWord}`;
+        resMoney.textContent = `${returned * 50} €`;
+    });
+}
 
-
-// === ЛОГИКА МУЛЬТИЯЗЫЧНОСТИ ===
-let currentLang = 'est'; // Язык по умолчанию
+// Забираем язык из памяти браузера, чтобы он не сбрасывался при переходе на другие страницы
+let currentLang = localStorage.getItem('siteLang') || 'est'; 
 
 const translations = {
     est: {
@@ -49,16 +46,39 @@ const translations = {
         calcLabel: "Keskmiselt kliente kuus:",
         calcRes1: "Tagasi toodud kliente kuus",
         calcRes2: "Lisatulu kuus (hinnanguliselt)",
+        
         titleHinnad: "Hinnakiri",
-        priceH: "Pilootprojekt",
-        priceP: "Otsime esimest partnerit Eestis. Saate süsteemi tasuta kasutada, et aidata meil seda teie vajaduste järgi täiustada ja luua suurepärane tööriist.",
-        priceBtn: "Liitu piloodiga",
+        // Карточка 1
+        priceH1: "Pilootprojekt",
+        priceVal1: "Tasuta",
+        priceP1: "Otsime esimest partnerit Eestis. Saate süsteemi tasuta kasutada, et aidata meil seda teie vajaduste järgi täiustada ja luua suurepärane tööriist.",
+        priceBtn1: "Liitu piloodiga",
+        // Карточка 2
+        priceH2: "Standard",
+        priceVal2: "Arenduses",
+        priceP2: "Täisväärtuslik pakett igapäevaseks tööks. Sisaldab automaatseid SMS-e, kalendrit ja kliendibaasi.",
+        priceBtn2: "Varsti tulekul",
+        // Карточка 3
+        priceH3: "Premium",
+        priceVal3: "Arenduses",
+        priceP3: "Suurematele töökodadele. Mitme töökoha haldus, integratsioonid ja põhjalik analüütika.",
+        priceBtn3: "Varsti tulekul",
+        
         footerTop: "Võta ühendust",
         footerHeading: "Teeme teie teeninduse nutikamaks.",
         footerSub: "Kirjutage meile, et arutada koostööd ja saada esimeseks pilootpartneriks.",
         footerBtn: "Esita tellimust",
         linkPrivacy: "Privaatsus",
-        linkTerms: "Kasutustingimused"
+        linkTerms: "Kasutustingimused",
+
+        // Страницы политик
+        navBack: "← Tagasi",
+        btnBack: "← Tagasi pealehele",
+        policyContact: "Küsimuste korral võtke meiega ühendust:",
+        privTitle: "Privaatsuspoliitika",
+        privDesc: "Dokument on hetkel koostamisel ja täiendamisel seoses pilootprojekti käivitamisega. Kõiki kogutud andmeid töödeldakse konfidentsiaalselt ja rangelt teenuse toimimise eesmärgil.",
+        termsTitle: "Kasutustingimused",
+        termsDesc: "Dokument on hetkel koostamisel ja täiendamisel seoses pilootprojekti käivitamisega. Teenuse kasutamine toimub hetkel pilootprojekti raames kokkuleppel partneritega."
     },
     eng: {
         nav: ["For Whom", "How it works", "Pricing", "Contact"],
@@ -86,16 +106,39 @@ const translations = {
         calcLabel: "Average clients per month:",
         calcRes1: "Clients brought back monthly",
         calcRes2: "Monthly extra revenue (estimated)",
+        
         titleHinnad: "Pricing",
-        priceH: "Pilot Project",
-        priceP: "Looking for our first partner in Estonia. Use the system for free to help us tailor it to your needs and build an amazing tool.",
-        priceBtn: "Join pilot",
+        // Карточка 1
+        priceH1: "Pilot Project",
+        priceVal1: "Free",
+        priceP1: "Looking for our first partner in Estonia. Use the system for free to help us tailor it to your needs and build an amazing tool.",
+        priceBtn1: "Join pilot",
+        // Карточка 2
+        priceH2: "Standard",
+        priceVal2: "In development",
+        priceP2: "Full-featured package for daily work. Includes automated SMS, calendar, and client base.",
+        priceBtn2: "Coming soon",
+        // Карточка 3
+        priceH3: "Premium",
+        priceVal3: "In development",
+        priceP3: "For larger workshops. Multi-station management, integrations, and detailed analytics.",
+        priceBtn3: "Coming soon",
+
         footerTop: "Get in touch",
         footerHeading: "Let's make your service smarter.",
         footerSub: "Write to us to discuss cooperation and become our first pilot partner.",
         footerBtn: "Place order",
         linkPrivacy: "Privacy",
-        linkTerms: "Terms of Use"
+        linkTerms: "Terms of Use",
+
+        // Страницы политик
+        navBack: "← Back",
+        btnBack: "← Back to main page",
+        policyContact: "If you have any questions, contact us:",
+        privTitle: "Privacy Policy",
+        privDesc: "This document is currently being drafted and updated in connection with the launch of the pilot project. All collected data is treated confidentially and strictly for the purpose of service operation.",
+        termsTitle: "Terms of Use",
+        termsDesc: "This document is currently being drafted and updated in connection with the launch of the pilot project. Use of the service is currently subject to agreement with partners within the pilot project."
     },
     rus: {
         nav: ["Для кого", "Как это работает", "Цены", "Контакт"],
@@ -123,106 +166,161 @@ const translations = {
         calcLabel: "В среднем клиентов в месяц:",
         calcRes1: "Вернувшихся клиентов в месяц",
         calcRes2: "Доп. доход в месяц (оценка)",
+        
         titleHinnad: "Цены",
-        priceH: "Пилотный проект",
-        priceP: "Ищем первого партнера в Эстонии. Вы можете использовать систему бесплатно, помогая нам улучшить ее под ваши задачи.",
-        priceBtn: "Участвовать в пилоте",
+        // Карточка 1
+        priceH1: "Пилотный проект",
+        priceVal1: "Бесплатно",
+        priceP1: "Ищем первого партнера в Эстонии. Вы можете использовать систему бесплатно, помогая нам улучшить ее под ваши задачи.",
+        priceBtn1: "Участвовать в пилоте",
+        // Карточка 2
+        priceH2: "Стандарт",
+        priceVal2: "В разработке",
+        priceP2: "Полноценный пакет для ежедневной работы. Включает автоматические SMS, календарь и базу клиентов.",
+        priceBtn2: "Скоро",
+        // Карточка 3
+        priceH3: "Премиум",
+        priceVal3: "В разработке",
+        priceP3: "Для крупных мастерских. Управление несколькими постами, интеграции и детальная аналитика.",
+        priceBtn3: "Скоро",
+
         footerTop: "Связаться с нами",
         footerHeading: "Сделаем ваш сервис умнее.",
         footerSub: "Напишите нам, чтобы обсудить сотрудничество и стать первым пилотным партнером.",
         footerBtn: "Оставить заявку",
         linkPrivacy: "Конфиденциальность",
-        linkTerms: "Условия использования"
+        linkTerms: "Условия использования",
+
+        // Страницы политик
+        navBack: "← Назад",
+        btnBack: "← Назад на главную",
+        policyContact: "Если у вас есть вопросы, свяжитесь с нами:",
+        privTitle: "Политика конфиденциальности",
+        privDesc: "Документ в настоящее время составляется и дополняется в связи с запуском пилотного проекта. Все собранные данные обрабатываются конфиденциально и строго в целях работы сервиса.",
+        termsTitle: "Условия использования",
+        termsDesc: "Документ в настоящее время составляется и дополняется в связи с запуском пилотного проекта. Использование сервиса в настоящее время осуществляется по согласованию с партнерами в рамках пилотного проекта."
     }
 };
 
 function changeLang(lang) {
     currentLang = lang;
+    localStorage.setItem('siteLang', lang); // Сохраняем язык в память
     
-    // Обновляем визуальный статус кнопок языка
-    document.getElementById('langEst').classList.remove('active');
-    document.getElementById('langEng').classList.remove('active');
-    document.getElementById('langRus').classList.remove('active');
-    document.getElementById('lang' + lang.charAt(0).toUpperCase() + lang.slice(1)).classList.add('active');
+    const langEst = document.getElementById('langEst');
+    const langEng = document.getElementById('langEng');
+    const langRus = document.getElementById('langRus');
+    
+    if (langEst) langEst.classList.remove('active');
+    if (langEng) langEng.classList.remove('active');
+    if (langRus) langRus.classList.remove('active');
+    
+    const activeLangBtn = document.getElementById('lang' + lang.charAt(0).toUpperCase() + lang.slice(1));
+    if (activeLangBtn) activeLangBtn.classList.add('active');
 
     const t = translations[lang];
+    if (!t) return;
 
-    // Перевод навигации (берёт ТОЛЬКО теги <a> внутри меню, игнорируя <div> логотип)
     const navLinks = document.querySelectorAll('#navMenu a');
-    navLinks.forEach((link, index) => {
-        link.textContent = t.nav[index];
-    });
+    if (navLinks.length > 0 && t.nav) {
+        navLinks.forEach((link, index) => {
+            if (t.nav[index]) link.textContent = t.nav[index];
+        });
+    }
 
-    // Перевод текстовых блоков
-    document.getElementById('heroTitle').textContent = t.heroTitle;
-    document.getElementById('heroDesc').textContent = t.heroDesc;
-    document.getElementById('heroBtn').textContent = t.heroBtn;
-    
-    document.getElementById('stat1').textContent = t.stat1;
-    document.getElementById('stat2').textContent = t.stat2;
-    document.getElementById('stat3').textContent = t.stat3;
-    
-    document.getElementById('titleKellele').textContent = t.titleKellele;
-    document.getElementById('kelleleH1').textContent = t.kelleleH1;
-    document.getElementById('kelleleP1').textContent = t.kelleleP1;
-    document.getElementById('kelleleH2').textContent = t.kelleleH2;
-    document.getElementById('kelleleP2').textContent = t.kelleleP2;
-    
-    document.getElementById('titlePakume').textContent = t.titlePakume;
-    document.getElementById('cardH1').textContent = t.cardH1;
-    document.getElementById('cardP1').textContent = t.cardP1;
-    document.getElementById('cardH2').textContent = t.cardH2;
-    document.getElementById('cardP2').textContent = t.cardP2;
-    document.getElementById('cardH3').textContent = t.cardH3;
-    document.getElementById('cardP3').textContent = t.cardP3;
-    
-    document.getElementById('smsTitle').textContent = t.smsTitle;
-    document.getElementById('smsText').textContent = t.smsText;
-    
-    document.getElementById('calcTitle').textContent = t.calcTitle;
-    document.getElementById('calcLabel').textContent = t.calcLabel;
-    document.getElementById('calcRes1').textContent = t.calcRes1;
-    document.getElementById('calcRes2').textContent = t.calcRes2;
-    
-    document.getElementById('titleHinnad').textContent = t.titleHinnad;
-    document.getElementById('priceH').textContent = t.priceH;
-    document.getElementById('priceP').textContent = t.priceP;
-    document.getElementById('priceBtn').textContent = t.priceBtn;
-    
-    document.getElementById('footerTop').textContent = t.footerTop;
-    document.getElementById('footerHeading').textContent = t.footerHeading;
-    document.getElementById('footerSub').textContent = t.footerSub;
-    document.getElementById('footerBtn').textContent = t.footerBtn;
-    
-    document.getElementById('linkPrivacy').textContent = t.linkPrivacy;
-    document.getElementById('linkTerms').textContent = t.linkTerms;
+    const setEl = (id, text) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = text;
+    };
 
-    // Имитируем событие input, чтобы калькулятор обновил слово "клиентов" на нужном языке
-    range.dispatchEvent(new Event('input')); 
+    setEl('heroTitle', t.heroTitle);
+    setEl('heroDesc', t.heroDesc);
+    setEl('heroBtn', t.heroBtn);
+    
+    setEl('stat1', t.stat1);
+    setEl('stat2', t.stat2);
+    setEl('stat3', t.stat3);
+    
+    setEl('titleKellele', t.titleKellele);
+    setEl('kelleleH1', t.kelleleH1);
+    setEl('kelleleP1', t.kelleleP1);
+    setEl('kelleleH2', t.kelleleH2);
+    setEl('kelleleP2', t.kelleleP2);
+    
+    setEl('titlePakume', t.titlePakume);
+    setEl('cardH1', t.cardH1);
+    setEl('cardP1', t.cardP1);
+    setEl('cardH2', t.cardH2);
+    setEl('cardP2', t.cardP2);
+    setEl('cardH3', t.cardH3);
+    setEl('cardP3', t.cardP3);
+    
+    setEl('smsTitle', t.smsTitle);
+    setEl('smsText', t.smsText);
+    
+    setEl('calcTitle', t.calcTitle);
+    setEl('calcLabel', t.calcLabel);
+    setEl('calcRes1', t.calcRes1);
+    setEl('calcRes2', t.calcRes2);
+    
+    setEl('titleHinnad', t.titleHinnad);
+    
+    // Переводы цен
+    setEl('priceH1', t.priceH1);
+    setEl('priceVal1', t.priceVal1);
+    setEl('priceP1', t.priceP1);
+    setEl('priceBtn1', t.priceBtn1);
+
+    setEl('priceH2', t.priceH2);
+    setEl('priceVal2', t.priceVal2);
+    setEl('priceP2', t.priceP2);
+    setEl('priceBtn2', t.priceBtn2);
+
+    setEl('priceH3', t.priceH3);
+    setEl('priceVal3', t.priceVal3);
+    setEl('priceP3', t.priceP3);
+    setEl('priceBtn3', t.priceBtn3);
+    
+    setEl('footerTop', t.footerTop);
+    setEl('footerHeading', t.footerHeading);
+    setEl('footerSub', t.footerSub);
+    setEl('footerBtn', t.footerBtn);
+    
+    setEl('linkPrivacy', t.linkPrivacy);
+    setEl('linkTerms', t.linkTerms);
+
+    // Переводы для страниц политик
+    setEl('navBack', t.navBack);
+    setEl('btnBack', t.btnBack);
+    setEl('policyContact', t.policyContact);
+    setEl('privTitle', t.privTitle);
+    setEl('privDesc', t.privDesc);
+    setEl('termsTitle', t.termsTitle);
+    setEl('termsDesc', t.termsDesc);
+
+    if (range) range.dispatchEvent(new Event('input')); 
 }
 
-// === ЛОГИКА МОБИЛЬНОГО МЕНЮ (ГАМБУРГЕР) ===
+// Запуск перевода при загрузке страницы, чтобы применить сохраненный язык
+document.addEventListener('DOMContentLoaded', () => {
+    changeLang(currentLang);
+});
+
 const menuBtn = document.getElementById('menuBtn');
 const navMenu = document.getElementById('navMenu');
 
-menuBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    menuBtn.classList.toggle('open');
-    
-    // Блокируем прокрутку страницы под открытым меню
-    if (navMenu.classList.contains('active')) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = '';
-    }
-});
-
-// Закрываем меню при клике на любую ссылку в нем (включая текстовый логотип)
-const navLinksItems = document.querySelectorAll('#navMenu a, .mobile-logo');
-navLinksItems.forEach(item => {
-    item.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        menuBtn.classList.remove('open');
-        document.body.style.overflow = '';
+if (menuBtn && navMenu) {
+    menuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        menuBtn.classList.toggle('open');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     });
-});
+
+    const navLinksItems = document.querySelectorAll('#navMenu a, .mobile-logo');
+    navLinksItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            menuBtn.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+}

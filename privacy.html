@@ -3,45 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ServiceRemind | Privaatsus</title>
+    <title>Privaatsuspoliitika | ServiceRemind</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Упрощенная шапка: только логотип и языки -->
     <header class="navbar">
         <div class="container nav-container">
-            <div class="nav-left"></div>
-            
-            <a href="index.html" class="logo">ServiceRemind</a>
-
-            <div class="lang-switch">
-                <a href="#" onclick="changeLegalLang('est'); return false;" class="active" id="langEst">EST</a>
-                <span class="divider">|</span>
-                <a href="#" onclick="changeLegalLang('eng'); return false;" id="langEng">ENG</a>
-                <span class="divider">|</span>
-                <a href="#" onclick="changeLegalLang('rus'); return false;" id="langRus">RUS</a>
+            <div class="nav-left">
+                <a href="index.html" id="navBack" style="color: #666; text-decoration: none; font-size: 14px; font-weight: 500;">&larr; Tagasi</a>
+            </div>
+            <div class="nav-center">
+                <a href="index.html" class="logo">ServiceRemind</a>
+            </div>
+            <div class="nav-right">
+                <div class="lang-switch">
+                    <a href="#" onclick="changeLang('est'); return false;" class="active" id="langEst">EST</a>
+                    <span class="divider">|</span>
+                    <a href="#" onclick="changeLang('eng'); return false;" id="langEng">ENG</a>
+                    <span class="divider">|</span>
+                    <a href="#" onclick="changeLang('rus'); return false;" id="langRus">RUS</a>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Основной контент-заглушка -->
-    <main class="section">
-        <div class="container" style="max-width: 800px;">
-            <h1 id="pageTitle" style="font-size: 36px; font-weight: 600; margin-bottom: 24px; letter-spacing: -1px;">Privaatsuspoliitika</h1>
-            <div id="pageText" style="color: var(--gray-dark); font-size: 16px; line-height: 1.6; display: flex; flex-direction: column; gap: 16px;">
-                <p>Dokument on hetkel koostamisel ja täiendamisel seoses pilootprojekti käivitamisega. Kõiki kogutud andmeid töödeldakse konfidentsiaalselt ja rangelt teenuse toimimise eesmärgil.</p>
-                <p>Küsimuste korral võtke meiega ühendust: <a href="mailto:info@serviceremind.ee" style="color: var(--black); font-weight: 600;">info@serviceremind.ee</a></p>
-            </div>
-            <div style="margin-top: 40px;">
-                <a href="index.html" class="btn btn-black" id="backBtn">← Tagasi pealehele</a>
-            </div>
-        </div>
+    <main class="container" style="padding: 100px 40px; min-height: 60vh;">
+        <h1 id="privTitle" style="font-size: 40px; margin-bottom: 24px;">Privaatsuspoliitika</h1>
+        <p id="privDesc" style="font-size: 18px; color: #666; max-width: 800px; margin-bottom: 24px;">Dokument on hetkel koostamisel ja täiendamisel seoses pilootprojekti käivitamisega. Kõiki kogutud andmeid töödeldakse konfidentsiaalselt ja rangelt teenuse toimimise eesmärgil.</p>
+        <p style="font-size: 18px; color: #666; margin-bottom: 40px;">
+            <span id="policyContact">Küsimuste korral võtke meiega ühendust:</span> <strong><a href="mailto:info@serviceremind.ee" style="color: #000;">info@serviceremind.ee</a></strong>
+        </p>
+        <a href="index.html" id="btnBack" class="btn btn-black">&larr; Tagasi pealehele</a>
     </main>
 
-    <!-- Футер (кнопка ведет на почту) -->
-    <footer class="footer-dark">
+    <footer id="kontakt" class="footer-dark">
         <div class="container">
             <div class="footer-top-line">
                 <span id="footerTop">Võta ühendust</span>
@@ -62,71 +59,13 @@
                     <a href="terms.html" id="linkTerms">Kasutustingimused</a>
                 </div>
             </div>
-        </div>
 
-        <div class="huge-brand-text">
-            <span>Automation.</span>
+            <div class="huge-brand-text">
+                <span>ServiceRemind.</span>
+            </div>
         </div>
     </footer>
 
-    <!-- Скрипт переключения языков -->
-    <script>
-        const legalTexts = {
-            est: {
-                title: "Privaatsuspoliitika",
-                text1: "Dokument on hetkel koostamisel ja täiendamisel seoses pilootprojekti käivitamisega. Kõiki kogutud andmeid töödeldakse konfidentsiaalselt ja rangelt teenuse toimimise eesmärgil.",
-                text2: "Küsimuste korral võtke meiega ühendust: info@serviceremind.ee",
-                back: "← Tagasi pealehele",
-                footerTop: "Võta ühendust",
-                footerHeading: "Teeme teie teeninduse nutikamaks.",
-                footerSub: "Kirjutage meile, et arutada koostööd ja saada esimeseks pilootpartneriks.",
-                footerBtn: "Esita tellimust",
-                linkPrivacy: "Privaatsus",
-                linkTerms: "Kasutustingimused"
-            },
-            eng: {
-                title: "Privacy Policy",
-                text1: "This document is currently being prepared and updated in connection with the launch of the pilot project. All collected data is processed confidentially and strictly for the purpose of operating the service.",
-                text2: "If you have any questions, please contact us at: info@serviceremind.ee",
-                back: "← Back to main page",
-                footerTop: "Get in touch",
-                footerHeading: "Let's make your service smarter.",
-                footerSub: "Write to us to discuss cooperation and become our first pilot partner.",
-                footerBtn: "Place order",
-                linkPrivacy: "Privacy",
-                linkTerms: "Terms of Use"
-            },
-            rus: {
-                title: "Политика конфиденциальности",
-                text1: "Документ в настоящее время находится в стадии разработки и дополнения в связи с запуском пилотного проекта. Все собираемые данные обрабатываются конфиденциально и исключительно в целях работы сервиса.",
-                text2: "В случае возникновения вопросов свяжитесь с нами: info@serviceremind.ee",
-                back: "← На главную страницу",
-                footerTop: "Связаться с нами",
-                footerHeading: "Сделаем ваш сервис умнее.",
-                footerSub: "Напишите нам, чтобы обсудить сотрудничество и стать первым пилотным партнером.",
-                footerBtn: "Оставить заявку",
-                linkPrivacy: "Конфиденциальность",
-                linkTerms: "Условия использования"
-            }
-        };
-
-        function changeLegalLang(lang) {
-            document.getElementById('langEst').classList.remove('active');
-            document.getElementById('langEng').classList.remove('active');
-            document.getElementById('langRus').classList.remove('active');
-            document.getElementById('lang' + lang.charAt(0).toUpperCase() + lang.slice(1)).classList.add('active');
-
-            const t = legalTexts[lang];
-            document.getElementById('pageTitle').textContent = t.title;
-            document.getElementById('pageText').innerHTML = `<p>${t.text1}</p><p>${t.text2.replace('info@serviceremind.ee', '<a href="mailto:info@serviceremind.ee" style="color: var(--black); font-weight: 600;">info@serviceremind.ee</a>')}</p>`;
-            document.getElementById('backBtn').textContent = t.back;
-            document.getElementById('footerTop').textContent = t.footerTop;
-            document.getElementById('footerHeading').textContent = t.footerHeading;
-            document.getElementById('footerSub').textContent = t.footerSub;
-            document.getElementById('footerBtn').textContent = t.footerBtn;
-            document.getElementById('linkPrivacy').textContent = t.linkPrivacy;
-            document.getElementById('linkTerms').textContent = t.linkTerms;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

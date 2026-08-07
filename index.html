@@ -9,54 +9,39 @@
 </head>
 <body>
 
-    <!-- Шапка сайта -->
     <header class="navbar">
         <div class="container nav-container">
-            
-            <!-- Левая часть: Навигация на ПК / Кнопка гамбургера на телефоне -->
             <div class="nav-left">
-                <!-- Иконка-гамбургер -->
                 <button class="hamburger-btn" id="menuBtn" aria-label="Ava menüü">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </button>
-                
-                <!-- Навигация -->
                 <nav class="nav-links" id="navMenu">
-                    <!-- Логотип для мобильного меню (div исключает баги с переводом) -->
                     <div class="mobile-logo" onclick="window.location.href='index.html'">ServiceRemind</div>
-
                     <a href="#kellele" data-est="Kellele" data-eng="For Whom" data-rus="Для кого">Kellele</a>
                     <span class="nav-divider">I</span>
-                    
                     <a href="#pakume" data-est="Kuidas see töötab" data-eng="How it works" data-rus="Как это работает">Kuidas see töötab</a>
                     <span class="nav-divider">I</span>
-                    
                     <a href="#hinnad" data-est="Hinnad" data-eng="Pricing" data-rus="Цены">Hinnad</a>
                     <span class="nav-divider">I</span>
-                    
                     <a href="#kontakt" data-est="Kontakt" data-eng="Contact" data-rus="Контакт">Kontakt</a>
                 </nav>
             </div>
-
-            <!-- Центр: Логотип (для ПК) -->
-            <a href="index.html" class="logo">ServiceRemind</a>
-
-            <!-- Правая часть: Переключатель языков -->
-            <div class="lang-switch">
-                <a href="#" onclick="changeLang('est'); return false;" class="active" id="langEst">EST</a>
-                <span class="divider">|</span>
-                <a href="#" onclick="changeLang('eng'); return false;" id="langEng">ENG</a>
-                <span class="divider">|</span>
-                <a href="#" onclick="changeLang('rus'); return false;" id="langRus">RUS</a>
+            <div class="nav-center">
+                <a href="index.html" class="logo">ServiceRemind</a>
             </div>
-            
+            <div class="nav-right">
+                <div class="lang-switch">
+                    <a href="#" onclick="changeLang('est'); return false;" class="active" id="langEst">EST</a>
+                    <span class="divider">|</span>
+                    <a href="#" onclick="changeLang('eng'); return false;" id="langEng">ENG</a>
+                    <span class="divider">|</span>
+                    <a href="#" onclick="changeLang('rus'); return false;" id="langRus">RUS</a>
+                </div>
+            </div>
         </div>
     </header>
 
     <main>
-        <!-- Главный экран -->
         <section class="hero container">
             <div class="hero-content">
                 <h1 id="heroTitle">Automatiseerime teie autoteeninduse kliendihalduse.</h1>
@@ -67,7 +52,6 @@
             </div>
         </section>
 
-        <!-- Блок статистики -->
         <section class="stats-section">
             <div class="container stats-grid">
                 <div class="stat-item">
@@ -85,7 +69,6 @@
             </div>
         </section>
 
-        <!-- Блок 1: Для кого -->
         <section id="kellele" class="section section-light">
             <div class="container">
                 <h2 class="section-title" id="titleKellele">Kellele see loodud on?</h2>
@@ -102,7 +85,6 @@
             </div>
         </section>
 
-        <!-- Блок 2: Как работает -->
         <section id="pakume" class="section">
             <div class="container">
                 <h2 class="section-title" id="titlePakume">Kuidas süsteem toimib?</h2>
@@ -124,7 +106,6 @@
                     </div>
                 </div>
 
-                <!-- Блок примера SMS -->
                 <div class="sms-preview-wrapper">
                     <h3 id="smsTitle" class="sms-title">Näide kliendile saadetavast SMS-ist:</h3>
                     <div class="sms-bubble">
@@ -134,7 +115,6 @@
             </div>
         </section>
 
-        <!-- Калькулятор -->
         <section id="kalkulaator" class="section section-light">
             <div class="container">
                 <h2 class="section-title" id="calcTitle">Arvutage oma potentsiaalne lisatulu</h2>
@@ -157,21 +137,40 @@
             </div>
         </section>
 
-        <!-- Блок 3: Цены -->
         <section id="hinnad" class="section">
             <div class="container">
                 <h2 class="section-title" id="titleHinnad">Hinnakiri</h2>
-                <div class="pricing-card">
-                    <h3 id="priceH">Pilootprojekt</h3>
-                    <div class="price">Tasuta</div>
-                    <p id="priceP">Otsime esimest partnerit Eestis. Saate süsteemi tasuta kasutada, et aidata meil seda teie vajaduste järgi täiustada ja luua suurepärane tööriist.</p>
-                    <a href="#kontakt" class="btn btn-black" id="priceBtn" style="margin-top: 24px;">Liitu piloodiga</a>
+                
+                <div class="pricing-grid">
+                    <!-- 1. Карточка -->
+                    <div class="pricing-card">
+                        <h3 id="priceH1">Pilootprojekt</h3>
+                        <div class="price" id="priceVal1">Tasuta</div>
+                        <p id="priceP1">Otsime esimest partnerit Eestis. Saate süsteemi tasuta kasutada, et aidata meil seda teie vajaduste järgi täiustada ja luua suurepärane tööriist.</p>
+                        <a href="#kontakt" class="btn btn-black pricing-btn" id="priceBtn1">Liitu piloodiga</a>
+                    </div>
+                    
+                    <!-- 2. Карточка -->
+                    <div class="pricing-card">
+                        <h3 id="priceH2">Standard</h3>
+                        <div class="price" id="priceVal2">Arenduses</div>
+                        <p id="priceP2">Täisväärtuslik pakett igapäevaseks tööks. Sisaldab automaatseid SMS-e, kalendrit ja kliendibaasi.</p>
+                        <button class="btn btn-black pricing-btn" id="priceBtn2" disabled style="opacity: 0.5; cursor: not-allowed;">Varsti tulekul</button>
+                    </div>
+
+                    <!-- 3. Карточка -->
+                    <div class="pricing-card">
+                        <h3 id="priceH3">Premium</h3>
+                        <div class="price" id="priceVal3">Arenduses</div>
+                        <p id="priceP3">Suurematele töökodadele. Mitme töökoha haldus, integratsioonid ja põhjalik analüütika.</p>
+                        <button class="btn btn-black pricing-btn" id="priceBtn3" disabled style="opacity: 0.5; cursor: not-allowed;">Varsti tulekul</button>
+                    </div>
                 </div>
+
             </div>
         </section>
     </main>
 
-    <!-- Футер -->
     <footer id="kontakt" class="footer-dark">
         <div class="container">
             <div class="footer-top-line">
@@ -189,14 +188,14 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 ServiceRemind.ee</p>
                 <div class="footer-links">
-    <a href="privacy.html" id="linkPrivacy">Privaatsus</a>
-    <a href="terms.html" id="linkTerms">Kasutustingimused</a>
-</div>
+                    <a href="privacy.html" id="linkPrivacy">Privaatsus</a>
+                    <a href="terms.html" id="linkTerms">Kasutustingimused</a>
+                </div>
             </div>
-        </div>
 
-        <div class="huge-brand-text">
-            <span>Automation.</span>
+            <div class="huge-brand-text">
+                <span>ServiceRemind.</span>
+            </div>
         </div>
     </footer>
 
