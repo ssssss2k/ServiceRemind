@@ -202,14 +202,22 @@ body {
 }
 .sms-bubble p { margin: 0; }
 .sms-bubble::after {
-    content: ''; position: absolute; bottom: 0; left: 25px; width: 20px; height: 20px;
-    background-color: #e5e5ea; border-bottom-right-radius: 15px; transform: translate(-50%, 50%); z-index: -1;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25px;
+    width: 20px;
+    height: 20px;
+    background-color: #e5e5ea;
+    border-bottom-right-radius: 15px;
+    transform: translate(-50%, 50%);
+    z-index: -1;
 }
 
-/* --- КАРТОЧКА С ЦЕНОЙ --- */
+/* --- КАРТОЧКИ С ЦЕНАМИ (2 колонки, скругление 12px) --- */
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
 
@@ -294,7 +302,7 @@ body {
 .hamburger-btn.open span:nth-child(2) { opacity: 0; }
 .hamburger-btn.open span:nth-child(3) { transform: translateY(0) rotate(-45deg); }
 
-/* --- АДАПТИВ (МЕНЬШЕ 1080px) --- */
+/* --- АДАПТИВ (ПЛАНШЕТЫ, <1080px) --- */
 @media (max-width: 1080px) {
     .hamburger-btn { display: flex; }
     
@@ -320,8 +328,12 @@ body {
     .mobile-logo { display: block; position: absolute; top: 32px; font-size: 20px; font-weight: 700; color: #000; cursor: pointer; }
 
     .hero h1 { font-size: 40px; }
-    .grid-2, .stats-grid, .grid-3, .pricing-grid { grid-template-columns: 1fr; }
+    
+    .grid-2, .stats-grid, .grid-3 {
+        grid-template-columns: 1fr;
+    }
     .grid-3 { gap: 30px; }
+    
     .footer-heading { font-size: 40px; }
     .email-plain { font-size: 28px; }
     .contact-row { gap: 16px; }
@@ -331,9 +343,14 @@ body {
     .card:last-child { border-bottom: none; padding-bottom: 0; }
     
     .calculator-box { grid-template-columns: 1fr; gap: 30px; padding: 40px 30px; }
+
+    /* На планшетах цены остаются в 2 колонки */
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-/* --- АДАПТИВ (МЕНЬШЕ 768px) --- */
+/* --- АДАПТИВ (МОБИЛЬНЫЕ ТЕЛЕФОНЫ, <768px) --- */
 @media (max-width: 768px) {
     .logo { font-size: 15px; letter-spacing: -0.2px; }
     .lang-switch { font-size: 10px; gap: 2px; }
@@ -352,6 +369,11 @@ body {
     .calc-result-item span { font-size: 14px; }
     .calc-result-item strong { font-size: 18px; }
 
+    /* На телефонах карточки цен в 1 колонку */
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
     .footer-dark { padding: 60px 0 30px 0; }
     .footer-heading { font-size: 32px; }
     .email-plain { font-size: 24px; }
@@ -361,7 +383,7 @@ body {
     .huge-brand-text { font-size: 8.5vw; padding-left: 0; margin-left: -3px; margin-top: 40px; }
 }
 
-/* --- АДАПТИВ (МЕНЬШЕ 480px) --- */
+/* --- АДАПТИВ (ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ, <480px) --- */
 @media (max-width: 480px) {
     .logo { font-size: 14px; }
     .lang-switch { font-size: 9px; }
@@ -375,3 +397,22 @@ body {
     
     .huge-brand-text { font-size: 10vw; margin-left: -2px; }
 }
+
+/* --- АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-on-scroll:nth-child(1) { transition-delay: 0.05s; }
+.animate-on-scroll:nth-child(2) { transition-delay: 0.10s; }
+.animate-on-scroll:nth-child(3) { transition-delay: 0.15s; }
+.animate-on-scroll:nth-child(4) { transition-delay: 0.20s; }
+.animate-on-scroll:nth-child(5) { transition-delay: 0.25s; }
+.animate-on-scroll:nth-child(6) { transition-delay: 0.30s; }

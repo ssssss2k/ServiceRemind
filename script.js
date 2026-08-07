@@ -16,7 +16,7 @@ if (range) {
     });
 }
 
-// Забираем язык из памяти браузера, чтобы он не сбрасывался при переходе на другие страницы
+// Забираем язык из памяти браузера
 let currentLang = localStorage.getItem('siteLang') || 'est'; 
 
 const translations = {
@@ -26,7 +26,7 @@ const translations = {
         heroDesc: "Kliendid unustavad hooldusaja? Meie süsteem saadab neile SMS-meeldetuletuse ja toob nad teie juurde tagasi – ilma kalli tarkvarata.",
         heroBtn: "Alusta tasuta pilooti",
         stat1: "Klientidest unustab tähtajalise õlivahetuse või rehvivahetuse",
-        stat2: "Lisaseadmete või keerulise koolituse kulu",
+        stat2: "Piisab vaid arvutist või sülearvutist – lisaseadmeid pole vaja",  // ← изменено
         stat3: "Aega uue auto ja kliendi andmete sisestamiseks",
         titleKellele: "Kellele see loodud on?",
         kelleleH1: "Väikestele ja keskmistele töökodadele",
@@ -48,21 +48,14 @@ const translations = {
         calcRes2: "Lisatulu kuus (hinnanguliselt)",
         
         titleHinnad: "Hinnakiri",
-        // Карточка 1
         priceH1: "Pilootprojekt",
         priceVal1: "Tasuta",
         priceP1: "Otsime esimest partnerit Eestis. Saate süsteemi tasuta kasutada, et aidata meil seda teie vajaduste järgi täiustada ja luua suurepärane tööriist.",
         priceBtn1: "Liitu piloodiga",
-        // Карточка 2
         priceH2: "Standard",
         priceVal2: "Arenduses",
         priceP2: "Täisväärtuslik pakett igapäevaseks tööks. Sisaldab automaatseid SMS-e, kalendrit ja kliendibaasi.",
         priceBtn2: "Varsti tulekul",
-        // Карточка 3
-        priceH3: "Premium",
-        priceVal3: "Arenduses",
-        priceP3: "Suurematele töökodadele. Mitme töökoha haldus, integratsioonid ja põhjalik analüütika.",
-        priceBtn3: "Varsti tulekul",
         
         footerTop: "Võta ühendust",
         footerHeading: "Teeme teie teeninduse nutikamaks.",
@@ -71,7 +64,6 @@ const translations = {
         linkPrivacy: "Privaatsus",
         linkTerms: "Kasutustingimused",
 
-        // Страницы политик
         navBack: "← Tagasi",
         btnBack: "← Tagasi pealehele",
         policyContact: "Küsimuste korral võtke meiega ühendust:",
@@ -86,7 +78,7 @@ const translations = {
         heroDesc: "Customers forgetting maintenance? Our system sends them SMS reminders and brings them back – without expensive software.",
         heroBtn: "Start free pilot",
         stat1: "Of customers forget scheduled oil or tire changes",
-        stat2: "Cost of additional hardware or complex training",
+        stat2: "Only a computer or laptop is enough – no extra hardware needed",  // ← изменено
         stat3: "Time to enter a new car and client details",
         titleKellele: "Who is this built for?",
         kelleleH1: "For small and medium repair shops",
@@ -108,21 +100,14 @@ const translations = {
         calcRes2: "Monthly extra revenue (estimated)",
         
         titleHinnad: "Pricing",
-        // Карточка 1
         priceH1: "Pilot Project",
         priceVal1: "Free",
         priceP1: "Looking for our first partner in Estonia. Use the system for free to help us tailor it to your needs and build an amazing tool.",
         priceBtn1: "Join pilot",
-        // Карточка 2
         priceH2: "Standard",
         priceVal2: "In development",
         priceP2: "Full-featured package for daily work. Includes automated SMS, calendar, and client base.",
         priceBtn2: "Coming soon",
-        // Карточка 3
-        priceH3: "Premium",
-        priceVal3: "In development",
-        priceP3: "For larger workshops. Multi-station management, integrations, and detailed analytics.",
-        priceBtn3: "Coming soon",
 
         footerTop: "Get in touch",
         footerHeading: "Let's make your service smarter.",
@@ -131,7 +116,6 @@ const translations = {
         linkPrivacy: "Privacy",
         linkTerms: "Terms of Use",
 
-        // Страницы политик
         navBack: "← Back",
         btnBack: "← Back to main page",
         policyContact: "If you have any questions, contact us:",
@@ -146,7 +130,7 @@ const translations = {
         heroDesc: "Клиенты забывают вовремя делать ТО? Наша система отправит им SMS-напоминание и вернет к вам – без дорогого софта.",
         heroBtn: "Начать бесплатный пилот",
         stat1: "Клиентов забывают вовремя сменить масло или резину",
-        stat2: "Затраты на оборудование или сложное обучение",
+        stat2: "Достаточно только компьютера или ноутбука – дополнительное оборудование не требуется",  // ← изменено
         stat3: "Время на ввод нового авто и данных клиента",
         titleKellele: "Для кого это создано?",
         kelleleH1: "Для малых и средних автосервисов",
@@ -168,21 +152,14 @@ const translations = {
         calcRes2: "Доп. доход в месяц (оценка)",
         
         titleHinnad: "Цены",
-        // Карточка 1
         priceH1: "Пилотный проект",
         priceVal1: "Бесплатно",
         priceP1: "Ищем первого партнера в Эстонии. Вы можете использовать систему бесплатно, помогая нам улучшить ее под ваши задачи.",
         priceBtn1: "Участвовать в пилоте",
-        // Карточка 2
         priceH2: "Стандарт",
         priceVal2: "В разработке",
         priceP2: "Полноценный пакет для ежедневной работы. Включает автоматические SMS, календарь и базу клиентов.",
         priceBtn2: "Скоро",
-        // Карточка 3
-        priceH3: "Премиум",
-        priceVal3: "В разработке",
-        priceP3: "Для крупных мастерских. Управление несколькими постами, интеграции и детальная аналитика.",
-        priceBtn3: "Скоро",
 
         footerTop: "Связаться с нами",
         footerHeading: "Сделаем ваш сервис умнее.",
@@ -191,7 +168,6 @@ const translations = {
         linkPrivacy: "Конфиденциальность",
         linkTerms: "Условия использования",
 
-        // Страницы политик
         navBack: "← Назад",
         btnBack: "← Назад на главную",
         policyContact: "Если у вас есть вопросы, свяжитесь с нами:",
@@ -204,7 +180,7 @@ const translations = {
 
 function changeLang(lang) {
     currentLang = lang;
-    localStorage.setItem('siteLang', lang); // Сохраняем язык в память
+    localStorage.setItem('siteLang', lang);
     
     const langEst = document.getElementById('langEst');
     const langEng = document.getElementById('langEng');
@@ -264,7 +240,6 @@ function changeLang(lang) {
     
     setEl('titleHinnad', t.titleHinnad);
     
-    // Переводы цен
     setEl('priceH1', t.priceH1);
     setEl('priceVal1', t.priceVal1);
     setEl('priceP1', t.priceP1);
@@ -274,11 +249,6 @@ function changeLang(lang) {
     setEl('priceVal2', t.priceVal2);
     setEl('priceP2', t.priceP2);
     setEl('priceBtn2', t.priceBtn2);
-
-    setEl('priceH3', t.priceH3);
-    setEl('priceVal3', t.priceVal3);
-    setEl('priceP3', t.priceP3);
-    setEl('priceBtn3', t.priceBtn3);
     
     setEl('footerTop', t.footerTop);
     setEl('footerHeading', t.footerHeading);
@@ -288,7 +258,6 @@ function changeLang(lang) {
     setEl('linkPrivacy', t.linkPrivacy);
     setEl('linkTerms', t.linkTerms);
 
-    // Переводы для страниц политик
     setEl('navBack', t.navBack);
     setEl('btnBack', t.btnBack);
     setEl('policyContact', t.policyContact);
@@ -300,7 +269,6 @@ function changeLang(lang) {
     if (range) range.dispatchEvent(new Event('input')); 
 }
 
-// Запуск перевода при загрузке страницы, чтобы применить сохраненный язык
 document.addEventListener('DOMContentLoaded', () => {
     changeLang(currentLang);
 });
@@ -324,3 +292,24 @@ if (menuBtn && navMenu) {
         });
     });
 }
+
+// --- АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ ---
+const elementsToAnimate = document.querySelectorAll(
+    '.stat-item, .pricing-card, .text-block, .card, .calculator-box'
+);
+elementsToAnimate.forEach(el => el.classList.add('animate-on-scroll'));
+
+const animationObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -30px 0px'
+});
+
+document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    animationObserver.observe(el);
+});
