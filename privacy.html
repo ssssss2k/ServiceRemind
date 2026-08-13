@@ -66,6 +66,37 @@
         </div>
     </footer>
 
+    <!-- Модальное окно для формы -->
+    <dialog id="contactModal" class="contact-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModalBtn" aria-label="Sulge">&times;</button>
+            
+            <h2 id="modalTitle">Saada päring</h2>
+            <p id="modalDesc">Jätke oma andmed ja me võtame teiega ühendust.</p>
+            
+            <!-- Замените URL в action на тот, что выдаст Formspree -->
+            <form action="https://formspree.io/f/mnpazjve" method="POST" class="modal-form">
+                <label class="modal-field">
+                    <span id="modalName">Nimi *</span>
+                    <input type="text" name="Nimi" required>
+                </label>
+                
+                <label class="modal-field">
+                    <span id="modalEmail">Email *</span>
+                    <input type="email" name="Email" required>
+                </label>
+                
+                <label class="modal-field">
+                    <span id="modalMessage">Sõnum *</span>
+                    <textarea name="Sõnum" rows="4" required></textarea>
+                </label>
+                
+                <button type="submit" class="btn btn-black" id="modalSubmit" style="width: 100%; margin-top: 10px;">Saada</button>
+            </form>
+        </div>
+    </dialog>
+
+
     <script src="script.js"></script>
 </body>
 </html>

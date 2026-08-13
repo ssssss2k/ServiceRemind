@@ -58,12 +58,10 @@
                     <div class="stat-num">30%</div>
                     <div class="stat-text" id="stat1">Klientidest unustab tähtajalise õlivahetuse või rehvivahetuse</div>
                 </div>
-                <!-- Поменяли местами: теперь второй блок - 2 min -->
                 <div class="stat-item">
                     <div class="stat-num">2 min</div>
                     <div class="stat-text" id="stat3">Aega uue auto ja kliendi andmete sisestamiseks</div>
                 </div>
-                <!-- Теперь третий блок - 0€ с обновлённым текстом -->
                 <div class="stat-item">
                     <div class="stat-num">0€</div>
                     <div class="stat-text" id="stat2">Piisab vaid arvutist või sülearvutist – lisaseadmeid pole vaja</div>
@@ -144,7 +142,6 @@
                 <h2 class="section-title" id="titleHinnad">Hinnakiri</h2>
                 
                 <div class="pricing-grid">
-                    <!-- 1. Карточка - Piloot -->
                     <div class="pricing-card">
                         <h3 id="priceH1">Pilootprojekt</h3>
                         <div class="price" id="priceVal1">Tasuta</div>
@@ -152,7 +149,6 @@
                         <a href="#kontakt" class="btn btn-black pricing-btn" id="priceBtn1">Liitu piloodiga</a>
                     </div>
                     
-                    <!-- 2. Карточка - Standard -->
                     <div class="pricing-card">
                         <h3 id="priceH2">Standard</h3>
                         <div class="price" id="priceVal2">Arenduses</div>
@@ -176,7 +172,7 @@
             
             <div class="contact-row">
                 <a href="mailto:info.serviceremind@gmail.com" class="email-plain">info.serviceremind@gmail.com</a>
-                <a href="mailto:info.serviceremind@gmail.com" class="btn-pill" id="footerBtn">Esita tellimust</a>
+                <button class="btn-pill" id="footerBtn" style="border: none; cursor: pointer;">Esita tellimust</button>
             </div>
 
             <div class="footer-bottom">
@@ -192,6 +188,36 @@
             </div>
         </div>
     </footer>
+
+    <!-- Модальное окно для формы -->
+    <dialog id="contactModal" class="contact-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModalBtn" aria-label="Sulge">&times;</button>
+            
+            <h2 id="modalTitle">Saada päring</h2>
+            <p id="modalDesc">Jätke oma andmed ja me võtame teiega ühendust.</p>
+            
+            <!-- Замените URL в action на тот, что выдаст Formspree -->
+            <form action="https://formspree.io/f/mnpazjve" method="POST" class="modal-form">
+                <label class="modal-field">
+                    <span id="modalName">Nimi *</span>
+                    <input type="text" name="Nimi" required>
+                </label>
+                
+                <label class="modal-field">
+                    <span id="modalEmail">Email *</span>
+                    <input type="email" name="Email" required>
+                </label>
+                
+                <label class="modal-field">
+                    <span id="modalMessage">Sõnum *</span>
+                    <textarea name="Sõnum" rows="4" required></textarea>
+                </label>
+                
+                <button type="submit" class="btn btn-black" id="modalSubmit" style="width: 100%; margin-top: 10px;">Saada</button>
+            </form>
+        </div>
+    </dialog>
 
     <script src="script.js"></script>
 </body>

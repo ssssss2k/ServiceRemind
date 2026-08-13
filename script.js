@@ -26,7 +26,7 @@ const translations = {
         heroDesc: "Kliendid unustavad hooldusaja? Meie süsteem saadab neile SMS-meeldetuletuse ja toob nad teie juurde tagasi – ilma kalli tarkvarata.",
         heroBtn: "Alusta tasuta pilooti",
         stat1: "Klientidest unustab tähtajalise õlivahetuse või rehvivahetuse",
-        stat2: "Piisab vaid arvutist või sülearvutist – lisaseadmeid pole vaja",  // ← изменено
+        stat2: "Piisab vaid arvutist või sülearvutist – lisaseadmeid pole vaja",
         stat3: "Aega uue auto ja kliendi andmete sisestamiseks",
         titleKellele: "Kellele see loodud on?",
         kelleleH1: "Väikestele ja keskmistele töökodadele",
@@ -70,7 +70,15 @@ const translations = {
         privTitle: "Privaatsuspoliitika",
         privDesc: "Dokument on hetkel koostamisel ja täiendamisel seoses pilootprojekti käivitamisega. Kõiki kogutud andmeid töödeldakse konfidentsiaalselt ja rangelt teenuse toimimise eesmärgil.",
         termsTitle: "Kasutustingimused",
-        termsDesc: "Dokument on hetkel koostamisel ja täiendamisel seoses pilootprojekti käivitamisega. Teenuse kasutamine toimub hetkel pilootprojekti raames kokkuleppel partneritega."
+        termsDesc: "Dokument on hetkel koostamisel ja täiendamisel seoses pilootprojekti käivitamisega. Teenuse kasutamine toimub hetkel pilootprojekti raames kokkuleppel partneritega.",
+        
+        // Переводы модального окна
+        modalTitle: "Saada päring",
+        modalDesc: "Jätke oma andmed ja me võtame teiega ühendust.",
+        modalName: "Nimi *",
+        modalEmail: "Email *",
+        modalMessage: "Sõnum *",
+        modalSubmit: "Saada"
     },
     eng: {
         nav: ["For Whom", "How it works", "Pricing", "Contact"],
@@ -78,7 +86,7 @@ const translations = {
         heroDesc: "Customers forgetting maintenance? Our system sends them SMS reminders and brings them back – without expensive software.",
         heroBtn: "Start free pilot",
         stat1: "Of customers forget scheduled oil or tire changes",
-        stat2: "Only a computer or laptop is enough – no extra hardware needed",  // ← изменено
+        stat2: "Only a computer or laptop is enough – no extra hardware needed",
         stat3: "Time to enter a new car and client details",
         titleKellele: "Who is this built for?",
         kelleleH1: "For small and medium repair shops",
@@ -122,7 +130,15 @@ const translations = {
         privTitle: "Privacy Policy",
         privDesc: "This document is currently being drafted and updated in connection with the launch of the pilot project. All collected data is treated confidentially and strictly for the purpose of service operation.",
         termsTitle: "Terms of Use",
-        termsDesc: "This document is currently being drafted and updated in connection with the launch of the pilot project. Use of the service is currently subject to agreement with partners within the pilot project."
+        termsDesc: "This document is currently being drafted and updated in connection with the launch of the pilot project. Use of the service is currently subject to agreement with partners within the pilot project.",
+        
+        // Переводы модального окна
+        modalTitle: "Send request",
+        modalDesc: "Leave your details and we will contact you.",
+        modalName: "Name *",
+        modalEmail: "Email *",
+        modalMessage: "Message *",
+        modalSubmit: "Send"
     },
     rus: {
         nav: ["Для кого", "Как это работает", "Цены", "Контакт"],
@@ -130,7 +146,7 @@ const translations = {
         heroDesc: "Клиенты забывают вовремя делать ТО? Наша система отправит им SMS-напоминание и вернет к вам – без дорогого софта.",
         heroBtn: "Начать бесплатный пилот",
         stat1: "Клиентов забывают вовремя сменить масло или резину",
-        stat2: "Достаточно только компьютера или ноутбука – дополнительное оборудование не требуется",  // ← изменено
+        stat2: "Достаточно только компьютера или ноутбука – дополнительное оборудование не требуется",
         stat3: "Время на ввод нового авто и данных клиента",
         titleKellele: "Для кого это создано?",
         kelleleH1: "Для малых и средних автосервисов",
@@ -174,7 +190,15 @@ const translations = {
         privTitle: "Политика конфиденциальности",
         privDesc: "Документ в настоящее время составляется и дополняется в связи с запуском пилотного проекта. Все собранные данные обрабатываются конфиденциально и строго в целях работы сервиса.",
         termsTitle: "Условия использования",
-        termsDesc: "Документ в настоящее время составляется и дополняется в связи с запуском пилотного проекта. Использование сервиса в настоящее время осуществляется по согласованию с партнерами в рамках пилотного проекта."
+        termsDesc: "Документ в настоящее время составляется и дополняется в связи с запуском пилотного проекта. Использование сервиса в настоящее время осуществляется по согласованию с партнерами в рамках пилотного проекта.",
+        
+        // Переводы модального окна
+        modalTitle: "Отправить запрос",
+        modalDesc: "Оставьте свои данные и мы свяжемся с вами.",
+        modalName: "Имя *",
+        modalEmail: "Email *",
+        modalMessage: "Сообщение *",
+        modalSubmit: "Отправить"
     }
 };
 
@@ -265,6 +289,14 @@ function changeLang(lang) {
     setEl('privDesc', t.privDesc);
     setEl('termsTitle', t.termsTitle);
     setEl('termsDesc', t.termsDesc);
+    
+    // Перевод модального окна
+    setEl('modalTitle', t.modalTitle);
+    setEl('modalDesc', t.modalDesc);
+    setEl('modalName', t.modalName);
+    setEl('modalEmail', t.modalEmail);
+    setEl('modalMessage', t.modalMessage);
+    setEl('modalSubmit', t.modalSubmit);
 
     if (range) range.dispatchEvent(new Event('input')); 
 }
@@ -313,3 +345,41 @@ const animationObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.animate-on-scroll').forEach(el => {
     animationObserver.observe(el);
 });
+
+// --- ЛОГИКА МОДАЛЬНОГО ОКНА ---
+const contactModal = document.getElementById('contactModal');
+const footerBtn = document.getElementById('footerBtn');
+const closeModalBtn = document.getElementById('closeModalBtn');
+
+// Открытие окна
+if (footerBtn && contactModal) {
+    footerBtn.addEventListener('click', (e) => {
+        e.preventDefault(); 
+        contactModal.showModal();
+        document.body.style.overflow = 'hidden'; // Убираем прокрутку сайта на фоне
+    });
+}
+
+// Закрытие окна по кнопке "X"
+if (closeModalBtn && contactModal) {
+    closeModalBtn.addEventListener('click', () => {
+        contactModal.close();
+        document.body.style.overflow = ''; 
+    });
+}
+
+// Закрытие окна при клике на темный фон (backdrop)
+if (contactModal) {
+    contactModal.addEventListener('click', (e) => {
+        const dialogDimensions = contactModal.getBoundingClientRect();
+        if (
+            e.clientX < dialogDimensions.left ||
+            e.clientX > dialogDimensions.right ||
+            e.clientY < dialogDimensions.top ||
+            e.clientY > dialogDimensions.bottom
+        ) {
+            contactModal.close();
+            document.body.style.overflow = '';
+        }
+    });
+}
