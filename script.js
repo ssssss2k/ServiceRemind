@@ -16,7 +16,6 @@ if (range) {
     });
 }
 
-// Забираем язык из памяти браузера
 let currentLang = localStorage.getItem('siteLang') || 'est'; 
 
 const translations = {
@@ -56,6 +55,10 @@ const translations = {
         priceVal2: "Arenduses",
         priceP2: "Täisväärtuslik pakett igapäevaseks tööks. Sisaldab automaatseid SMS-e, kalendrit ja kliendibaasi.",
         priceBtn2: "Varsti tulekul",
+        priceH3: "Personaalne veebileht",
+        priceVal3: "Alates 250€",
+        priceP3: "Loome teie autoteenindusele kaasaegse ja mugava veebilehe. Täislahendus disainist kuni käivitamiseni.",
+        priceBtn3: "Võtke meiega ühendust",
         
         footerTop: "Võta ühendust",
         footerHeading: "Teeme teie teeninduse nutikamaks.",
@@ -72,13 +75,15 @@ const translations = {
         termsTitle: "Kasutustingimused",
         termsDesc: "Dokument on hetkel koostamisel ja täiendamisel seoses pilootprojekti käivitamisega. Teenuse kasutamine toimub hetkel pilootprojekti raames kokkuleppel partneritega.",
         
-        // Переводы модального окна
         modalTitle: "Saada päring",
         modalDesc: "Jätke oma andmed ja me võtame teiega ühendust.",
         modalName: "Nimi *",
         modalEmail: "Email *",
         modalMessage: "Sõnum *",
-        modalSubmit: "Saada"
+        modalSubmit: "Saada",
+        
+        toastSuccess: "Sõnum on edukalt saadetud",
+        toastError: "Viga saatmisel. Proovige uuesti"
     },
     eng: {
         nav: ["For Whom", "How it works", "Pricing", "Contact"],
@@ -116,6 +121,10 @@ const translations = {
         priceVal2: "In development",
         priceP2: "Full-featured package for daily work. Includes automated SMS, calendar, and client base.",
         priceBtn2: "Coming soon",
+        priceH3: "Custom Website",
+        priceVal3: "From 250€",
+        priceP3: "We will build a modern and convenient website for your auto service. Full solution from design to launch.",
+        priceBtn3: "Contact us",
 
         footerTop: "Get in touch",
         footerHeading: "Let's make your service smarter.",
@@ -132,13 +141,15 @@ const translations = {
         termsTitle: "Terms of Use",
         termsDesc: "This document is currently being drafted and updated in connection with the launch of the pilot project. Use of the service is currently subject to agreement with partners within the pilot project.",
         
-        // Переводы модального окна
         modalTitle: "Send request",
         modalDesc: "Leave your details and we will contact you.",
         modalName: "Name *",
         modalEmail: "Email *",
         modalMessage: "Message *",
-        modalSubmit: "Send"
+        modalSubmit: "Send",
+        
+        toastSuccess: "Message sent successfully",
+        toastError: "Error sending message. Please try again"
     },
     rus: {
         nav: ["Для кого", "Как это работает", "Цены", "Контакт"],
@@ -176,6 +187,10 @@ const translations = {
         priceVal2: "В разработке",
         priceP2: "Полноценный пакет для ежедневной работы. Включает автоматические SMS, календарь и базу клиентов.",
         priceBtn2: "Скоро",
+        priceH3: "Персональный сайт",
+        priceVal3: "От 250€",
+        priceP3: "Создадим современный и удобный сайт для вашего автосервиса. Полное решение от дизайна до запуска.",
+        priceBtn3: "Связаться с нами",
 
         footerTop: "Связаться с нами",
         footerHeading: "Сделаем ваш сервис умнее.",
@@ -192,13 +207,15 @@ const translations = {
         termsTitle: "Условия использования",
         termsDesc: "Документ в настоящее время составляется и дополняется в связи с запуском пилотного проекта. Использование сервиса в настоящее время осуществляется по согласованию с партнерами в рамках пилотного проекта.",
         
-        // Переводы модального окна
         modalTitle: "Отправить запрос",
         modalDesc: "Оставьте свои данные и мы свяжемся с вами.",
         modalName: "Имя *",
         modalEmail: "Email *",
         modalMessage: "Сообщение *",
-        modalSubmit: "Отправить"
+        modalSubmit: "Отправить",
+        
+        toastSuccess: "Письмо успешно отправлено",
+        toastError: "Ошибка при отправке. Попробуйте еще раз"
     }
 };
 
@@ -274,6 +291,11 @@ function changeLang(lang) {
     setEl('priceP2', t.priceP2);
     setEl('priceBtn2', t.priceBtn2);
     
+    setEl('priceH3', t.priceH3);
+    setEl('priceVal3', t.priceVal3);
+    setEl('priceP3', t.priceP3);
+    setEl('priceBtn3', t.priceBtn3);
+    
     setEl('footerTop', t.footerTop);
     setEl('footerHeading', t.footerHeading);
     setEl('footerSub', t.footerSub);
@@ -290,7 +312,6 @@ function changeLang(lang) {
     setEl('termsTitle', t.termsTitle);
     setEl('termsDesc', t.termsDesc);
     
-    // Перевод модального окна
     setEl('modalTitle', t.modalTitle);
     setEl('modalDesc', t.modalDesc);
     setEl('modalName', t.modalName);
@@ -351,16 +372,14 @@ const contactModal = document.getElementById('contactModal');
 const footerBtn = document.getElementById('footerBtn');
 const closeModalBtn = document.getElementById('closeModalBtn');
 
-// Открытие окна
 if (footerBtn && contactModal) {
     footerBtn.addEventListener('click', (e) => {
         e.preventDefault(); 
         contactModal.showModal();
-        document.body.style.overflow = 'hidden'; // Убираем прокрутку сайта на фоне
+        document.body.style.overflow = 'hidden'; 
     });
 }
 
-// Закрытие окна по кнопке "X"
 if (closeModalBtn && contactModal) {
     closeModalBtn.addEventListener('click', () => {
         contactModal.close();
@@ -368,7 +387,6 @@ if (closeModalBtn && contactModal) {
     });
 }
 
-// Закрытие окна при клике на темный фон (backdrop)
 if (contactModal) {
     contactModal.addEventListener('click', (e) => {
         const dialogDimensions = contactModal.getBoundingClientRect();
@@ -381,5 +399,72 @@ if (contactModal) {
             contactModal.close();
             document.body.style.overflow = '';
         }
+    });
+}
+
+// --- AJAX ФОРМА И УВЕДОМЛЕНИЯ (Без переброса на Formspree) ---
+const modalForm = document.querySelector('.modal-form');
+
+// Создаем элемент уведомления и добавляем его в body
+const toastElement = document.createElement('div');
+toastElement.id = 'toastMessage';
+toastElement.className = 'toast';
+document.body.appendChild(toastElement);
+
+function showToast(message, isError = false) {
+    toastElement.textContent = message;
+    if (isError) {
+        toastElement.classList.add('error');
+    } else {
+        toastElement.classList.remove('error');
+    }
+    toastElement.classList.add('show');
+    
+    // Скрываем через 3.5 секунды
+    setTimeout(() => {
+        toastElement.classList.remove('show');
+    }, 3500);
+}
+
+if (modalForm) {
+    modalForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Останавливаем стандартную отправку (предотвращает переход)
+        
+        const submitBtn = document.getElementById('modalSubmit');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.textContent = '...'; // Визуально показываем загрузку
+        submitBtn.disabled = true;
+
+        const formData = new FormData(modalForm);
+
+        fetch(modalForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                // Если успешно
+                showToast(translations[currentLang].toastSuccess, false);
+                modalForm.reset(); // Очищаем форму
+                
+                // Закрываем окно
+                if (contactModal) {
+                    contactModal.close();
+                    document.body.style.overflow = ''; 
+                }
+            } else {
+                // Ошибка от сервера
+                showToast(translations[currentLang].toastError, true);
+            }
+        }).catch(error => {
+            // Ошибка сети
+            showToast(translations[currentLang].toastError, true);
+        }).finally(() => {
+            // Возвращаем кнопку в исходное состояние
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+        });
     });
 }
