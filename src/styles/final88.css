@@ -1,0 +1,258 @@
+/* ServiceRemind 8.8 final polish.
+   Deliberately small override layer: layout + visual consistency only. */
+
+:root {
+  --sr-page: #f4f5f2;
+  --sr-surface: #ffffff;
+  --sr-soft: #f0f1ee;
+  --sr-ink: #111311;
+  --sr-muted: #6f746c;
+  --sr-line: #e1e4de;
+  --sr-dark: #0d0f0c;
+}
+
+/* Public landing */
+.audience-section {
+  background: var(--sr-dark) !important;
+  color: #fff !important;
+}
+.audience-section .section-heading-compact > span { color: #969b93 !important; }
+.audience-section .section-title { color: #fff !important; }
+.audience-card {
+  min-height: 220px !important;
+  border: 0 !important;
+  background: #fff !important;
+  color: var(--sr-ink) !important;
+  box-shadow: none !important;
+}
+.audience-card-index { background: #eef0eb !important; color: #60665e !important; }
+.audience-card p { color: #6d726a !important; }
+
+.how-minimal-section { background: #f7f8f5 !important; }
+.how-editorial-layout {
+  display: grid;
+  grid-template-columns: minmax(250px, .78fr) minmax(0, 1.35fr);
+  gap: clamp(56px, 8vw, 130px);
+  align-items: start;
+}
+.how-editorial-copy { position: sticky; top: 110px; margin-bottom: 0 !important; }
+.how-editorial-steps { display: grid; gap: 0; }
+.how-editorial-step {
+  display: grid;
+  grid-template-columns: 44px minmax(0,1fr);
+  gap: 22px;
+  padding: 28px 0;
+  border-top: 1px solid #dfe2dc;
+}
+.how-editorial-step:last-child { border-bottom: 1px solid #dfe2dc; }
+.how-editorial-index {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #171917;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 750;
+}
+.how-editorial-step h3 { margin: 2px 0 9px; font-size: 23px; letter-spacing: -.5px; }
+.how-editorial-step p { max-width: 620px; margin: 0; color: #6f746c; line-height: 1.58; }
+
+/* Product walkthrough: dark section, fixed white demo surface. */
+.workflow-showcase-section {
+  background: #0c0e0b !important;
+  color: #fff !important;
+}
+.workflow-showcase-copy-centered h2 { color: #fff !important; }
+.workflow-showcase-copy-centered p { color: #a5aaa1 !important; }
+.workflow-demo-shell {
+  min-height: 438px;
+  border: 1px solid #dfe2dc !important;
+  background: #f4f5f2 !important;
+  box-shadow: 0 30px 70px rgba(0,0,0,.24) !important;
+}
+.workflow-play-toggle {
+  border: 1px solid #d9ddd5 !important;
+  background: #fff !important;
+  color: #111 !important;
+}
+.workflow-play-toggle:hover { background: #eceee9 !important; }
+.workflow-demo-tabs { min-height: 74px; }
+.workflow-demo-tab {
+  color: #747a72 !important;
+  background: transparent !important;
+}
+.workflow-demo-tab:hover { background: #e8eae6 !important; }
+.workflow-demo-tab.active { background: #fff !important; color: #111 !important; }
+.workflow-tab-progress { background: #e2e5de !important; }
+.workflow-tab-progress::after { background: #111 !important; }
+.workflow-demo-stage-minimal {
+  height: 330px !important;
+  min-height: 330px !important;
+  max-height: 330px !important;
+  overflow: hidden;
+  background: #fff !important;
+  color: #111 !important;
+  border: 1px solid #e3e6df !important;
+}
+.workflow-stage-kicker { color: #7b8178 !important; }
+.workflow-demo-stage-minimal h3 { color: #111 !important; }
+.workflow-stage-primary { color: #242824 !important; }
+.workflow-demo-stage-minimal > p { color: #747a72 !important; }
+.workflow-stage-facts span { background: #eff1ed !important; color: #414641 !important; }
+.workflow-stage-facts b { color: #777d75 !important; }
+
+/* Footer: compact and flat. */
+.footer-dark,
+.workspace-footer { border-radius: 0 !important; }
+.footer-compact { padding-top: 34px !important; }
+.footer-contact-row { margin-bottom: 24px !important; }
+.footer-soon-btn:disabled {
+  opacity: .46;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.workspace-footer-brand-row { align-items: flex-end !important; }
+.workspace-footer .workspace-feedback-btn { flex: 0 0 auto; }
+
+/* Workspace: opaque surfaces, no glass except the global header. */
+.dashboard-shell,
+.dashboard-main { background: var(--sr-page) !important; }
+.workspace-tabs-split .workspace-tab-rail {
+  background: #eceeea !important;
+  border: 1px solid #e0e3dc !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.workspace-tabs-split .workspace-tab-slider {
+  background: #fff !important;
+  border: 1px solid #fff !important;
+  box-shadow: 0 4px 12px rgba(30,34,28,.06) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.workspace-day-summary {
+  background: #fff !important;
+  border: 1px solid var(--sr-line) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.workspace-day-metric {
+  min-height: 58px !important;
+  border: 0 !important;
+  background: #111311 !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+.workspace-day-metric span { color: #bfc4bc !important; }
+.workspace-day-metric strong { color: #fff !important; }
+button.workspace-day-metric.clickable:hover { background: #252925 !important; }
+
+.workspace-links-panel,
+.workspace-resource-link,
+.workspace-system-link,
+.daily-schedule-panel,
+.workspace-calendar-panel,
+.client-directory-panel,
+.work-history-panel,
+.owner-mechanics-panel,
+.activity-log-panel {
+  background: #fff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.workspace-resource-link,
+.workspace-system-link {
+  border: 1px solid var(--sr-line) !important;
+  box-shadow: none !important;
+}
+.workspace-resource-link:hover { background: #f5f6f3 !important; }
+
+/* Booking / service forms */
+.work-modal-clean,
+.auth-card { background: #fff !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+.client-picker-search-row {
+  grid-template-columns: minmax(0, 1fr) 46px !important;
+  gap: 8px !important;
+}
+.client-picker-list-toggle {
+  min-width: 46px !important;
+  width: 46px !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  padding: 0 !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+}
+.client-picker-list-toggle svg { transition: transform .18s ease !important; }
+.client-picker-list-toggle.open svg { transform: rotate(90deg) !important; }
+.service-flow-steps {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 6px !important;
+  background: #eff1ed !important;
+}
+.service-flow-steps > span { width: 100% !important; min-width: 0 !important; justify-content: center !important; }
+.workspace-heading-actions .workspace-heading-action,
+.workspace-heading-actions .dashboard-primary-action { width: 220px !important; min-width: 220px !important; }
+.work-form-actions.service-flow-actions > button { width: 154px !important; min-width: 154px !important; }
+
+/* Contact required marks */
+.modal-field > span { display: inline-flex; align-items: flex-start; gap: 4px; }
+.modal-field .required-mark { color: #c43c31 !important; }
+
+/* Admin: tighter, aligned console. */
+.admin-console { max-width: 1280px; }
+.admin-console-head {
+  padding: 28px 0 22px;
+  align-items: flex-end !important;
+  border-bottom: 1px solid var(--sr-line);
+}
+.admin-console-head h1 { margin: 5px 0 4px; letter-spacing: -1.2px; }
+.admin-console-grid { align-items: stretch !important; gap: 14px !important; }
+.admin-service-list-panel,
+.admin-organization-detail,
+.admin-create-panel { border: 1px solid var(--sr-line) !important; background: #fff !important; box-shadow: none !important; }
+.admin-service-row { border-radius: 14px !important; }
+.admin-service-row.selected { background: #111311 !important; color: #fff !important; }
+.admin-service-row.selected span { color: #c4c9c0 !important; }
+.admin-staff-row { min-height: 66px; align-items: center; }
+.admin-detail-note { color: #777d75; }
+
+@media (max-width: 920px) {
+  .how-editorial-layout { grid-template-columns: 1fr; gap: 36px; }
+  .how-editorial-copy { position: static; }
+  .workflow-demo-stage-minimal { height: 360px !important; min-height: 360px !important; max-height: 360px !important; }
+}
+
+@media (max-width: 680px) {
+  .workflow-demo-stage-minimal { height: 390px !important; min-height: 390px !important; max-height: 390px !important; }
+  .workspace-heading-actions .workspace-heading-action,
+  .workspace-heading-actions .dashboard-primary-action { width: auto !important; min-width: 0 !important; }
+  .work-form-actions.service-flow-actions > button { width: 100% !important; min-width: 0 !important; }
+}
+
+/* Remove the experimental glass layer from product UI. The global header may stay light/translucent. */
+.inline-text-btn,
+.client-picker-all,
+.service-flow-steps span.active,
+.selected-booking-banner,
+.service-summary-card,
+.workspace-icon-action,
+.workspace-links-menu,
+.account-menu-dropdown,
+.profile-settings-modal,
+.confirm-dialog,
+.work-modal,
+.contact-modal .modal-content {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.inline-text-btn,
+.client-picker-all { background: #f2f3f0 !important; border-color: #e1e4de !important; box-shadow: none !important; }
+.service-flow-steps span.active { background: #fff !important; box-shadow: 0 3px 10px rgba(25,29,23,.06) !important; }

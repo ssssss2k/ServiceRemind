@@ -1,0 +1,298 @@
+/* ServiceRemind 8.9 final cleanup.
+   Purposefully limited to visual corrections requested after 8.8. */
+
+:root {
+  --sr89-bg: #f5f6f3;
+  --sr89-surface: #ffffff;
+  --sr89-soft: #f0f1ee;
+  --sr89-line: #dedfd9;
+  --sr89-muted: #73766f;
+  --sr89-ink: #101210;
+  --sr89-dark: #0d0f0d;
+}
+
+/* Public audience: white cards on a white section, with a clear hover state. */
+.audience-section {
+  background: #fff !important;
+  color: var(--sr89-ink) !important;
+}
+.audience-section .section-heading-compact > span { color: var(--sr89-muted) !important; }
+.audience-section .section-title { color: var(--sr89-ink) !important; }
+.audience-card {
+  background: #fff !important;
+  color: var(--sr89-ink) !important;
+  border: 1px solid #e5e6e1 !important;
+  box-shadow: none !important;
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease !important;
+}
+.audience-card:hover {
+  border-color: #c8cac3 !important;
+  box-shadow: 0 12px 28px rgba(20,24,18,.07) !important;
+  transform: translateY(-2px);
+}
+.audience-card-index { background: #f1f2ee !important; color: #5d625b !important; }
+.audience-card p { color: #696e66 !important; }
+
+/* Workflow section: light page, fixed black demo. It never changes size between steps. */
+.workflow-showcase-section {
+  background: #fff !important;
+  color: var(--sr89-ink) !important;
+}
+.workflow-showcase-copy-centered h2 { color: var(--sr89-ink) !important; }
+.workflow-showcase-copy-centered p { color: var(--sr89-muted) !important; }
+.workflow-demo-shell {
+  position: relative;
+  height: 500px !important;
+  min-height: 500px !important;
+  max-height: 500px !important;
+  overflow: hidden !important;
+  background: var(--sr89-dark) !important;
+  border: 1px solid #22251f !important;
+  box-shadow: 0 24px 55px rgba(12,15,11,.16) !important;
+}
+.workflow-play-toggle {
+  background: #1b1e1a !important;
+  color: #fff !important;
+  border: 1px solid #3b3f38 !important;
+}
+.workflow-play-toggle:hover { background: #262a24 !important; }
+.workflow-demo-tabs {
+  height: 84px !important;
+  min-height: 84px !important;
+  border-bottom-color: #2d302a !important;
+}
+.workflow-demo-tab { color: #8e948b !important; background: transparent !important; }
+.workflow-demo-tab:hover { background: #171a16 !important; }
+.workflow-demo-tab.active { background: #242722 !important; color: #fff !important; }
+.workflow-tab-progress { background: #3a3e36 !important; }
+.workflow-tab-progress::after { background: #fff !important; }
+.workflow-demo-stage-minimal {
+  box-sizing: border-box !important;
+  height: 390px !important;
+  min-height: 390px !important;
+  max-height: 390px !important;
+  padding: 54px 46px 44px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #111310 !important;
+  color: #fff !important;
+  border: 0 !important;
+}
+.workflow-stage-kicker { color: #979d94 !important; }
+.workflow-demo-stage-minimal h3 {
+  min-height: 58px;
+  margin: 18px 0 14px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff !important;
+  text-align: center;
+}
+.workflow-stage-primary { color: #fff !important; min-height: 24px; }
+.workflow-demo-stage-minimal > p {
+  min-height: 42px;
+  max-width: 590px;
+  margin: 10px auto 0 !important;
+  color: #aeb4aa !important;
+  text-align: center;
+}
+.workflow-stage-facts {
+  min-height: 40px;
+  margin-top: 24px !important;
+}
+.workflow-stage-facts span { background: #20231e !important; color: #e6e9e3 !important; }
+.workflow-stage-facts b { color: #969c92 !important; }
+
+/* Pricing: keep the original card dimensions. Future plans are visibly disabled. */
+.pricing-card { height: auto; }
+.pricing-btn:disabled {
+  background: #e5e6e2 !important;
+  border-color: #e5e6e2 !important;
+  color: #8f938b !important;
+  opacity: 1 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  box-shadow: none !important;
+}
+
+/* Public lead form: clean, full form inspired by the supplied reference. */
+.contact-modal-wide {
+  width: min(94vw, 920px) !important;
+  max-width: 920px !important;
+  border-radius: 22px !important;
+  background: #fff !important;
+}
+.contact-modal-wide::backdrop {
+  background: rgba(15,16,14,.38) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.contact-modal-wide .modal-content { padding: 48px !important; background: #fff !important; }
+.contact-modal-kicker {
+  margin-bottom: 12px;
+  color: #777b73;
+  font-size: 13px;
+  font-weight: 650;
+}
+.contact-modal-wide .modal-content h2 { font-size: clamp(34px, 5vw, 54px); margin-bottom: 12px; }
+.contact-modal-wide .modal-content > p { max-width: 650px; margin-bottom: 34px; }
+.modal-form-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 24px !important;
+}
+.modal-field-full { grid-column: 1 / -1; }
+.contact-modal-wide .modal-field input,
+.contact-modal-wide .modal-field textarea {
+  min-height: 56px;
+  padding: 15px 17px;
+  background: #fff !important;
+  border: 1px solid #cfd1ca !important;
+  border-radius: 12px !important;
+}
+.contact-modal-wide .modal-field textarea { min-height: 160px; resize: vertical; }
+.contact-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 4px;
+}
+.contact-modal-actions > button { min-width: 150px; min-height: 48px; }
+.modal-close {
+  width: 40px !important;
+  height: 40px !important;
+  display: grid !important;
+  place-items: center !important;
+  border: 1px solid #d9dbd5 !important;
+  border-radius: 50% !important;
+  background: #f7f8f5 !important;
+  color: #111 !important;
+  font-size: 24px !important;
+}
+.modal-close:hover { background: #e9ebe6 !important; }
+.required-mark { color: #c7352a !important; margin-left: 3px; }
+
+/* Footer: active pilot CTA. */
+.footer-lead-btn {
+  background: #fff !important;
+  color: #111 !important;
+  border: 1px solid #fff !important;
+  cursor: pointer !important;
+}
+.footer-lead-btn:hover { background: #e9e9e6 !important; border-color: #e9e9e6 !important; }
+
+/* Workspace is solid, not translucent. */
+.work-modal-backdrop {
+  background: rgba(18,19,17,.44) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.work-modal,
+.confirm-dialog,
+.profile-settings-modal,
+.workspace-feedback-modal,
+.profile-editor-card,
+.account-menu-dropdown,
+.workspace-links-menu {
+  background: #fff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.work-modal { border-color: #dedfd9 !important; }
+.work-modal-clean { background: #fff !important; }
+.work-modal-clean .work-form-section { background: #fff !important; }
+.work-modal-close {
+  background: #f5f6f3 !important;
+  border: 1px solid #dcded7 !important;
+}
+.work-modal-close:hover { background: #e8eae5 !important; }
+
+/* Completed work editor: white editable rows instead of a flat grey mass. */
+.work-items-editor {
+  padding: 18px !important;
+  border: 1px solid #e1e3dc;
+  border-radius: 18px;
+  background: #fff !important;
+}
+.work-items-editor-head { margin-bottom: 12px; }
+.work-item-row { grid-template-columns: 36px minmax(0, 1fr) 38px !important; gap: 10px !important; }
+.work-item-number {
+  width: 36px !important;
+  height: 36px !important;
+  background: #f4f5f2 !important;
+  color: #686d65 !important;
+}
+.work-item-row input {
+  min-height: 54px !important;
+  background: #fff !important;
+  border: 1px solid #dfe1da !important;
+  border-radius: 14px !important;
+}
+.work-item-row input:focus { border-color: #aeb2aa !important; background: #fff !important; }
+.work-item-remove {
+  width: 38px !important;
+  height: 38px !important;
+  background: #f6f7f4 !important;
+  border: 1px solid #e1e3dd !important;
+}
+.work-item-remove:hover:not(:disabled) { background: #eceee9 !important; }
+.inline-text-btn { background: transparent !important; border: 0 !important; padding: 4px 0 !important; }
+
+/* Form controls stay white and readable. */
+.work-form input,
+.work-form textarea,
+.work-form select,
+.profile-editor-card input,
+.profile-editor-card textarea,
+.profile-editor-card select,
+.workspace-feedback-modal textarea,
+.workspace-feedback-modal select {
+  background: #fff !important;
+  border-color: #d9dbd4 !important;
+}
+.work-form input::placeholder,
+.work-form textarea::placeholder { color: #94988f !important; }
+
+/* Footer feedback button must sit to the right of the big brand. */
+.workspace-footer-brand-row {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 28px !important;
+}
+.workspace-huge-brand { min-width: 0; }
+.workspace-feedback-btn { justify-self: end !important; align-self: center !important; }
+
+/* Solid feedback/profile/logout surfaces. */
+.workspace-feedback-modal,
+.profile-settings-modal,
+.confirm-dialog { box-shadow: 0 26px 70px rgba(0,0,0,.16) !important; }
+.confirm-dialog-actions > button,
+.work-form-actions > button { min-height: 46px; }
+
+@media (max-width: 920px) {
+  .workflow-demo-shell { height: 530px !important; min-height: 530px !important; max-height: 530px !important; }
+  .workflow-demo-stage-minimal { height: 420px !important; min-height: 420px !important; max-height: 420px !important; }
+}
+
+@media (max-width: 680px) {
+  .modal-form-grid { grid-template-columns: 1fr; }
+  .modal-field-full { grid-column: auto; }
+  .contact-modal-wide .modal-content { padding: 34px 22px !important; }
+  .contact-modal-actions { flex-direction: column-reverse; }
+  .contact-modal-actions > button { width: 100%; }
+  .workflow-demo-shell { height: 620px !important; min-height: 620px !important; max-height: 620px !important; }
+  .workflow-demo-stage-minimal { height: 435px !important; min-height: 435px !important; max-height: 435px !important; padding: 38px 20px 30px !important; }
+  .workspace-footer-brand-row { grid-template-columns: 1fr !important; }
+  .workspace-feedback-btn { justify-self: start !important; }
+}
+
+.profile-settings-list,
+.profile-setting-row,
+.workspace-feedback-modal .work-form,
+.workspace-feedback-modal label,
+.confirm-dialog { background: #fff !important; }
+.profile-setting-row { border-color: #e5e6e1 !important; }

@@ -1,0 +1,516 @@
+:root {
+  --sr-accent: #dceeff;
+  --sr-accent-strong: #a9cfee;
+  --sr-accent-text: #2f5877;
+  --sr-border: #d8ddd6;
+  --sr-soft: #f6f8fb;
+}
+
+body {
+  background: linear-gradient(180deg, #f7f7f6 0%, #fafaf9 100%);
+}
+
+.navbar.navbar-frosted {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  background: rgba(255, 255, 255, 0.78) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(17, 19, 17, 0.06);
+  box-shadow: 0 10px 32px rgba(17, 19, 17, 0.04);
+}
+
+.logo,
+.hero h1,
+.section-title,
+.contact-modal-wide .modal-content h2,
+.policy-page h1,
+.pricing-page-copy h1 {
+  font-weight: 600 !important;
+  letter-spacing: -0.04em !important;
+}
+
+.hero p,
+.section-description,
+.audience-card p,
+.how-editorial-step p,
+.pricing-card p,
+.footer-minimal-copy {
+  font-weight: 400;
+  color: #66716c !important;
+}
+
+.hero {
+  padding-top: 88px !important;
+  padding-bottom: 76px !important;
+}
+
+.hero-content {
+  max-width: 920px !important;
+}
+
+.hero h1 {
+  max-width: 860px;
+  font-size: clamp(44px, 7vw, 78px) !important;
+}
+
+.hero p {
+  max-width: 720px !important;
+  font-size: 19px !important;
+}
+
+.hero-buttons-dual {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-secondary-btn,
+.header-top-link,
+.workspace-day-action-secondary,
+.workspace-inline-stat,
+.policy-contact-link {
+  background: #fff;
+  color: #111311;
+  border: 1px solid rgba(17, 19, 17, 0.12);
+  box-shadow: none;
+}
+
+.hero-secondary-btn:hover,
+.header-top-link:hover,
+.workspace-day-action-secondary:hover,
+.workspace-inline-stat:hover,
+.policy-contact-link:hover {
+  border-color: var(--sr-accent-strong);
+  background: var(--sr-soft);
+}
+
+.hero-secondary-btn {
+  min-height: 52px;
+}
+
+.nav-links a,
+.header-top-link {
+  border-radius: 999px;
+  padding: 10px 14px;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.nav-links a:hover,
+.header-top-link:hover {
+  color: #111311;
+}
+
+.header-top-link {
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 1;
+  margin-right: 8px;
+}
+
+.lang-button.active,
+.audience-card-index,
+.how-editorial-index,
+.section-kicker,
+.contact-modal-kicker,
+.policy-section-index {
+  background: var(--sr-accent) !important;
+  color: var(--sr-accent-text) !important;
+}
+
+.audience-section,
+.how-minimal-section,
+.pricing-page-hero {
+  background: transparent !important;
+}
+
+.audience-heading-clean,
+.how-editorial-copy,
+.pricing-page-copy {
+  max-width: 760px;
+  margin-bottom: 28px;
+}
+
+.audience-description,
+.how-editorial-copy .section-description,
+.pricing-page-copy p {
+  margin-top: 14px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #68746f;
+}
+
+.audience-card-grid {
+  gap: 18px !important;
+}
+
+.audience-card {
+  background: rgba(255, 255, 255, 0.82) !important;
+  border: 1px solid rgba(169, 207, 238, 0.3) !important;
+  box-shadow: 0 16px 44px rgba(27, 43, 54, 0.06) !important;
+  backdrop-filter: blur(8px);
+}
+
+.audience-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(169, 207, 238, 0.72) !important;
+  box-shadow: 0 18px 52px rgba(27, 43, 54, 0.1) !important;
+}
+
+.audience-card h3,
+.how-editorial-step h3,
+.pricing-card h3,
+.workspace-day-summary strong,
+.daily-schedule-head h2,
+.policy-section-card h2 {
+  font-weight: 600 !important;
+}
+
+.how-editorial-step,
+.pricing-card,
+.policy-section-card,
+.policy-hero-card,
+.daily-schedule-panel,
+.workspace-links-card,
+.dashboard-panel,
+.workspace-day-summary,
+.contact-modal .modal-content,
+.work-modal {
+  border: 1px solid rgba(169, 207, 238, 0.32) !important;
+  box-shadow: 0 18px 48px rgba(27, 43, 54, 0.06) !important;
+}
+
+.how-editorial-step {
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+.contact-modal-wide .modal-content,
+.work-modal,
+.profile-settings-list,
+.profile-editor-card,
+.account-menu-popover,
+.account-menu-dropdown {
+  background: #fff !important;
+}
+
+.contact-modal-wide .modal-field input,
+.contact-modal-wide .modal-field textarea,
+.work-form input,
+.work-form textarea,
+.work-form select,
+.profile-editor-card input,
+.profile-editor-card textarea,
+.profile-editor-card select {
+  background: #fff !important;
+  border: 1px solid rgba(17, 19, 17, 0.16) !important;
+  border-radius: 20px !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.contact-modal-wide .modal-field input:focus,
+.contact-modal-wide .modal-field textarea:focus,
+.work-form input:focus,
+.work-form textarea:focus,
+.work-form select:focus,
+.profile-editor-card input:focus,
+.profile-editor-card textarea:focus,
+.profile-editor-card select:focus {
+  border-color: var(--sr-accent-strong) !important;
+  box-shadow: 0 0 0 4px rgba(169, 207, 238, 0.22) !important;
+}
+
+.contact-modal-actions .work-secondary-btn,
+.contact-modal-actions .btn,
+.work-primary-btn,
+.work-secondary-btn,
+.dashboard-primary-action,
+.workspace-secondary-action,
+.workspace-link-btn,
+.btn,
+.btn-pill,
+.login-btn,
+.account-menu-trigger {
+  border-radius: 999px !important;
+}
+
+.work-primary-btn,
+.dashboard-primary-action,
+.workspace-day-action-primary {
+  background: #111311 !important;
+  color: #fff !important;
+  border: 1px solid #111311 !important;
+}
+
+.work-secondary-btn,
+.workspace-secondary-action,
+.workspace-day-action-secondary,
+.workspace-link-btn,
+.policy-home-link {
+  background: #fff !important;
+  color: #111311 !important;
+  border: 1px solid rgba(17, 19, 17, 0.14) !important;
+}
+
+.workspace-day-summary-actions {
+  grid-template-columns: 1fr auto !important;
+  align-items: center !important;
+}
+
+.workspace-day-summary-cta {
+  display: flex !important;
+  gap: 12px !important;
+}
+
+.workspace-day-action {
+  min-height: 48px;
+  min-width: 170px;
+  padding: 0 22px;
+  font-weight: 600;
+}
+
+.workspace-day-summary-stats {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.workspace-inline-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.workspace-inline-stat span {
+  color: #68746f;
+}
+
+.workspace-inline-stat b {
+  color: #111311;
+}
+
+.workspace-feedback-form,
+.workspace-feedback-actions {
+  gap: 18px !important;
+}
+
+.workspace-context-title {
+  color: #6f7974 !important;
+  font-weight: 500 !important;
+}
+
+.footer-minimal {
+  padding-top: 30px !important;
+  padding-bottom: 28px !important;
+  background: transparent !important;
+}
+
+.footer-minimal-inner {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(169, 207, 238, 0.34);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: 0 16px 48px rgba(27, 43, 54, 0.06);
+}
+
+.footer-minimal-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(17, 19, 17, 0.08);
+}
+
+.footer-brand {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.footer-minimal-copy {
+  margin-top: 8px;
+  max-width: 620px;
+  font-size: 15px;
+}
+
+.footer-bottom-minimal {
+  padding-top: 16px;
+}
+
+.footer-bottom-minimal .footer-links a {
+  color: #5b6661;
+}
+
+.pricing-page-copy {
+  padding-top: 30px;
+}
+
+.pricing-page-copy h1 {
+  font-size: clamp(38px, 5vw, 58px);
+  margin-top: 14px;
+}
+
+.policy-page-rich {
+  padding-top: 34px;
+  padding-bottom: 60px;
+}
+
+.policy-hero-card {
+  border-radius: 30px;
+  padding: 34px;
+  background: rgba(255, 255, 255, 0.85);
+  margin-bottom: 22px;
+}
+
+.policy-hero-card h1 {
+  margin-top: 14px;
+  margin-bottom: 16px;
+  font-size: clamp(36px, 5vw, 56px);
+}
+
+.policy-contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.policy-contact-link {
+  padding: 10px 16px;
+  border-radius: 999px;
+}
+
+.policy-sections-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.policy-section-card {
+  border-radius: 28px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.policy-section-card h2 {
+  margin: 12px 0 10px;
+  font-size: 24px;
+}
+
+.policy-section-card p {
+  color: #66716c;
+  line-height: 1.65;
+}
+
+.policy-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  padding: 12px 18px;
+  text-decoration: none;
+}
+
+.contact-modal-kicker,
+.section-kicker,
+.policy-section-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+@media (max-width: 960px) {
+  .policy-sections-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .header-top-link {
+    display: none;
+  }
+
+  .workspace-day-summary-actions {
+    grid-template-columns: 1fr !important;
+  }
+
+  .workspace-day-summary-cta {
+    width: 100%;
+    display: grid !important;
+    grid-template-columns: 1fr;
+  }
+
+  .workspace-day-action {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .footer-minimal-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.confirm-dialog,
+.destructive-dialog {
+  background: #fff !important;
+  border: 1px solid rgba(169, 207, 238, 0.34) !important;
+  box-shadow: 0 18px 48px rgba(27, 43, 54, 0.08) !important;
+}
+
+.confirm-primary,
+.confirm-secondary {
+  border-radius: 999px !important;
+}
+
+.confirm-secondary {
+  background: #fff !important;
+  border: 1px solid rgba(17, 19, 17, 0.14) !important;
+}
+
+.confirm-primary {
+  background: #111311 !important;
+  border: 1px solid #111311 !important;
+  color: #fff !important;
+}
+
+.destructive-password-field input {
+  background: #fff !important;
+  border: 1px solid rgba(17, 19, 17, 0.16) !important;
+  border-radius: 20px !important;
+}
+
+.workspace-footer-minimal {
+  background: transparent !important;
+  padding-top: 16px !important;
+}
+
+.workspace-footer-inner {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(169, 207, 238, 0.34);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: 0 16px 48px rgba(27, 43, 54, 0.06);
+}
+
+.workspace-footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(17, 19, 17, 0.08);
+}
