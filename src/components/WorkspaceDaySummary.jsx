@@ -14,32 +14,22 @@ export default function WorkspaceDaySummary({
   workCopy,
   scheduledCount,
   completedCount,
-  onNewBooking,
-  onStartService,
   onOpenScheduled,
   onOpenCompleted,
 }) {
   return (
-    <section className="workspace-day-summary workspace-day-summary-actions" aria-label={workCopy.todaySummary}>
+    <section className="workspace-day-summary" aria-label={workCopy.todaySummary}>
       <div className="workspace-day-summary-date">
         <strong>{formatWorkspaceDate(todayKey, locale)}</strong>
-        <div className="workspace-day-summary-stats">
-          <button type="button" className="workspace-inline-stat" onClick={onOpenScheduled}>
-            <span>{workCopy.scheduledTodayShort || workCopy.scheduledToday}</span>
-            <b>{scheduledCount}</b>
-          </button>
-          <button type="button" className="workspace-inline-stat" onClick={onOpenCompleted}>
-            <span>{workCopy.completedTodayShort || workCopy.completedToday}</span>
-            <b>{completedCount}</b>
-          </button>
-        </div>
       </div>
-      <div className="workspace-day-summary-metrics workspace-day-summary-cta">
-        <button type="button" className="workspace-day-action workspace-day-action-secondary" onClick={onNewBooking}>
-          + {workCopy.newBooking}
+      <div className="workspace-day-summary-metrics">
+        <button type="button" className="workspace-day-metric clickable" onClick={onOpenScheduled}>
+          <span>{workCopy.scheduledTodayShort || workCopy.scheduledToday}</span>
+          <strong>{scheduledCount}</strong>
         </button>
-        <button type="button" className="workspace-day-action workspace-day-action-primary" onClick={onStartService}>
-          {workCopy.startService}
+        <button type="button" className="workspace-day-metric clickable" onClick={onOpenCompleted}>
+          <span>{workCopy.completedTodayShort || workCopy.completedToday}</span>
+          <strong>{completedCount}</strong>
         </button>
       </div>
     </section>

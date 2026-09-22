@@ -33,7 +33,7 @@ export default function ResourceLinkModal({ open, initialLink, workCopy, onClose
     <div className="work-modal-backdrop" role="presentation" onMouseDown={onClose}>
       <section className="work-modal resource-link-modal" role="dialog" aria-modal="true" onMouseDown={(event) => event.stopPropagation()}>
         <button type="button" className="work-modal-close" aria-label={workCopy.close} onClick={onClose}>×</button>
-        <div className="work-modal-brand">Workspace</div>
+        <div className="work-modal-brand">ServiceRemind Workspace</div>
         <h2>{initialLink ? workCopy.editLink : workCopy.addLink}</h2>
         <form className="work-form" onSubmit={submit}>
           <label><span>{workCopy.linkName}</span><input value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Trodo" required autoFocus /></label>

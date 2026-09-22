@@ -49,11 +49,11 @@ export default function WorkspaceFeedbackModal({ open, user, workCopy, onClose, 
     <div className="work-modal-backdrop" role="presentation" onMouseDown={onClose}>
       <section className="work-modal workspace-feedback-modal" role="dialog" aria-modal="true" onMouseDown={(event) => event.stopPropagation()}>
         <button type="button" className="work-modal-close" aria-label={workCopy.close} onClick={onClose}>×</button>
-        <div className="work-modal-brand">Workspace</div>
+        <div className="work-modal-brand">ServiceRemind Workspace</div>
         <h2>{workCopy.feedbackTitle}</h2>
         <p className="workspace-feedback-intro">{workCopy.feedbackDescription}</p>
 
-        <form className="work-form workspace-feedback-form" onSubmit={submit}>
+        <form className="work-form" onSubmit={submit}>
           <label>
             <span>{workCopy.feedbackType}</span>
             <select value={category} onChange={(event) => setCategory(event.target.value)}>
@@ -64,9 +64,9 @@ export default function WorkspaceFeedbackModal({ open, user, workCopy, onClose, 
           </label>
           <label>
             <span>{workCopy.feedbackMessage}</span>
-            <textarea rows="7" value={message} onChange={(event) => setMessage(event.target.value)} placeholder={workCopy.feedbackPlaceholder} required />
+            <textarea rows="6" value={message} onChange={(event) => setMessage(event.target.value)} placeholder={workCopy.feedbackPlaceholder} required />
           </label>
-          <div className="work-form-actions workspace-feedback-actions">
+          <div className="work-form-actions">
             <button type="button" className="work-secondary-btn" onClick={onClose}>{workCopy.cancel}</button>
             <button type="submit" className="work-primary-btn" disabled={submitting}>{submitting ? '…' : workCopy.sendFeedback}</button>
           </div>

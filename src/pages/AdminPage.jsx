@@ -74,7 +74,7 @@ export default function AdminPage({ t, language, onLanguageChange }) {
     }
   }, [organizationRows, selectedOrganizationId]);
 
-  if (!user || user.role !== 'admin') return <Navigate to="/workspace" replace />;
+  if (!user || user.role !== 'admin') return <Navigate to="/dashboard" replace />;
 
   const selectedOrganization = organizationRows.find((organization) => organization.id === selectedOrganizationId) || null;
   const update = (field) => (event) => setForm((current) => ({ ...current, [field]: event.target.value }));

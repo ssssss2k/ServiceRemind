@@ -15,7 +15,7 @@ export default function LoginPage({ t, language, onLanguageChange }) {
   const [submitting, setSubmitting] = useState(false);
 
   if (isAuthenticated) {
-    return <Navigate to={user?.role === 'admin' ? '/admin' : '/workspace'} replace />;
+    return <Navigate to={user?.role === 'admin' ? '/admin' : '/dashboard'} replace />;
   }
 
   const handleSubmit = (event) => {
@@ -26,7 +26,7 @@ export default function LoginPage({ t, language, onLanguageChange }) {
     const session = login(email, password);
 
     if (session) {
-      const destination = location.state?.from || (session.role === 'admin' ? '/admin' : '/workspace');
+      const destination = location.state?.from || (session.role === 'admin' ? '/admin' : '/dashboard');
       navigate(destination, { replace: true });
       return;
     }

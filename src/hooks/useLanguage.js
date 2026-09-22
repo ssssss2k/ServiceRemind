@@ -3,16 +3,15 @@ import { translations } from '../data/translations';
 
 const supportedLanguages = ['est', 'eng', 'rus'];
 const htmlLangMap = { est: 'et', eng: 'en', rus: 'ru' };
-const LANGUAGE_STORAGE_KEY = 'siteLang_v90';
 
 export function useLanguage() {
   const [language, setLanguage] = useState(() => {
-    const savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    const savedLanguage = localStorage.getItem('siteLang');
     return supportedLanguages.includes(savedLanguage) ? savedLanguage : 'eng';
   });
 
   useEffect(() => {
-    localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+    localStorage.setItem('siteLang', language);
     document.documentElement.lang = htmlLangMap[language];
   }, [language]);
 

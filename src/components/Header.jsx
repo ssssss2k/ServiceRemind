@@ -22,8 +22,8 @@ export default function Header({
 
   const closeMenu = () => setMenuOpen(false);
   const isLanding = variant === 'landing';
-  const logoTarget = variant === 'portal' ? '/workspace' : '/';
-  const accountTarget = isAuthenticated ? (user?.role === 'admin' ? '/admin' : '/workspace') : '/login';
+  const logoTarget = variant === 'portal' ? '/dashboard' : '/';
+  const accountTarget = isAuthenticated ? (user?.role === 'admin' ? '/admin' : '/dashboard') : '/login';
   const accountLabel = isAuthenticated ? user?.name || (t.workspace || 'Workspace') : t.login;
 
   const AccountLink = () => (
@@ -34,7 +34,7 @@ export default function Header({
   );
 
   return (
-    <header className={variant === 'landing' ? 'navbar navbar-frosted' : 'navbar'}>
+    <header className="navbar">
       <div className="container nav-container">
         <div className="nav-left">
           {isLanding && (
@@ -51,15 +51,13 @@ export default function Header({
 
               <nav className={menuOpen ? 'nav-links active' : 'nav-links'}>
                 <Link className="mobile-logo" to="/" onClick={closeMenu}>ServiceRemind</Link>
-                <a href="#fit" onClick={closeMenu}>{t.nav[0]}</a>
+                <a href="#for-whom" onClick={closeMenu}>{t.nav[0]}</a>
                 <span className="nav-divider" aria-hidden="true" />
-                <a href="#services" onClick={closeMenu}>{t.nav[1]}</a>
+                <a href="#how-it-works" onClick={closeMenu}>{t.nav[1]}</a>
                 <span className="nav-divider" aria-hidden="true" />
-                <Link to="/pricing" onClick={closeMenu}>{t.nav[2]}</Link>
+                <a href="#pricing" onClick={closeMenu}>{t.nav[2]}</a>
                 <span className="nav-divider" aria-hidden="true" />
                 <a href="#contact" onClick={closeMenu}>{t.nav[3]}</a>
-                <span className="nav-divider" aria-hidden="true" />
-                <Link to="/terms" onClick={closeMenu}>{t.linkTerms}</Link>
               </nav>
             </>
           )}
@@ -70,7 +68,6 @@ export default function Header({
         </div>
 
         <div className="nav-right">
-          {isLanding && <Link className="header-top-link" to="/terms">{t.linkTerms}</Link>}
           <LanguageSwitch language={language} onLanguageChange={onLanguageChange} />
           {showLogin && <AccountLink />}
           {rightAction}

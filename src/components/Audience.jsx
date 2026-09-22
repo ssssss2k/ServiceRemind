@@ -7,25 +7,10 @@ export default function Audience({ t }) {
     { id: 'history', title: t.audienceCard5H, description: t.audienceCard5P },
     { id: 'overview', title: t.audienceExtraH, description: t.audienceExtraP },
   ].filter((item) => item.title && item.description);
-
   return (
-    <section id="fit" className="section section-light audience-section">
-      <div className="container">
-        <div className="section-heading-compact audience-heading-clean">
-          <span>{t.audienceEyebrow}</span>
-          <h2 className="section-title">{t.titleKellele}</h2>
-          <p className="section-description audience-description">{t.audienceIntro}</p>
-        </div>
-        <div className="audience-card-grid">
-          {cards.map((card, index) => (
-            <article className="audience-card animate-on-scroll" key={card.id}>
-              <span className="audience-card-index">{index + 1}</span>
-              <h3>{card.title}</h3>
-              <p>{card.description}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
+    <section id="for-whom" className="section section-light audience-section"><div className="container">
+      <div className="section-heading-compact"><span>{t.audienceEyebrow}</span><h2 className="section-title">{t.titleKellele}</h2></div>
+      <div className="audience-card-grid">{cards.map((card,index)=><article className="audience-card animate-on-scroll" key={card.id}><span className="audience-card-index">{index+1}</span><h3>{card.title}</h3><p>{card.description}</p></article>)}</div>
+    </div></section>
   );
 }

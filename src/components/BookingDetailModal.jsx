@@ -16,7 +16,7 @@ export default function BookingDetailModal({ booking, workCopy, formatDate, canS
     <div className="work-modal-backdrop" role="presentation" onMouseDown={onClose}>
       <section className="work-modal booking-detail-modal" role="dialog" aria-modal="true" onMouseDown={(event) => event.stopPropagation()}>
         <button type="button" className="work-modal-close" aria-label={workCopy.close} onClick={onClose}>×</button>
-        <div className="work-modal-brand">Workspace</div>
+        <div className="work-modal-brand">ServiceRemind Workspace</div>
         <div className="booking-detail-time">{formatDate(booking.date)} · {booking.time || '-'}</div>
         <h2>{booking.clientName}</h2>
         <p className="booking-detail-vehicle">{[getVehicleLabel(booking), booking.plate].filter(Boolean).join(' · ')}</p>

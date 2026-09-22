@@ -6,7 +6,6 @@ import { useLanguage } from './hooks/useLanguage';
 import { useScrollReveal } from './hooks/useScrollReveal';
 import HomePage from './pages/HomePage';
 import PolicyPage from './pages/PolicyPage';
-import PricingPage from './pages/PricingPage';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import AdminPage from './pages/AdminPage';
@@ -29,14 +28,16 @@ export default function App() {
     }
   }, [location.pathname, location.hash]);
 
-  useEffect(() => () => clearTimeout(toastTimerRef.current), []);
+  useEffect(() => {
+    return () => clearTimeout(toastTimerRef.current);
+  }, []);
 
   const showToast = (message, isError = false) => {
     clearTimeout(toastTimerRef.current);
     setToast({ visible: true, message, isError });
     toastTimerRef.current = setTimeout(() => {
       setToast((currentToast) => ({ ...currentToast, visible: false }));
-    }, 4200);
+    }, 3500);
   };
 
   const sharedPageProps = {
@@ -50,7 +51,6 @@ export default function App() {
     <>
       <Routes>
         <Route path="/" element={<HomePage {...sharedPageProps} />} />
-        <Route path="/pricing" element={<PricingPage {...sharedPageProps} />} />
         <Route path="/privacy" element={<PolicyPage type="privacy" {...sharedPageProps} />} />
         <Route path="/privacy.html" element={<PolicyPage type="privacy" {...sharedPageProps} />} />
         <Route path="/terms" element={<PolicyPage type="terms" {...sharedPageProps} />} />
@@ -68,14 +68,13 @@ export default function App() {
           )}
         />
         <Route
-          path="/workspace"
+          path="/dashboard"
           element={(
             <ProtectedRoute>
               <DashboardPage t={t} language={language} onLanguageChange={setLanguage} onToast={showToast} />
             </ProtectedRoute>
           )}
         />
-        <Route path="/dashboard" element={<Navigate to="/workspace" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 

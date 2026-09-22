@@ -33,7 +33,7 @@ export default function EmployeeModal({ open, workCopy, onClose, onSave }) {
     <div className="work-modal-backdrop" role="presentation" onMouseDown={onClose}>
       <section className="work-modal employee-modal" role="dialog" aria-modal="true" onMouseDown={(event) => event.stopPropagation()}>
         <button type="button" className="work-modal-close" aria-label={workCopy.close} onClick={onClose}>×</button>
-        <div className="work-modal-brand">Workspace</div>
+        <div className="work-modal-brand">ServiceRemind Workspace</div>
         <h2>{workCopy.addMechanic}</h2>
         <p className="work-modal-intro">{workCopy.addMechanicDesc}</p>
 

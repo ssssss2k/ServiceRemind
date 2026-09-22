@@ -80,7 +80,7 @@ export default function ProfileSettingsModal({ open, user, organization, workCop
     <div className="work-modal-backdrop" role="presentation" onMouseDown={onClose}>
       <section className="work-modal profile-settings-modal" role="dialog" aria-modal="true" onMouseDown={(event) => event.stopPropagation()}>
         <button type="button" className="work-modal-close" aria-label={workCopy.close} onClick={onClose}>×</button>
-        <div className="work-modal-brand">Workspace</div>
+        <div className="work-modal-brand">ServiceRemind Workspace</div>
         <h2>{workCopy.profileSettings}</h2>
 
         <div className="profile-settings-list">

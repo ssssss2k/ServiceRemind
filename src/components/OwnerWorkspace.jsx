@@ -79,6 +79,10 @@ export default function OwnerWorkspace({
     <>
       <div className="dashboard-heading-row workspace-heading-row workspace-heading-clean">
         <div><h1>{greeting.title}</h1><p>{greeting.subtitle}</p></div>
+        <div className="workspace-heading-actions">
+          <button type="button" className="workspace-secondary-action workspace-heading-action" onClick={() => onAction('booking')}>+ {workCopy.newBooking}</button>
+          <button type="button" className="dashboard-primary-action workspace-heading-action" onClick={() => onStartService()}>{workCopy.startService}</button>
+        </div>
       </div>
 
       <WorkspaceDaySummary
@@ -87,8 +91,6 @@ export default function OwnerWorkspace({
         workCopy={workCopy}
         scheduledCount={todayBookings.length}
         completedCount={completedToday.length}
-        onNewBooking={() => onAction('booking')}
-        onStartService={() => onStartService()}
         onOpenScheduled={openScheduledToday}
         onOpenCompleted={openCompletedToday}
       />

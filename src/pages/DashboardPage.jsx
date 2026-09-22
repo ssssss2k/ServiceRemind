@@ -91,7 +91,7 @@ export default function DashboardPage({ t, language, onLanguageChange, onToast }
   const workCopy = getWorkTranslations(language);
   const locale = localeByLanguage[language] || 'en-GB';
   const todayKey = localDateKey();
-  const workspaceRole = user?.role === 'mechanic' ? workCopy.mechanicWorkspace : workCopy.ownerWorkspace;
+  const workspaceRole = user?.role === 'mechanic' ? 'Mechanic' : 'Owner';
   const mechanics = useMemo(() => organizationAccounts.filter((account) => account.role === 'mechanic'), [organizationAccounts]);
   const bookingAssignees = useMemo(() => organizationAccounts.filter((account) => ['owner', 'mechanic'].includes(account.role)), [organizationAccounts]);
   const organizationAllAccounts = useMemo(() => accounts.filter((account) => account.organizationId === user?.organizationId && ['owner', 'mechanic'].includes(account.role)), [accounts, user?.organizationId]);

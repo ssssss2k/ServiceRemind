@@ -27,7 +27,7 @@ export default function ClientDetailModal({ client, jobs, workCopy, formatDate, 
     <div className="work-modal-backdrop" role="presentation" onMouseDown={onClose}>
       <section className="work-modal client-detail-modal" role="dialog" aria-modal="true" onMouseDown={(event) => event.stopPropagation()}>
         <button type="button" className="work-modal-close" aria-label={workCopy.close} onClick={onClose}>×</button>
-        <div className="work-modal-brand">Workspace</div>
+        <div className="work-modal-brand">ServiceRemind Workspace</div>
         <div className="client-detail-head">
           <div>
             <h2>{client.name}</h2>
