@@ -1,13 +1,58 @@
 export const translations = {
   est: {
-    nav: ['Kellele', 'Kuidas töötab', 'Hinnad', 'Kontakt'],
-    login: 'Logi sisse',
-    workspace: 'Töölaud',
-    heroTitle: 'Excel ei pea olema töökoja juhtimissüsteem.',
-    statValue1: '1 vaade', statValue2: '2-3 min', statValue3: 'Ajalugu',
-    heroDesc: 'ServiceRemind toob broneeringud, kliendid, autod, meeskonna ja tööajaloo ühte süsteemi. Vähem eri faile, vähem käsitsi otsimist, selgem tööpäev.',
-    heroBtn: 'Liitu piloodiga',
-    stat1: 'Päevaplaan, kliendid ja meeskond ilma eri tabelite vahel hüppamata',
+nav: ['Teenus', 'Hinnad', 'Kontakt'],
+
+login: 'Logi sisse',
+
+workspace: 'Töölaud',
+
+heroTitle:
+  'Kogu autoteenindus.\nÜhes\ntöökeskkonnas.',
+
+statValue1: '1 vaade',
+statValue2: '2-3 min',
+statValue3: 'Ajalugu',
+
+heroDesc:
+  'Broneeringud, kliendid, autod, töötajad ja hooldusajalugu on alati käepärast.',
+
+heroBtn:
+  'Võta ühendust',
+
+heroSecondaryBtn:
+  'Vaata teenust',
+
+serviceTitle:
+  'Teeninduse töö ilma hajutatud tabelite ja märkmeteta.',
+
+serviceDesc:
+  'Kliendid, autod, broneeringud ja tehtud tööd asuvad ühes süsteemis.',
+
+serviceRoleDesc:
+  'Omanik näeb kogu teeninduse tööd, mehaanik oma tööpäeva.',
+
+serviceItems: [
+  {
+    title: 'Tööplaan',
+    description:
+      'Autod on jaotatud aja ja mehaanikute järgi.',
+  },
+  {
+    title: 'Kliendid ja autod',
+    description:
+      'Kontaktid, registreerimisnumber ja hooldusajalugu on alati seotud.',
+  },
+  {
+    title: 'Mehaaniku töö',
+    description:
+      'Ava broneering, märgi tehtud töö, lisa varuosad ja läbisõit.',
+  },
+  {
+    title: 'Ajalugu',
+    description:
+      'Pärast töö lõpetamist jääb info auto juurde alles.',
+  },
+],
     stat2: 'Tavalise tehtud töö salvestamiseks, kui klient ja auto on juba olemas',
     stat3: 'Iga auto juures jääb alles, mida tehti ja kes töö tegi',
     titleKellele: 'ServiceRemind sobib teile, kui...',
@@ -63,10 +108,20 @@ export const translations = {
     priceVal3: 'Kokkuleppel',
     priceP3: 'Suuremale töökojale või mitme tiimiga teenindusele. Andmete import, rollid, laiendatud töövood ja prioriteetne seadistus.',
     priceBtn3: 'Varsti',
-    footerTop: 'Võta ühendust',
-    footerHeading: 'Teeme teie teeninduse nutikamaks.',
-    footerSub: '',
-    footerBtn: 'Liitu piloodiga',
+    footerTop:
+  'Piloot',
+
+footerHeading:
+  'Proovige ServiceRemindi oma autoteeninduses.',
+
+footerSub:
+  'Avame praegu juurdepääsu esimestele autoteenindustele Eestis.',
+
+footerBtn:
+  'Võta ühendust',
+
+footerBackTop:
+  'Üles',
     linkPrivacy: 'Privaatsus',
     linkTerms: 'Kasutustingimused',
     navBack: '← Tagasi',
@@ -146,14 +201,59 @@ export const translations = {
     workReminderSaved: 'Meeldetuletus on planeeritud',
   },
   eng: {
-    nav: ['For whom', 'How it works', 'Pricing', 'Contact'],
-    login: 'Log in',
-    workspace: 'Workspace',
-    heroTitle: 'Your workshop should not run from spreadsheets.',
-    statValue1: '1 view', statValue2: '2-3 min', statValue3: 'History',
-    heroDesc: 'ServiceRemind brings bookings, customers, vehicles, the team and service history into one system. Fewer separate files, less searching, a clearer workday.',
-    heroBtn: 'Join the pilot',
-    stat1: 'The daily plan, customers and team without jumping between separate files',
+ nav: ['Service', 'Pricing', 'Contact'],
+
+login: 'Log in',
+
+workspace: 'Workspace',
+
+heroTitle:
+  'Your entire workshop.\nOne\nworkspace.',
+
+statValue1: '1 view',
+statValue2: '2-3 min',
+statValue3: 'History',
+
+heroDesc:
+  'Bookings, customers, vehicles, staff and service history are always within reach.',
+
+heroBtn:
+  'Contact us',
+
+heroSecondaryBtn:
+  'Explore ServiceRemind',
+
+serviceTitle:
+  'Run the workshop without scattered spreadsheets and notes.',
+
+serviceDesc:
+  'Customers, vehicles, bookings and completed work live in one system.',
+
+serviceRoleDesc:
+  'The owner sees the whole workshop. Each mechanic sees their own day.',
+
+serviceItems: [
+  {
+    title: 'Schedule',
+    description:
+      'Vehicles are organised by time and mechanic.',
+  },
+  {
+    title: 'Customers and vehicles',
+    description:
+      'Contacts, registration numbers and service history stay connected.',
+  },
+  {
+    title: 'Mechanic workflow',
+    description:
+      'Open the booking, record the work, add parts and mileage.',
+  },
+  {
+    title: 'History',
+    description:
+      'Once the job is finished, the information stays with the vehicle.',
+  },
+],
     stat2: 'To save a normal completed job when the customer and vehicle already exist',
     stat3: 'Each vehicle keeps a clear record of what was done and who did it',
     titleKellele: 'ServiceRemind is for you if...',
@@ -209,10 +309,20 @@ export const translations = {
     priceVal3: 'Custom',
     priceP3: 'For larger workshops or multiple teams. Data import, advanced roles, tailored workflows and priority setup.',
     priceBtn3: 'Soon',
-    footerTop: 'Get in touch',
-    footerHeading: "Let's make your service smarter.",
-    footerSub: '',
-    footerBtn: 'Join the pilot',
+    footerTop:
+  'Pilot',
+
+footerHeading:
+  'Try ServiceRemind in your workshop.',
+
+footerSub:
+  'We are now opening access to the first workshops in Estonia.',
+
+footerBtn:
+  'Contact us',
+
+footerBackTop:
+  'Back to top',
     linkPrivacy: 'Privacy',
     linkTerms: 'Terms of Use',
     navBack: '← Back',
@@ -292,14 +402,59 @@ export const translations = {
     workReminderSaved: 'Reminder scheduled',
   },
   rus: {
-    nav: ['Для кого', 'Как работает', 'Цены', 'Контакты'],
-    login: 'Войти',
-    workspace: 'Рабочее место',
-    heroTitle: 'Автосервису не нужен Excel вместо рабочей системы.',
-    statValue1: '1 экран', statValue2: '2-3 мин', statValue3: 'История',
-    heroDesc: 'ServiceRemind объединяет записи, клиентов, машины, команду и историю работ в одной системе. Меньше отдельных файлов, меньше поиска, понятнее рабочий день.',
-    heroBtn: 'Участвовать в пилоте',
-    stat1: 'План дня, клиенты и команда без переключения между разными таблицами',
+nav: ['Сервис', 'Цены', 'Контакты'],
+
+login: 'Войти',
+
+workspace: 'Рабочее место',
+
+heroTitle:
+  'Весь автосервис\nв одном\nрабочем пространстве.',
+
+statValue1: '1 экран',
+statValue2: '2-3 мин',
+statValue3: 'История',
+
+heroDesc:
+  'Расписание, клиенты, автомобили, сотрудники и история работ всегда под рукой.',
+
+heroBtn:
+  'Связаться с нами',
+
+heroSecondaryBtn:
+  'Посмотреть сервис',
+
+serviceTitle:
+  'Работа сервиса без разбросанных таблиц и записей.',
+
+serviceDesc:
+  'Клиенты, автомобили, расписание и выполненные работы находятся в одной системе.',
+
+serviceRoleDesc:
+  'Владелец видит работу сервиса целиком, механик видит свой день.',
+
+serviceItems: [
+  {
+    title: 'Расписание',
+    description:
+      'Машины распределены по времени и механикам.',
+  },
+  {
+    title: 'Клиенты и автомобили',
+    description:
+      'Контакты, госномер и история обслуживания всегда связаны.',
+  },
+  {
+    title: 'Работа механика',
+    description:
+      'Открыл запись, отметил выполненное, добавил детали и пробег.',
+  },
+  {
+    title: 'История',
+    description:
+      'После завершения обслуживания информация остаётся у автомобиля.',
+  },
+],
     stat2: 'Чтобы сохранить обычную выполненную работу, если клиент и машина уже в базе',
     stat3: 'По каждой машине видно, что делали и кто выполнял работу',
     titleKellele: 'ServiceRemind подойдет вам, если...',
@@ -355,10 +510,20 @@ export const translations = {
     priceVal3: 'Индивидуально',
     priceP3: 'Для более крупных сервисов и нескольких команд. Импорт данных, расширенные роли, отдельные рабочие процессы и приоритетная настройка.',
     priceBtn3: 'Скоро',
-    footerTop: 'Связаться с нами',
-    footerHeading: 'Сделаем ваш сервис умнее.',
-    footerSub: '',
-    footerBtn: 'Участвовать в пилоте',
+  footerTop:
+  'Пилот',
+
+footerHeading:
+  'Попробуйте ServiceRemind в своём автосервисе.',
+
+footerSub:
+  'Сейчас мы открываем доступ первым автосервисам в Эстонии.',
+
+footerBtn:
+  'Связаться с нами',
+
+footerBackTop:
+  'Наверх',
     linkPrivacy: 'Конфиденциальность',
     linkTerms: 'Условия использования',
     navBack: '← Назад',

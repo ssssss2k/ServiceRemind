@@ -1,16 +1,86 @@
-export default function Audience({ t }) {
-  const cards = [
-    { id: 'service', title: t.kelleleH1, description: t.kelleleP1 },
-    { id: 'team', title: t.kelleleH2, description: t.kelleleP2 },
-    { id: 'repeat', title: t.audienceCard3H, description: t.audienceCard3P },
-    { id: 'day-plan', title: t.audienceCard4H, description: t.audienceCard4P },
-    { id: 'history', title: t.audienceCard5H, description: t.audienceCard5P },
-    { id: 'overview', title: t.audienceExtraH, description: t.audienceExtraP },
-  ].filter((item) => item.title && item.description);
+import {
+  getPublicCopy,
+} from '../data/publicTranslations';
+
+
+export default function Audience({
+  language,
+}) {
+  const copy =
+    getPublicCopy(language).service;
+
+
   return (
-    <section id="for-whom" className="section section-light audience-section"><div className="container">
-      <div className="section-heading-compact"><span>{t.audienceEyebrow}</span><h2 className="section-title">{t.titleKellele}</h2></div>
-      <div className="audience-card-grid">{cards.map((card,index)=><article className="audience-card animate-on-scroll" key={card.id}><span className="audience-card-index">{index+1}</span><h3>{card.title}</h3><p>{card.description}</p></article>)}</div>
-    </div></section>
+    <section
+      id="service"
+      className="section service-section"
+    >
+
+      <div
+        className="container service-layout"
+      >
+
+        <div
+          className="service-copy animate-on-scroll"
+        >
+
+          <span className="service-eyebrow">
+            {copy.eyebrow}
+          </span>
+
+
+          <h2>
+            {copy.title}
+          </h2>
+
+
+          <p>
+            {copy.description}
+          </p>
+
+        </div>
+
+
+        <div
+          className="service-panel animate-on-scroll"
+        >
+
+          {copy.items.map(
+            (item) => (
+
+              <article
+                className="service-panel-row"
+                key={item.title}
+              >
+
+                <span
+                  className="service-panel-dot"
+                  aria-hidden="true"
+                />
+
+
+                <div>
+
+                  <h3>
+                    {item.title}
+                  </h3>
+
+
+                  <p>
+                    {item.description}
+                  </p>
+
+                </div>
+
+              </article>
+
+            )
+          )}
+
+        </div>
+
+      </div>
+
+    </section>
   );
 }
