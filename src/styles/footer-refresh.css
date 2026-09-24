@@ -1,0 +1,86 @@
+/*
+  Minimal ServiceRemind footer links.
+*/
+
+
+.sr-footer-links {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    24px;
+}
+
+
+.sr-footer-link-button,
+.sr-footer-links a {
+  padding:
+    0;
+
+  border:
+    0;
+
+  background:
+    transparent;
+
+  color:
+    #a5a8a5;
+
+  font:
+    inherit;
+
+  font-size:
+    13px;
+
+  font-weight:
+    400;
+
+  line-height:
+    1;
+
+  text-decoration:
+    none;
+
+  cursor:
+    pointer;
+
+  transition:
+    color 160ms ease;
+}
+
+
+.sr-footer-link-button:hover,
+.sr-footer-links a:hover {
+  color:
+    #ffffff;
+}
+
+
+/*
+  Старый pill contact больше
+  нигде не показываем.
+*/
+
+.sr-footer-contact {
+  display:
+    none
+    !important;
+}
+
+
+@media (
+  max-width: 720px
+) {
+
+  .sr-footer-links {
+    flex-wrap:
+      wrap;
+
+    gap:
+      16px 20px;
+  }
+
+}

@@ -1,4 +1,7 @@
-import { Link } from 'react-router-dom';
+import {
+  Link,
+} from 'react-router-dom';
+
 
 export default function Footer({
   t,
@@ -9,18 +12,26 @@ export default function Footer({
       id="contact"
       className="sr-footer"
     >
+
       <div className="container sr-footer-inner">
 
+
         <div className="sr-footer-email">
-          <a href="mailto:info.serviceremind@gmail.com">
+
+          <a
+            href="mailto:info.serviceremind@gmail.com"
+          >
             info.serviceremind@gmail.com
           </a>
+
         </div>
+
 
         <div
           className="sr-footer-divider"
           aria-hidden="true"
         />
+
 
         <div className="sr-footer-bottom">
 
@@ -28,22 +39,15 @@ export default function Footer({
             © 2026 ServiceRemind.ee
           </p>
 
-          <div className="sr-footer-actions">
 
-            <nav className="sr-footer-links">
-              <Link to="/privacy">
-                {t?.linkPrivacy || 'Privacy Policy'}
-              </Link>
+          <nav className="sr-footer-links">
 
-              <Link to="/terms">
-                {t?.linkTerms || 'Terms of Use'}
-              </Link>
-            </nav>
 
             {onContactClick && (
+
               <button
                 type="button"
-                className="sr-footer-contact"
+                className="sr-footer-link-button"
                 onClick={onContactClick}
               >
                 {
@@ -51,13 +55,33 @@ export default function Footer({
                   || 'Contact us'
                 }
               </button>
+
             )}
 
-          </div>
+
+            <Link to="/privacy">
+              {
+                t?.linkPrivacy
+                || 'Privacy Policy'
+              }
+            </Link>
+
+
+            <Link to="/terms">
+              {
+                t?.linkTerms
+                || 'Terms of Use'
+              }
+            </Link>
+
+
+          </nav>
 
         </div>
 
+
       </div>
+
     </footer>
   );
 }

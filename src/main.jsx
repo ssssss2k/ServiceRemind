@@ -1,9 +1,23 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import {
+  StrictMode,
+} from 'react';
 
-import { AuthProvider } from './auth/AuthContext';
-import App from './App';
+import {
+  createRoot,
+} from 'react-dom/client';
+
+import {
+  BrowserRouter,
+} from 'react-router-dom';
+
+
+import {
+  AuthProvider,
+} from './auth/AuthContext';
+
+import App
+  from './App';
+
 
 import './styles/style.css';
 import './styles/workspace.css';
@@ -15,14 +29,26 @@ import './styles/final89.css';
 import './styles/landing-refresh.css';
 import './styles/pricing-footer-refresh.css';
 
+import './styles/login-page.css';
+import './styles/footer-refresh.css';
+
+
 createRoot(
   document.getElementById('root')
 ).render(
+
   <StrictMode>
+
     <BrowserRouter>
+
       <AuthProvider>
+
         <App />
+
       </AuthProvider>
+
     </BrowserRouter>
+
   </StrictMode>,
+
 );
