@@ -1,9 +1,23 @@
-import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useAuth } from '../auth/AuthContext';
-import { getPublicCopy } from '../data/publicTranslations';
-import LanguageSwitch from './LanguageSwitch';
+import {
+  useEffect,
+  useState,
+} from 'react';
 
+import {
+  Link,
+  useLocation,
+} from 'react-router-dom';
+
+import {
+  useAuth,
+} from '../auth/AuthContext';
+
+import {
+  getPublicCopy,
+} from '../data/publicTranslations';
+
+import LanguageSwitch
+  from './LanguageSwitch';
 
 function LoginUserIcon() {
   return (
@@ -12,7 +26,6 @@ function LoginUserIcon() {
       height="32"
       viewBox="0 0 32 32"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
       <circle
@@ -33,7 +46,6 @@ function LoginUserIcon() {
     </svg>
   );
 }
-
 
 export default function Header({
   t,
@@ -57,7 +69,6 @@ export default function Header({
   const copy =
     getPublicCopy(language);
 
-
   useEffect(() => {
     document.body.style.overflow =
       menuOpen
@@ -70,21 +81,14 @@ export default function Header({
     };
   }, [menuOpen]);
 
-
-  const closeMenu = () =>
-    setMenuOpen(false);
-
-
   const showPublicNavigation =
     variant === 'landing'
     || variant === 'pricing';
-
 
   const logoTarget =
     variant === 'portal'
       ? '/dashboard'
       : '/';
-
 
   const accountTarget =
     isAuthenticated
@@ -93,7 +97,6 @@ export default function Header({
         : '/dashboard'
       : '/login';
 
-
   const accountLabel =
     isAuthenticated
       ? user?.name
@@ -101,29 +104,13 @@ export default function Header({
         || 'Workspace'
       : t.login;
 
-
   const serviceHref =
     location.pathname === '/'
       ? '#service'
       : '/#service';
 
-
-  const AccountLink = () => (
-    <Link
-      className="login-btn account-entry-btn desktop-login-btn"
-      to={accountTarget}
-      aria-label={accountLabel}
-    >
-      <span className="account-entry-icon">
-        <LoginUserIcon />
-      </span>
-
-      <span>
-        {accountLabel}
-      </span>
-    </Link>
-  );
-
+  const closeMenu = () =>
+    setMenuOpen(false);
 
   return (
     <header className="navbar">
@@ -134,19 +121,20 @@ export default function Header({
 
           {showPublicNavigation && (
             <>
-
               <button
                 className={
-                  menuOpen
-                    ? 'hamburger-btn open'
-                    : 'hamburger-btn'
+                  `hamburger-btn${
+                    menuOpen
+                      ? ' open'
+                      : ''
+                  }`
                 }
                 type="button"
                 aria-label="Open menu"
                 aria-expanded={menuOpen}
                 onClick={() =>
                   setMenuOpen(
-                    (isOpen) => !isOpen
+                    (value) => !value
                   )
                 }
               >
@@ -155,15 +143,15 @@ export default function Header({
                 <span />
               </button>
 
-
               <nav
                 className={
-                  menuOpen
-                    ? 'nav-links active'
-                    : 'nav-links'
+                  `nav-links${
+                    menuOpen
+                      ? ' active'
+                      : ''
+                  }`
                 }
               >
-
                 <Link
                   className="mobile-logo"
                   to="/"
@@ -172,14 +160,12 @@ export default function Header({
                   ServiceRemind
                 </Link>
 
-
                 <a
                   href={serviceHref}
                   onClick={closeMenu}
                 >
                   {copy.nav.service}
                 </a>
-
 
                 <Link
                   to="/pricing"
@@ -188,48 +174,49 @@ export default function Header({
                   {copy.nav.pricing}
                 </Link>
 
-
                 <a
                   href="#contact"
                   onClick={closeMenu}
                 >
                   {copy.nav.contact}
                 </a>
-
               </nav>
-
             </>
           )}
 
         </div>
 
-
         <div className="nav-center">
-
           <Link
             to={logoTarget}
             className="logo"
           >
             ServiceRemind
           </Link>
-
         </div>
-
 
         <div className="nav-right">
 
           <LanguageSwitch
             language={language}
-            onLanguageChange={
-              onLanguageChange
-            }
+            onLanguageChange={onLanguageChange}
           />
 
-
           {showLogin && (
-            <AccountLink />
-          )}
+            <Link
+              className="login-btn account-entry-btn desktop-login-btn"
+              to={accountTarget}
+              aria-label={accountLabel}
+            >
+              <span className="account-entry-icon">
+                <LoginUserIcon />
+              </span>
 
+              <span>
+                {accountLabel}
+              </span>
+            </Link>
+          )}
 
           {rightAction}
 

@@ -2,13 +2,55 @@ import {
   getPublicCopy,
 } from '../data/publicTranslations';
 
+function RoleColumn({
+  role,
+}) {
+  return (
+    <article className="role-column">
+
+      <span className="role-label">
+        {role.label}
+      </span>
+
+      <h3>
+        {role.title}
+      </h3>
+
+      <p className="role-description">
+        {role.description}
+      </p>
+
+      <div className="role-feature-list">
+
+        {role.items.map((item) => (
+
+          <div
+            className="role-feature-row"
+            key={item}
+          >
+            <span
+              className="role-feature-dot"
+              aria-hidden="true"
+            />
+
+            <span>
+              {item}
+            </span>
+          </div>
+
+        ))}
+
+      </div>
+
+    </article>
+  );
+}
 
 export default function RoleSection({
   language,
 }) {
   const copy =
     getPublicCopy(language).roles;
-
 
   return (
     <section className="role-section">
@@ -27,95 +69,22 @@ export default function RoleSection({
 
         </div>
 
-
         <div className="role-columns">
 
-          <article className="role-column">
+          <RoleColumn
+            role={copy.owner}
+          />
 
-            <span className="role-label">
-              {copy.owner.label}
-            </span>
-
-            <h3>
-              {copy.owner.title}
-            </h3>
-
-            <p className="role-description">
-              {copy.owner.description}
-            </p>
-
-            <div className="role-feature-list">
-
-              {copy.owner.items.map(
-                (item) => (
-                  <div
-                    className="role-feature-row"
-                    key={item}
-                  >
-                    <span
-                      className="role-feature-dot"
-                      aria-hidden="true"
-                    />
-
-                    <span>
-                      {item}
-                    </span>
-                  </div>
-                )
-              )}
-
-            </div>
-
-          </article>
-
-
-          <article className="role-column">
-
-            <span className="role-label">
-              {copy.mechanic.label}
-            </span>
-
-            <h3>
-              {copy.mechanic.title}
-            </h3>
-
-            <p className="role-description">
-              {copy.mechanic.description}
-            </p>
-
-            <div className="role-feature-list">
-
-              {copy.mechanic.items.map(
-                (item) => (
-                  <div
-                    className="role-feature-row"
-                    key={item}
-                  >
-                    <span
-                      className="role-feature-dot"
-                      aria-hidden="true"
-                    />
-
-                    <span>
-                      {item}
-                    </span>
-                  </div>
-                )
-              )}
-
-            </div>
-
-          </article>
+          <RoleColumn
+            role={copy.mechanic}
+          />
 
         </div>
 
-
         <div className="role-bottom-line">
-
           <p>
             {copy.bottom}
           </p>
-
         </div>
 
       </div>

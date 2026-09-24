@@ -2,14 +2,12 @@ import {
   getPublicCopy,
 } from '../data/publicTranslations';
 
-
 export default function Hero({
   language,
   onLeadClick,
 }) {
   const copy =
     getPublicCopy(language).hero;
-
 
   return (
     <section className="landing-hero">
@@ -23,22 +21,16 @@ export default function Hero({
               `hero-title hero-title-${language}`
             }
           >
-
-            {copy.lines.map(
-              (line) => (
-                <span key={line}>
-                  {line}
-                </span>
-              )
-            )}
-
+            {copy.lines.map((line) => (
+              <span key={line}>
+                {line}
+              </span>
+            ))}
           </h1>
-
 
           <p>
             {copy.description}
           </p>
-
 
           <div className="hero-buttons">
 
@@ -49,7 +41,6 @@ export default function Hero({
             >
               {copy.contact}
             </button>
-
 
             <a
               className="btn hero-secondary-btn"

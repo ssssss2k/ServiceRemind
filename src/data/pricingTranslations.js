@@ -1,17 +1,27 @@
 export const pricingTranslations = {
   rus: {
-    eyebrow: 'Цены',
+    eyebrow:
+      'Цены',
 
-    title: 'Понятный старт. Без скрытых условий.',
+    titleLines: [
+      'Понятный старт.',
+      'Без скрытых условий.',
+    ],
 
     description:
       'Во время пилота ServiceRemind доступен первым автосервисам бесплатно. После пилота стоимость будет зависеть от размера команды и нужных возможностей.',
 
-    heroButton: 'Обсудить подключение',
+    heroButton:
+      'Обсудить подключение',
 
-    plansEyebrow: 'Варианты',
+    backButton:
+      'Назад',
 
-    plansTitle: 'Выберите подходящий формат.',
+    plansEyebrow:
+      'Варианты',
+
+    plansTitle:
+      'Выберите подходящий формат.',
 
     plans: [
       {
@@ -57,7 +67,8 @@ export const pricingTranslations = {
       },
     ],
 
-    includedEyebrow: 'ServiceRemind',
+    includedEyebrow:
+      'ServiceRemind',
 
     includedTitle:
       'Всё необходимое для работы сервиса.',
@@ -127,32 +138,32 @@ export const pricingTranslations = {
           'Команда получает доступ и переходит к ежедневной работе в системе.',
       },
     ],
-
-    finalTitle:
-      'Хотите попробовать ServiceRemind?',
-
-    finalDescription:
-      'Расскажите немного о вашем автосервисе.',
-
-    finalButton:
-      'Связаться с нами',
   },
 
 
-
   eng: {
-    eyebrow: 'Pricing',
+    eyebrow:
+      'Pricing',
 
-    title: 'A clear start. No hidden terms.',
+    titleLines: [
+      'A clear start.',
+      'No hidden terms.',
+    ],
 
     description:
       'During the pilot, ServiceRemind is free for the first partner workshops. After the pilot, pricing will depend on team size and the features you need.',
 
-    heroButton: 'Discuss access',
+    heroButton:
+      'Discuss access',
 
-    plansEyebrow: 'Options',
+    backButton:
+      'Back',
 
-    plansTitle: 'Choose the right setup.',
+    plansEyebrow:
+      'Options',
+
+    plansTitle:
+      'Choose the right setup.',
 
     plans: [
       {
@@ -206,33 +217,25 @@ export const pricingTranslations = {
 
     included: [
       {
-        title:
-          'Workspace',
-
+        title: 'Workspace',
         description:
           'Scheduling, customers and vehicles stay in one system.',
       },
 
       {
-        title:
-          'Team roles',
-
+        title: 'Team roles',
         description:
           'Owners and mechanics work in separate, focused interfaces.',
       },
 
       {
-        title:
-          'Service history',
-
+        title: 'Service history',
         description:
           'Completed work stays attached to the correct vehicle.',
       },
 
       {
-        title:
-          'Launch support',
-
+        title: 'Launch support',
         description:
           'We help you set up ServiceRemind and get your team started.',
       },
@@ -269,29 +272,26 @@ export const pricingTranslations = {
           'Your team gets access and starts using the system every day.',
       },
     ],
-
-    finalTitle:
-      'Want to try ServiceRemind?',
-
-    finalDescription:
-      'Tell us a little about your workshop.',
-
-    finalButton:
-      'Contact us',
   },
 
 
-
   est: {
-    eyebrow: 'Hinnad',
+    eyebrow:
+      'Hinnad',
 
-    title: 'Selge algus. Ilma peidetud tingimusteta.',
+    titleLines: [
+      'Selge algus.',
+      'Ilma peidetud tingimusteta.',
+    ],
 
     description:
       'Piloodi ajal on ServiceRemind esimestele partnerautoteenindustele tasuta. Pärast pilooti sõltub hind meeskonna suurusest ja vajalikest võimalustest.',
 
     heroButton:
       'Aruta liitumist',
+
+    backButton:
+      'Tagasi',
 
     plansEyebrow:
       'Variandid',
@@ -414,20 +414,13 @@ export const pricingTranslations = {
           'Meeskond saab ligipääsu ja alustab igapäevast tööd süsteemis.',
       },
     ],
-
-    finalTitle:
-      'Soovite ServiceRemindi proovida?',
-
-    finalDescription:
-      'Rääkige meile veidi oma autoteenindusest.',
-
-    finalButton:
-      'Võta ühendust',
   },
 };
 
 
-export function getPricingCopy(language) {
+export function getPricingCopy(
+  language
+) {
   return (
     pricingTranslations[language]
     || pricingTranslations.eng
