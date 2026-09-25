@@ -7,7 +7,9 @@
 }
 
 
-/* HEADER */
+/* =========================================================
+   HEADER
+========================================================= */
 
 .navbar {
   background: rgba(255, 255, 255, 0.68) !important;
@@ -29,19 +31,102 @@
   text-transform: none !important;
 }
 
-.nav-links a:hover {
+
+/* =========================================================
+   NAV UNDERLINE
+========================================================= */
+
+.nav-links .nav-link {
+  position: relative;
+  padding-bottom: 6px;
+  transition: color 180ms ease;
+}
+
+.nav-links .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 2px;
+  border-radius: 999px;
+
+  background: var(--sr-brand);
+
+  transform: scaleX(0);
+  transform-origin: left center;
+
+  transition: transform 180ms ease;
+}
+
+.nav-links .nav-link:hover::after,
+.nav-links .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/*
+  ВАЖНО:
+  hover больше НЕ делает текст чёрным.
+  Чёрным становится только выбранный пункт.
+*/
+
+.nav-links .nav-link.active {
   color: var(--sr-ink) !important;
 }
 
 
-/* LOGIN */
+/* =========================================================
+   LANGUAGE UNDERLINE
+========================================================= */
+
+.lang-button {
+  position: relative;
+  padding-bottom: 6px !important;
+  transition: color 180ms ease;
+}
+
+.lang-button::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 2px;
+  border-radius: 999px;
+
+  background: var(--sr-brand);
+
+  transform: scaleX(0);
+  transform-origin: left center;
+
+  transition: transform 180ms ease;
+}
+
+.lang-button:hover::after,
+.lang-button.active::after {
+  transform: scaleX(1);
+}
+
+/* Hover только рисует линию. */
+.lang-button.active {
+  color: var(--sr-ink) !important;
+}
+
+
+/* =========================================================
+   LOGIN LINK
+========================================================= */
 
 .account-entry-btn {
   min-height: 38px !important;
   padding: 3px 2px 3px 4px !important;
   gap: 8px !important;
+
   border: 0 !important;
   border-radius: 0 !important;
+
   background: transparent !important;
   box-shadow: none !important;
 }
@@ -54,14 +139,17 @@
 .account-entry-icon {
   width: 34px !important;
   height: 34px !important;
+
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
+
   flex: 0 0 34px !important;
+
   color: #161817 !important;
-  background: transparent !important;
+
   border: 0 !important;
-  border-radius: 0 !important;
+  background: transparent !important;
   box-shadow: none !important;
 }
 
@@ -72,12 +160,16 @@
 }
 
 
-/* HERO */
+/* =========================================================
+   HERO
+========================================================= */
 
 .landing-hero {
   position: relative;
   width: 100%;
+
   padding-bottom: 34px;
+
   overflow: hidden;
   background: #fff;
 }
@@ -85,19 +177,28 @@
 .landing-hero::after {
   content: '';
   position: absolute;
-  inset: auto 0 0;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
   height: 34px;
+
   background: var(--sr-brand);
   pointer-events: none;
 }
 
 .landing-hero .hero {
   width: 100%;
+
   min-height: calc(100svh - 118px) !important;
+
   padding-top: clamp(70px, 8vh, 100px) !important;
   padding-bottom: clamp(76px, 8vh, 100px) !important;
+
   display: flex;
   align-items: center;
+
   background: transparent !important;
 }
 
@@ -109,7 +210,9 @@
 .landing-hero .hero-title {
   max-width: 1260px !important;
   margin: 0 0 36px !important;
+
   color: var(--sr-ink) !important;
+
   font-weight: 650 !important;
   line-height: 0.96 !important;
 }
@@ -139,13 +242,17 @@
 .landing-hero .hero p {
   max-width: 700px !important;
   margin: 0 0 38px !important;
+
   color: var(--sr-muted) !important;
+
   font-size: clamp(18px, 1.4vw, 21px) !important;
   line-height: 1.55 !important;
 }
 
 
-/* HERO BUTTONS */
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
 
 .hero-buttons {
   display: flex;
@@ -162,10 +269,11 @@
 .hero-primary-btn {
   min-height: 52px;
   padding: 15px 30px !important;
+
   border: 1px solid var(--sr-brand) !important;
+
   background: var(--sr-brand) !important;
   color: #fff !important;
-  box-shadow: 0 10px 24px rgba(59, 78, 82, 0.13) !important;
 }
 
 .hero-primary-btn:hover {
@@ -176,11 +284,13 @@
 .hero-secondary-btn {
   min-height: 48px;
   padding: 13px 25px !important;
+
   border: 1px solid #d4d8d5 !important;
+
   background: #f0f2f0 !important;
   color: var(--sr-ink) !important;
+
   text-decoration: none;
-  box-shadow: none !important;
 }
 
 .hero-secondary-btn:hover {
@@ -189,32 +299,37 @@
 }
 
 
-/* SERVICE */
+/* =========================================================
+   SERVICE
+========================================================= */
 
 .service-section {
   position: relative;
-  padding: 112px 0 118px !important;
+
+  min-height: calc(100svh - 84px);
+
+  padding: 104px 0 !important;
+
+  display: flex;
+  align-items: center;
+
   background: var(--sr-brand) !important;
   color: #fff;
-}
 
-.service-section::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.22);
+  scroll-margin-top: 84px;
 }
 
 .service-layout {
+  width: 100%;
+
   display: grid;
+
   grid-template-columns:
     minmax(0, 0.88fr)
     minmax(500px, 1.12fr);
 
   gap: clamp(58px, 7vw, 108px);
+
   align-items: center;
 }
 
@@ -224,18 +339,23 @@
 
 .service-eyebrow {
   display: block;
+
   margin-bottom: 18px;
+
   color: rgba(255, 255, 255, 0.66);
+
   font-size: 14px;
   font-weight: 650;
-  letter-spacing: 0.01em;
 }
 
 .service-copy h2 {
   margin: 0 0 20px;
+
   color: #fff;
+
   font-size: clamp(42px, 4.5vw, 64px);
   font-weight: 620;
+
   line-height: 1.02;
   letter-spacing: -3px;
 }
@@ -243,28 +363,38 @@
 .service-copy p {
   max-width: 450px;
   margin: 0;
+
   color: rgba(255, 255, 255, 0.74);
+
   font-size: 17px;
   line-height: 1.62;
 }
 
 
-/* SERVICE PANEL */
+/* =========================================================
+   SERVICE PANEL
+========================================================= */
 
 .service-panel {
   overflow: hidden;
+
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 26px;
+
   background: #fff;
   color: var(--sr-ink);
+
   box-shadow: 0 24px 56px rgba(21, 31, 32, 0.16);
 }
 
 .service-panel-row {
   display: grid;
   grid-template-columns: 12px minmax(0, 1fr);
+
   gap: 18px;
+
   padding: 30px 32px;
+
   align-items: start;
 }
 
@@ -275,33 +405,41 @@
 .service-panel-dot {
   width: 8px;
   height: 8px;
+
   margin-top: 9px;
+
   border-radius: 50%;
+
   background: var(--sr-brand);
 }
 
 .service-panel-row h3 {
   margin: 0 0 7px;
+
   color: var(--sr-ink);
+
   font-size: 19px;
   font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: -0.35px;
 }
 
 .service-panel-row p {
   max-width: 630px;
   margin: 0;
+
   color: #6c716e;
+
   font-size: 15px;
   line-height: 1.56;
 }
 
 
-/* ROLES */
+/* =========================================================
+   ROLES
+========================================================= */
 
 .role-section {
   padding: 124px 0 118px;
+
   background: #fff;
   color: var(--sr-ink);
 }
@@ -313,8 +451,11 @@
 
 .role-eyebrow {
   display: block;
+
   margin-bottom: 18px;
+
   color: #737874;
+
   font-size: 13px;
   font-weight: 650;
 }
@@ -322,17 +463,19 @@
 .role-section-heading h2 {
   max-width: 970px;
   margin: 0;
+
   color: var(--sr-ink);
+
   font-size: clamp(52px, 5.9vw, 82px);
   font-weight: 620;
+
   line-height: 0.98;
   letter-spacing: -4.2px;
 }
 
 .role-columns {
   display: grid;
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .role-column {
@@ -347,8 +490,11 @@
 
 .role-label {
   display: block;
+
   margin-bottom: 22px;
+
   color: var(--sr-brand);
+
   font-size: 14px;
   font-weight: 700;
 }
@@ -356,9 +502,12 @@
 .role-column h3 {
   max-width: 520px;
   margin: 0 0 20px;
+
   color: var(--sr-ink);
+
   font-size: clamp(34px, 3.7vw, 52px);
   font-weight: 620;
+
   line-height: 1.03;
   letter-spacing: -2.4px;
 }
@@ -366,7 +515,9 @@
 .role-description {
   max-width: 520px;
   margin: 0 0 38px;
+
   color: #727773;
+
   font-size: 16px;
   line-height: 1.65;
 }
@@ -378,11 +529,16 @@
 .role-feature-row {
   display: grid;
   grid-template-columns: 10px minmax(0, 1fr);
+
   gap: 16px;
   align-items: center;
+
   padding: 17px 0;
+
   border-bottom: 1px solid var(--sr-line);
+
   color: #3f4441;
+
   font-size: 15px;
   font-weight: 560;
 }
@@ -390,74 +546,110 @@
 .role-feature-dot {
   width: 6px;
   height: 6px;
+
   border-radius: 50%;
+
   background: var(--sr-brand);
 }
 
 .role-bottom-line {
   margin-top: 74px;
   padding-top: 34px;
+
   border-top: 1px solid var(--sr-line);
 }
 
 .role-bottom-line p {
   max-width: 980px;
   margin: 0;
+
   color: var(--sr-ink);
+
   font-size: clamp(23px, 2.35vw, 34px);
   font-weight: 570;
+
   line-height: 1.25;
   letter-spacing: -1px;
 }
 
 
-/* CONTACT MODAL */
+/* =========================================================
+   CONTACT MODAL
+========================================================= */
 
 .contact-modal-cancel-btn {
   min-width: 180px;
   min-height: 56px;
+
   padding: 0 32px !important;
+
   border: 1px solid #d5d9d6 !important;
   border-radius: 999px !important;
+
   background: #f3f4f3 !important;
   color: var(--sr-ink) !important;
+
   box-shadow: none !important;
-  font-size: 15px;
-  font-weight: 650;
-  cursor: pointer;
-  transition: 160ms ease;
 }
 
 .contact-modal-cancel-btn:hover {
-  border-color: #c8cdca !important;
   background: #e9ebe9 !important;
   transform: none !important;
 }
 
 
-/* TABLET */
+/* =========================================================
+   POLICY
+========================================================= */
+
+.policy-page {
+  min-height: calc(100svh - 82px);
+
+  padding-top: clamp(84px, 10vw, 128px) !important;
+  padding-bottom: clamp(92px, 11vw, 140px) !important;
+}
+
+.policy-page h1 {
+  max-width: 900px;
+  margin-bottom: 24px !important;
+
+  color: var(--sr-ink);
+
+  font-size: clamp(48px, 5.4vw, 74px) !important;
+  font-weight: 630;
+
+  line-height: 0.98;
+  letter-spacing: -3.6px;
+}
+
+.policy-description,
+.policy-contact-row {
+  max-width: 780px;
+
+  color: var(--sr-muted) !important;
+
+  font-size: 17px !important;
+  line-height: 1.65;
+}
+
+.policy-contact-link {
+  color: var(--sr-brand) !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 1040px) {
-
   .landing-hero .hero {
     min-height: auto !important;
     padding-top: 90px !important;
     padding-bottom: 92px !important;
   }
 
-  .landing-hero .hero-title-rus {
-    font-size: clamp(54px, 7.5vw, 78px) !important;
-    letter-spacing: -3.6px !important;
-  }
-
-  .landing-hero .hero-title-eng {
-    font-size: clamp(52px, 7.2vw, 76px) !important;
-    letter-spacing: -3.4px !important;
-  }
-
-  .landing-hero .hero-title-est {
-    font-size: clamp(50px, 6.9vw, 72px) !important;
-    letter-spacing: -3.2px !important;
+  .service-section {
+    min-height: auto;
   }
 
   .service-layout {
@@ -483,14 +675,13 @@
 }
 
 
-/* MOBILE */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 720px) {
-
   .navbar {
     background: rgba(255, 255, 255, 0.82) !important;
-    backdrop-filter: blur(18px) saturate(1.08) !important;
-    -webkit-backdrop-filter: blur(18px) saturate(1.08) !important;
   }
 
   .landing-hero {
@@ -503,6 +694,7 @@
 
   .landing-hero .hero {
     min-height: auto !important;
+
     padding-top: 70px !important;
     padding-bottom: 76px !important;
   }
@@ -518,10 +710,6 @@
   .landing-hero .hero-title span {
     width: auto;
     white-space: normal;
-  }
-
-  .landing-hero .hero p {
-    font-size: 17px !important;
   }
 
   .hero-buttons {
@@ -560,7 +748,6 @@
 
   .role-section-heading h2 {
     font-size: clamp(40px, 11vw, 58px);
-    line-height: 1;
     letter-spacing: -2.6px;
   }
 
@@ -574,70 +761,15 @@
 
   .role-column + .role-column {
     padding: 48px 0 0;
+
     border-left: 0;
     border-top: 1px solid var(--sr-line);
   }
 
-  .role-label {
-    margin-bottom: 16px;
-  }
+  .policy-page {
+    min-height: auto;
 
-  .role-column h3 {
-    font-size: clamp(32px, 9vw, 46px);
-    letter-spacing: -1.8px;
-  }
-
-  .role-description {
-    margin-bottom: 30px;
-    font-size: 15px;
-  }
-
-  .role-bottom-line {
-    margin-top: 54px;
-    padding-top: 28px;
-  }
-
-  .role-bottom-line p {
-    font-size: clamp(21px, 6vw, 29px);
-    letter-spacing: -0.7px;
-  }
-}
-
-
-/* SMALL MOBILE */
-
-@media (max-width: 480px) {
-
-  .landing-hero .hero-title-rus {
-    font-size: clamp(30px, 8.2vw, 39px) !important;
-    letter-spacing: -1.4px !important;
-  }
-
-  .landing-hero .hero-title-eng {
-    font-size: clamp(29px, 7.9vw, 38px) !important;
-    letter-spacing: -1.3px !important;
-  }
-
-  .landing-hero .hero-title-est {
-    font-size: clamp(28px, 7.6vw, 37px) !important;
-    letter-spacing: -1.2px !important;
-  }
-
-  .role-section-heading h2 {
-    font-size: 38px;
-    letter-spacing: -2px;
-  }
-
-  .role-column h3 {
-    font-size: 32px;
-    letter-spacing: -1.4px;
-  }
-
-  .role-feature-row {
-    padding: 15px 0;
-  }
-
-  .role-bottom-line p {
-    font-size: 21px;
+    padding-top: 64px !important;
+    padding-bottom: 76px !important;
   }
 }

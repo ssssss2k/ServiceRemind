@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import {
+  useState,
+} from 'react';
 
 import {
   Link,
@@ -7,8 +9,11 @@ import {
   useNavigate,
 } from 'react-router-dom';
 
-import Footer from '../components/Footer';
-import LanguageSwitch from '../components/LanguageSwitch';
+import Footer
+  from '../components/Footer';
+
+import LanguageSwitch
+  from '../components/LanguageSwitch';
 
 import {
   EyeIcon,
@@ -20,10 +25,10 @@ import {
 } from '../auth/AuthContext';
 
 
-const loginCopy = {
+const LOGIN_COPY = {
   est: {
     home:
-      'Avalehele',
+      'Tagasi avalehele',
 
     title:
       'Sisene oma töökeskkonda.',
@@ -44,7 +49,7 @@ const loginCopy = {
 
   eng: {
     home:
-      'Home',
+      'Back to home',
 
     title:
       'Sign in to your workspace.',
@@ -65,7 +70,7 @@ const loginCopy = {
 
   rus: {
     home:
-      'На главную',
+      'Назад на главную',
 
     title:
       'Вход в рабочее пространство.',
@@ -106,23 +111,33 @@ export default function LoginPage({
 
 
   const copy =
-    loginCopy[language]
-    || loginCopy.eng;
+    LOGIN_COPY[language]
+    || LOGIN_COPY.eng;
 
 
-  const [email, setEmail] =
-    useState('');
+  const [
+    email,
+    setEmail,
+  ] = useState('');
 
-  const [password, setPassword] =
-    useState('');
+
+  const [
+    password,
+    setPassword,
+  ] = useState('');
+
 
   const [
     showPassword,
     setShowPassword,
   ] = useState(false);
 
-  const [error, setError] =
-    useState('');
+
+  const [
+    error,
+    setError,
+  ] = useState('');
+
 
   const [
     submitting,
@@ -212,7 +227,6 @@ export default function LoginPage({
             </div>
 
 
-
             <div className="nav-center">
 
               <Link
@@ -223,7 +237,6 @@ export default function LoginPage({
               </Link>
 
             </div>
-
 
 
             <div className="nav-right">
@@ -283,7 +296,6 @@ export default function LoginPage({
                   {copy.formTitle}
                 </h2>
 
-
                 <p>
                   {copy.formDescription}
                 </p>
@@ -305,7 +317,6 @@ export default function LoginPage({
                   <span>
                     {t.authEmail}
                   </span>
-
 
                   <input
                     type="email"
@@ -412,13 +423,11 @@ export default function LoginPage({
                   className="sr-login-submit"
                   disabled={submitting}
                 >
-
                   {
                     submitting
                       ? t.authSigningIn
                       : t.login
                   }
-
                 </button>
 
 
@@ -436,14 +445,12 @@ export default function LoginPage({
       </div>
 
 
-
       <Footer
         t={t}
         onContactClick={
           onContactClick
         }
       />
-
 
     </>
   );

@@ -1,23 +1,10 @@
-import {
-  useEffect,
-  useState,
-} from 'react';
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-import {
-  Link,
-  useLocation,
-} from 'react-router-dom';
+import { useAuth } from '../auth/AuthContext';
+import { getPublicCopy } from '../data/publicTranslations';
 
-import {
-  useAuth,
-} from '../auth/AuthContext';
-
-import {
-  getPublicCopy,
-} from '../data/publicTranslations';
-
-import LanguageSwitch
-  from './LanguageSwitch';
+import LanguageSwitch from './LanguageSwitch';
 
 function LoginUserIcon() {
   return (
@@ -55,29 +42,23 @@ export default function Header({
   showLogin = true,
   rightAction = null,
 }) {
-  const [menuOpen, setMenuOpen] =
-    useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const {
     isAuthenticated,
     user,
   } = useAuth();
 
-  const location =
-    useLocation();
-
-  const copy =
-    getPublicCopy(language);
+  const location = useLocation();
+  const copy = getPublicCopy(language);
 
   useEffect(() => {
-    document.body.style.overflow =
-      menuOpen
-        ? 'hidden'
-        : '';
+    document.body.style.overflow = menuOpen
+      ? 'hidden'
+      : '';
 
     return () => {
-      document.body.style.overflow =
-        '';
+      document.body.style.overflow = '';
     };
   }, [menuOpen]);
 
@@ -90,53 +71,46 @@ export default function Header({
       ? '/dashboard'
       : '/';
 
-  const accountTarget =
-    isAuthenticated
-      ? user?.role === 'admin'
-        ? '/admin'
-        : '/dashboard'
-      : '/login';
+  const accountTarget = isAuthenticated
+    ? user?.role === 'admin'
+      ? '/admin'
+      : '/dashboard'
+    : '/login';
 
-  const accountLabel =
-    isAuthenticated
-      ? user?.name
-        || t.workspace
-        || 'Workspace'
-      : t.login;
+  const accountLabel = isAuthenticated
+    ? user?.name || t.workspace || 'Workspace'
+    : t.login;
 
-  const serviceHref =
-    location.pathname === '/'
-      ? '#service'
-      : '/#service';
+  const activeNav =
+    location.hash === '#service'
+      ? 'service'
+      : location.hash === '#contact'
+        ? 'contact'
+        : location.pathname === '/pricing'
+          ? 'pricing'
+          : null;
 
-  const closeMenu = () =>
+  const navClass = (name) => {
+    return `nav-link${activeNav === name ? ' active' : ''}`;
+  };
+
+  const closeMenu = () => {
     setMenuOpen(false);
+  };
 
   return (
     <header className="navbar">
-
       <div className="container nav-container">
 
         <div className="nav-left">
-
           {showPublicNavigation && (
             <>
               <button
-                className={
-                  `hamburger-btn${
-                    menuOpen
-                      ? ' open'
-                      : ''
-                  }`
-                }
+                className={`hamburger-btn${menuOpen ? ' open' : ''}`}
                 type="button"
                 aria-label="Open menu"
                 aria-expanded={menuOpen}
-                onClick={() =>
-                  setMenuOpen(
-                    (value) => !value
-                  )
-                }
+                onClick={() => setMenuOpen((current) => !current)}
               >
                 <span />
                 <span />
@@ -144,13 +118,7 @@ export default function Header({
               </button>
 
               <nav
-                className={
-                  `nav-links${
-                    menuOpen
-                      ? ' active'
-                      : ''
-                  }`
-                }
+                className={`nav-links${menuOpen ? ' active' : ''}`}
               >
                 <Link
                   className="mobile-logo"
@@ -160,22 +128,40 @@ export default function Header({
                   ServiceRemind
                 </Link>
 
-                <a
-                  href={serviceHref}
+                <Link
+                  className={navClass('service')}
+                  to="/#service"
+                  aria-current={
+                    activeNav === 'service'
+                      ? 'page'
+                      : undefined
+                  }
                   onClick={closeMenu}
                 >
                   {copy.nav.service}
-                </a>
+                </Link>
 
                 <Link
+                  className={navClass('pricing')}
                   to="/pricing"
+                  aria-current={
+                    activeNav === 'pricing'
+                      ? 'page'
+                      : undefined
+                  }
                   onClick={closeMenu}
                 >
                   {copy.nav.pricing}
                 </Link>
 
                 <a
+                  className={navClass('contact')}
                   href="#contact"
+                  aria-current={
+                    activeNav === 'contact'
+                      ? 'page'
+                      : undefined
+                  }
                   onClick={closeMenu}
                 >
                   {copy.nav.contact}
@@ -183,7 +169,6 @@ export default function Header({
               </nav>
             </>
           )}
-
         </div>
 
         <div className="nav-center">
@@ -196,7 +181,6 @@ export default function Header({
         </div>
 
         <div className="nav-right">
-
           <LanguageSwitch
             language={language}
             onLanguageChange={onLanguageChange}
@@ -219,11 +203,9 @@ export default function Header({
           )}
 
           {rightAction}
-
         </div>
 
       </div>
-
     </header>
   );
 }

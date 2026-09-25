@@ -10,7 +10,6 @@ import {
   BrowserRouter,
 } from 'react-router-dom';
 
-
 import {
   AuthProvider,
 } from './auth/AuthContext';
@@ -28,13 +27,13 @@ import './styles/final89.css';
 
 import './styles/landing-refresh.css';
 import './styles/pricing-footer-refresh.css';
-
 import './styles/login-page.css';
-import './styles/footer-refresh.css';
 
 
 createRoot(
-  document.getElementById('root')
+  document.getElementById(
+    'root'
+  )
 ).render(
 
   <StrictMode>

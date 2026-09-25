@@ -6,51 +6,75 @@
 }
 
 
-/* PAGE */
+/* =========================================================
+   PAGE
+========================================================= */
 
 .sr-login-screen {
   min-height: 100svh;
-  background: #ffffff;
+
+  background: #fff;
   color: var(--sr-login-ink);
 }
 
 
-/* HEADER LINK */
+/* =========================================================
+   BACK TO HOME
+========================================================= */
 
 .sr-login-home-link {
+  position: relative;
+
   display: inline-flex;
   align-items: center;
+
+  padding-bottom: 6px;
+
   color: #626864;
+
   font-size: 13px;
   font-weight: 620;
+
   line-height: 1;
+
   text-decoration: none;
-  transition: color 160ms ease;
 }
 
-.sr-login-home-link:hover {
-  color: var(--sr-login-ink);
+.sr-login-home-link::after {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 2px;
+
+  border-radius: 999px;
+
+  background: var(--sr-login-brand);
+
+  transform: scaleX(0);
+  transform-origin: left center;
+
+  transition: transform 180ms ease;
+}
+
+.sr-login-home-link:hover::after {
+  transform: scaleX(1);
 }
 
 
-/* MAIN */
+/* =========================================================
+   MAIN
+========================================================= */
 
 .sr-login-main {
   min-height: calc(100svh - 82px);
 
-  padding-top:
-    clamp(
-      76px,
-      10vh,
-      126px
-    );
-
-  padding-bottom:
-    clamp(
-      86px,
-      11vh,
-      140px
-    );
+  padding-top: clamp(76px, 10vh, 126px);
+  padding-bottom: clamp(86px, 11vh, 140px);
 
   display: grid;
 
@@ -58,18 +82,15 @@
     minmax(0, 0.92fr)
     minmax(480px, 1.08fr);
 
-  gap:
-    clamp(
-      70px,
-      9vw,
-      138px
-    );
+  gap: clamp(70px, 9vw, 138px);
 
   align-items: center;
 }
 
 
-/* LEFT */
+/* =========================================================
+   LEFT
+========================================================= */
 
 .sr-login-intro {
   max-width: 560px;
@@ -77,10 +98,14 @@
 
 .sr-login-eyebrow {
   display: block;
+
   margin-bottom: 22px;
+
   color: var(--sr-login-brand);
+
   font-size: 12px;
   font-weight: 720;
+
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -90,22 +115,20 @@
 
   color: var(--sr-login-ink);
 
-  font-size:
-    clamp(
-      52px,
-      5.4vw,
-      78px
-    );
-
+  font-size: clamp(52px, 5.4vw, 78px);
   font-weight: 620;
+
   line-height: 0.98;
   letter-spacing: -4.2px;
 }
 
 .sr-login-intro-lead {
   max-width: 480px;
+
   margin: 0 0 18px;
+
   color: #343936;
+
   font-size: 19px;
   line-height: 1.55;
 }
@@ -113,30 +136,22 @@
 .sr-login-intro-detail {
   max-width: 500px;
   margin: 0;
+
   color: var(--sr-login-muted);
+
   font-size: 15px;
   line-height: 1.65;
 }
 
 
-/* FORM SIDE */
+/* =========================================================
+   FORM SIDE
+========================================================= */
 
 .sr-login-form-section {
-  padding-left:
-    clamp(
-      46px,
-      6vw,
-      86px
-    );
+  padding-left: clamp(46px, 6vw, 86px);
 
-  border-left:
-    1px solid
-    rgba(
-      16,
-      18,
-      17,
-      0.12
-    );
+  border-left: 1px solid rgba(16, 18, 17, 0.12);
 }
 
 .sr-login-form-wrap {
@@ -144,7 +159,9 @@
 }
 
 
-/* FORM HEADING */
+/* =========================================================
+   FORM HEADING
+========================================================= */
 
 .sr-login-form-heading {
   margin-bottom: 38px;
@@ -152,61 +169,64 @@
 
 .sr-login-form-heading h2 {
   margin: 0 0 12px;
+
   color: var(--sr-login-ink);
 
-  font-size:
-    clamp(
-      42px,
-      4vw,
-      58px
-    );
-
+  font-size: clamp(42px, 4vw, 58px);
   font-weight: 650;
+
   line-height: 1;
   letter-spacing: -2.8px;
 }
 
 .sr-login-form-heading p {
   margin: 0;
+
   color: var(--sr-login-muted);
+
   font-size: 16px;
   line-height: 1.55;
 }
 
 
-/* FORM */
+/* =========================================================
+   FORM
+========================================================= */
 
 .sr-login-form {
   display: grid;
+
   gap: 24px;
 }
 
 .sr-login-field {
   display: grid;
+
   gap: 10px;
 }
 
 .sr-login-field > span {
   color: var(--sr-login-ink);
+
   font-size: 14px;
   font-weight: 650;
 }
 
 
-/* INPUTS */
+/* =========================================================
+   INPUTS
+========================================================= */
 
 .sr-login-field input {
   width: 100%;
   height: 60px;
+
   padding: 0 18px;
 
-  border:
-    1px solid
-    var(--sr-login-line);
-
+  border: 1px solid var(--sr-login-line);
   border-radius: 14px;
 
-  background: #ffffff;
+  background: #fff;
   color: var(--sr-login-ink);
 
   font: inherit;
@@ -229,16 +249,13 @@
 
   box-shadow:
     0 0 0 3px
-    rgba(
-      59,
-      78,
-      82,
-      0.08
-    );
+    rgba(59, 78, 82, 0.08);
 }
 
 
-/* PASSWORD */
+/* =========================================================
+   PASSWORD
+========================================================= */
 
 .sr-login-password-wrap {
   position: relative;
@@ -254,11 +271,11 @@
   top: 50%;
   right: 11px;
 
-  transform:
-    translateY(-50%);
+  transform: translateY(-50%);
 
   width: 40px;
   height: 40px;
+
   padding: 0;
 
   display: grid;
@@ -281,16 +298,15 @@
 }
 
 
-/* ERROR */
+/* =========================================================
+   ERROR
+========================================================= */
 
 .sr-login-error {
   margin: -5px 0 0;
   padding: 12px 14px;
 
-  border:
-    1px solid
-    #efd1cd;
-
+  border: 1px solid #efd1cd;
   border-radius: 12px;
 
   background: #fff3f2;
@@ -301,22 +317,20 @@
 }
 
 
-/* LOGIN BUTTON */
+/* =========================================================
+   SUBMIT
+========================================================= */
 
 .sr-login-submit {
   min-height: 58px;
+
   margin-top: 2px;
 
-  border:
-    1px solid
-    var(--sr-login-brand);
-
+  border: 1px solid var(--sr-login-brand);
   border-radius: 14px;
 
-  background:
-    var(--sr-login-brand);
-
-  color: #ffffff;
+  background: var(--sr-login-brand);
+  color: #fff;
 
   font: inherit;
   font-size: 16px;
@@ -338,12 +352,16 @@
 }
 
 
-/* TABLET */
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 900px) {
   .sr-login-main {
     grid-template-columns: 1fr;
+
     gap: 56px;
+
     padding-top: 64px;
     padding-bottom: 78px;
   }
@@ -354,37 +372,27 @@
 
   .sr-login-form-section {
     padding: 48px 0 0;
-    border-left: 0;
 
-    border-top:
-      1px solid
-      rgba(
-        16,
-        18,
-        17,
-        0.12
-      );
+    border-left: 0;
+    border-top: 1px solid rgba(16, 18, 17, 0.12);
   }
 }
 
 
-/* MOBILE */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 620px) {
   .sr-login-main {
     min-height: auto;
+
     padding-top: 48px;
     padding-bottom: 62px;
   }
 
   .sr-login-intro h1 {
-    font-size:
-      clamp(
-        42px,
-        12vw,
-        58px
-      );
-
+    font-size: clamp(42px, 12vw, 58px);
     letter-spacing: -2.8px;
   }
 

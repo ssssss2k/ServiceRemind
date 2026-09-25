@@ -20,7 +20,7 @@ export const publicTranslations = {
         'Võta ühendust',
 
       service:
-        'Vaata teenust',
+        'Kuidas see töötab',
     },
 
     service: {
@@ -108,7 +108,6 @@ export const publicTranslations = {
     },
   },
 
-
   eng: {
     nav: {
       service: 'Service',
@@ -130,7 +129,7 @@ export const publicTranslations = {
         'Contact us',
 
       service:
-        'Explore ServiceRemind',
+        'How it works',
     },
 
     service: {
@@ -218,7 +217,6 @@ export const publicTranslations = {
     },
   },
 
-
   rus: {
     nav: {
       service: 'Сервис',
@@ -240,7 +238,7 @@ export const publicTranslations = {
         'Связаться с нами',
 
       service:
-        'Посмотреть сервис',
+        'Как это работает',
     },
 
     service: {
@@ -329,12 +327,6 @@ export const publicTranslations = {
   },
 };
 
-
-export function getPublicCopy(
-  language
-) {
-  return (
-    publicTranslations[language]
-    || publicTranslations.eng
-  );
+export function getPublicCopy(language) {
+  return publicTranslations[language] || publicTranslations.eng;
 }

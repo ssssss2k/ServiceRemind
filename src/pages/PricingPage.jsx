@@ -1,34 +1,47 @@
-import { Link } from 'react-router-dom';
+import {
+  Link,
+} from 'react-router-dom';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header
+  from '../components/Header';
+
+import Footer
+  from '../components/Footer';
 
 import {
   getPricingCopy,
 } from '../data/pricingTranslations';
 
-function InfoList({ items }) {
+
+function InfoList({
+  items,
+}) {
   return (
     <div className="sr-pricing-info-list">
 
-      {items.map((item) => (
-        <article
-          className="sr-pricing-info-row"
-          key={item.title}
-        >
-          <h3>
-            {item.title}
-          </h3>
+      {items.map(
+        (item) => (
+          <article
+            className="sr-pricing-info-row"
+            key={item.title}
+          >
 
-          <p>
-            {item.description}
-          </p>
-        </article>
-      ))}
+            <h3>
+              {item.title}
+            </h3>
+
+            <p>
+              {item.description}
+            </p>
+
+          </article>
+        )
+      )}
 
     </div>
   );
 }
+
 
 export default function PricingPage({
   t,
@@ -39,16 +52,22 @@ export default function PricingPage({
   const copy =
     getPricingCopy(language);
 
+
   return (
     <>
+
       <Header
         t={t}
         language={language}
-        onLanguageChange={onLanguageChange}
+        onLanguageChange={
+          onLanguageChange
+        }
         variant="pricing"
       />
 
+
       <main className="sr-pricing-page">
+
 
         <section className="sr-pricing-hero">
 
@@ -57,6 +76,7 @@ export default function PricingPage({
             <span className="sr-pricing-eyebrow">
               {copy.eyebrow}
             </span>
+
 
             <h1>
               {copy.titleLines.map(
@@ -68,19 +88,24 @@ export default function PricingPage({
               )}
             </h1>
 
+
             <p>
               {copy.description}
             </p>
+
 
             <div className="sr-pricing-hero-actions">
 
               <button
                 type="button"
                 className="sr-pricing-main-button"
-                onClick={onContactClick}
+                onClick={
+                  onContactClick
+                }
               >
                 {copy.heroButton}
               </button>
+
 
               <Link
                 className="sr-pricing-back-button"
@@ -94,6 +119,7 @@ export default function PricingPage({
           </div>
 
         </section>
+
 
 
         <section className="sr-pricing-plans">
@@ -112,55 +138,60 @@ export default function PricingPage({
 
             </div>
 
+
             <div className="sr-pricing-plan-grid">
 
-              {copy.plans.map((plan) => (
+              {copy.plans.map(
+                (plan) => (
+                  <article
+                    className="sr-pricing-plan"
+                    key={plan.name}
+                  >
 
-                <article
-                  className="sr-pricing-plan"
-                  key={plan.name}
-                >
+                    <div>
 
-                  <div>
+                      <h3>
+                        {plan.name}
+                      </h3>
 
-                    <h3>
-                      {plan.name}
-                    </h3>
+                      <div className="sr-pricing-plan-price">
+                        {plan.price}
+                      </div>
 
-                    <div className="sr-pricing-plan-price">
-                      {plan.price}
+                      <p>
+                        {plan.description}
+                      </p>
+
                     </div>
 
-                    <p>
-                      {plan.description}
-                    </p>
 
-                  </div>
+                    <div className="sr-pricing-plan-bottom">
 
-                  <div className="sr-pricing-plan-bottom">
+                      <span>
+                        {plan.note}
+                      </span>
 
-                    <span>
-                      {plan.note}
-                    </span>
+                      <button
+                        type="button"
+                        onClick={
+                          onContactClick
+                        }
+                      >
+                        {plan.button}
+                      </button>
 
-                    <button
-                      type="button"
-                      onClick={onContactClick}
-                    >
-                      {plan.button}
-                    </button>
+                    </div>
 
-                  </div>
-
-                </article>
-
-              ))}
+                  </article>
+                )
+              )}
 
             </div>
 
           </div>
 
         </section>
+
 
 
         <section className="sr-pricing-included">
@@ -179,6 +210,7 @@ export default function PricingPage({
 
             </div>
 
+
             <InfoList
               items={copy.included}
             />
@@ -186,6 +218,7 @@ export default function PricingPage({
           </div>
 
         </section>
+
 
 
         <section className="sr-pricing-connect">
@@ -204,6 +237,7 @@ export default function PricingPage({
 
             </div>
 
+
             <InfoList
               items={copy.connectItems}
             />
@@ -212,11 +246,15 @@ export default function PricingPage({
 
         </section>
 
+
       </main>
+
 
       <Footer
         t={t}
-        onContactClick={onContactClick}
+        onContactClick={
+          onContactClick
+        }
       />
 
     </>

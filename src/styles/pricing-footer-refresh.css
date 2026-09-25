@@ -9,78 +9,146 @@
 }
 
 
-/* PRICING HERO */
+/* =========================================================
+   PRICING
+========================================================= */
 
 .sr-pricing-page {
   background: #fff;
   color: var(--sr-price-black);
 }
 
+
+/* =========================================================
+   PRICING HERO
+========================================================= */
+
 .sr-pricing-hero {
-  padding: 94px 0 88px;
+  position: relative;
+
+  padding: 0 0 34px;
+
+  overflow: hidden;
+
   background: #fff;
+}
+
+.sr-pricing-hero::after {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 34px;
+
+  background: var(--sr-brand);
+
+  pointer-events: none;
+}
+
+.sr-pricing-hero > .container {
+  min-height: calc(100svh - 118px);
+
+  padding-top: clamp(70px, 8vh, 100px);
+  padding-bottom: clamp(76px, 8vh, 100px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .sr-pricing-eyebrow,
 .sr-pricing-section-heading > span,
 .sr-pricing-split-title > span {
   display: block;
+
   margin-bottom: 16px;
+
   color: var(--sr-price-gray);
+
   font-size: 13px;
   font-weight: 650;
 }
 
+
+/* Same visual scale as landing hero */
+
 .sr-pricing-hero h1 {
-  max-width: 980px;
-  margin: 0 0 24px;
+  width: 100%;
+  max-width: 1260px;
+
+  margin: 0 0 28px;
+
   color: var(--sr-price-black);
-  font-size: clamp(56px, 6.2vw, 88px);
-  font-weight: 630;
-  line-height: 0.98;
-  letter-spacing: -4.4px;
+
+  font-size: clamp(64px, 6.45vw, 100px);
+  font-weight: 650;
+
+  line-height: 0.96;
+  letter-spacing: -5px;
 }
 
 .sr-pricing-hero h1 span {
   display: block;
+  width: max-content;
+  max-width: 100%;
+  white-space: nowrap;
 }
 
 .sr-pricing-hero p {
-  max-width: 720px;
-  margin: 0 0 34px;
+  max-width: 760px;
+
+  margin: 0 0 36px;
+
   color: var(--sr-price-gray);
-  font-size: 18px;
-  line-height: 1.6;
+
+  font-size: clamp(18px, 1.4vw, 21px);
+  line-height: 1.55;
 }
 
 
-/* HERO BUTTONS */
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
 
 .sr-pricing-hero-actions {
   display: flex;
   align-items: center;
+
   gap: 12px;
+
   flex-wrap: wrap;
 }
 
 .sr-pricing-main-button,
 .sr-pricing-back-button {
   min-height: 50px;
+
   padding: 14px 28px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   border-radius: 999px;
+
   font: inherit;
   font-size: 14px;
   font-weight: 650;
+
   text-decoration: none;
+
   cursor: pointer;
+
   transition: 160ms ease;
 }
 
 .sr-pricing-main-button {
   border: 1px solid var(--sr-brand);
+
   background: var(--sr-brand);
   color: #fff;
 }
@@ -92,6 +160,7 @@
 
 .sr-pricing-back-button {
   border: 1px solid #d4d8d5;
+
   background: #f0f2f0;
   color: var(--sr-price-black);
 }
@@ -101,34 +170,39 @@
 }
 
 
-/* PLANS */
+/* =========================================================
+   PLANS
+========================================================= */
 
 .sr-pricing-plans {
   padding: 86px 0 94px;
+
   background: var(--sr-brand);
 }
 
-.sr-pricing-plans
-.sr-pricing-section-heading > span {
+.sr-pricing-plans .sr-pricing-section-heading > span {
   color: rgba(255, 255, 255, 0.68);
 }
 
-.sr-pricing-plans
-.sr-pricing-section-heading h2 {
+.sr-pricing-plans .sr-pricing-section-heading h2 {
   color: #fff;
 }
 
 .sr-pricing-section-heading {
   max-width: 800px;
+
   margin-bottom: 42px;
 }
 
 .sr-pricing-section-heading h2,
 .sr-pricing-split-title h2 {
   margin: 0;
+
   color: var(--sr-price-black);
+
   font-size: clamp(40px, 4.5vw, 62px);
   font-weight: 620;
+
   line-height: 1;
   letter-spacing: -3px;
 }
@@ -140,11 +214,13 @@
     repeat(3, minmax(0, 1fr));
 
   gap: 18px;
+
   align-items: stretch;
 }
 
 .sr-pricing-plan {
   min-height: 390px;
+
   padding: 32px;
 
   display: flex;
@@ -159,21 +235,27 @@
 
 .sr-pricing-plan h3 {
   margin: 0 0 12px;
+
   font-size: 26px;
   font-weight: 680;
+
   letter-spacing: -0.7px;
 }
 
 .sr-pricing-plan-price {
   margin-bottom: 24px;
+
   color: var(--sr-brand);
+
   font-size: 18px;
   font-weight: 700;
 }
 
 .sr-pricing-plan p {
   margin: 0;
+
   color: var(--sr-price-gray);
+
   font-size: 15px;
   line-height: 1.6;
 }
@@ -181,14 +263,19 @@
 .sr-pricing-plan-bottom {
   margin-top: 34px;
   padding-top: 22px;
+
   border-top: 1px solid var(--sr-price-line);
 }
 
 .sr-pricing-plan-bottom span {
   min-height: 42px;
+
   display: block;
+
   margin-bottom: 20px;
+
   color: #878b88;
+
   font-size: 13px;
   line-height: 1.5;
 }
@@ -208,6 +295,7 @@
   font-weight: 650;
 
   cursor: pointer;
+
   transition: 160ms ease;
 }
 
@@ -217,7 +305,9 @@
 }
 
 
-/* INFO SECTIONS */
+/* =========================================================
+   INFO
+========================================================= */
 
 .sr-pricing-included,
 .sr-pricing-connect {
@@ -252,30 +342,40 @@
 
 .sr-pricing-info-row {
   padding: 25px 0;
+
   border-bottom: 1px solid var(--sr-price-line);
 }
 
 .sr-pricing-info-row h3 {
   margin: 0 0 8px;
+
   font-size: 21px;
   font-weight: 650;
+
   letter-spacing: -0.45px;
 }
 
 .sr-pricing-info-row p {
   max-width: 620px;
+
   margin: 0;
+
   color: var(--sr-price-gray);
+
   font-size: 15px;
   line-height: 1.58;
 }
 
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .sr-footer {
   background: #0c0d0d;
   color: #fff;
+
+  scroll-margin-top: 84px;
 }
 
 .sr-footer-inner {
@@ -286,14 +386,18 @@
 .sr-footer-email {
   display: flex;
   justify-content: center;
+
   padding-bottom: 42px;
 }
 
 .sr-footer-email a {
   color: #fff;
+
   font-size: clamp(19px, 2vw, 26px);
   font-weight: 400;
+
   letter-spacing: -0.4px;
+
   text-decoration: none;
 }
 
@@ -304,6 +408,7 @@
 .sr-footer-divider {
   width: 100%;
   height: 1px;
+
   background: #303230;
 }
 
@@ -319,60 +424,65 @@
 
 .sr-footer-bottom p {
   margin: 0;
-  color: #a5a8a5;
-  font-size: 13px;
-}
 
-.sr-footer-actions {
-  display: flex;
-  align-items: center;
-  gap: 24px;
+  color: #a5a8a5;
+
+  font-size: 13px;
 }
 
 .sr-footer-links {
   display: flex;
   align-items: center;
+
   gap: 24px;
 }
 
+.sr-footer-link-button,
 .sr-footer-links a {
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
   color: #a5a8a5;
+
+  font: inherit;
   font-size: 13px;
+  font-weight: 400;
+
   text-decoration: none;
+
+  cursor: pointer;
+
+  transition: color 160ms ease;
 }
 
+.sr-footer-link-button:hover,
 .sr-footer-links a:hover {
   color: #fff;
 }
 
-.sr-footer-contact {
-  min-height: 40px;
-  padding: 0 18px;
 
-  border: 1px solid #fff;
-  border-radius: 999px;
+/* =========================================================
+   TABLET
+========================================================= */
 
-  background: #fff;
-  color: #0c0d0d;
+@media (max-width: 1040px) {
+  .sr-pricing-hero > .container {
+    min-height: auto;
 
-  font: inherit;
-  font-size: 13px;
-  font-weight: 650;
+    padding-top: 90px;
+    padding-bottom: 92px;
+  }
 
-  cursor: pointer;
-  transition: 160ms ease;
+  .sr-pricing-hero h1 {
+    font-size: clamp(52px, 7.2vw, 76px);
+    letter-spacing: -3.4px;
+  }
 }
-
-.sr-footer-contact:hover {
-  background: transparent;
-  color: #fff;
-}
-
-
-/* TABLET */
 
 @media (max-width: 1000px) {
-
   .sr-pricing-plan-grid {
     grid-template-columns: 1fr;
   }
@@ -383,6 +493,7 @@
 
   .sr-pricing-split {
     grid-template-columns: 1fr;
+
     gap: 48px;
   }
 
@@ -392,17 +503,34 @@
 }
 
 
-/* MOBILE */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 720px) {
-
   .sr-pricing-hero {
-    padding: 72px 0 68px;
+    padding-bottom: 24px;
+  }
+
+  .sr-pricing-hero::after {
+    height: 24px;
+  }
+
+  .sr-pricing-hero > .container {
+    min-height: auto;
+
+    padding-top: 72px;
+    padding-bottom: 68px;
   }
 
   .sr-pricing-hero h1 {
     font-size: clamp(46px, 12vw, 66px);
     letter-spacing: -3px;
+  }
+
+  .sr-pricing-hero h1 span {
+    width: auto;
+    white-space: normal;
   }
 
   .sr-pricing-hero p {
@@ -432,6 +560,7 @@
 
   .sr-pricing-plan {
     padding: 26px;
+
     border-radius: 22px;
   }
 
@@ -446,18 +575,15 @@
 
   .sr-footer-bottom {
     align-items: flex-start;
-    flex-direction: column;
-    gap: 18px;
-  }
 
-  .sr-footer-actions {
-    width: 100%;
-    align-items: flex-start;
     flex-direction: column;
+
     gap: 18px;
   }
 
   .sr-footer-links {
-    gap: 20px;
+    flex-wrap: wrap;
+
+    gap: 16px 20px;
   }
 }
